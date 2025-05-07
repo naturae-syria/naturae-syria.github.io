@@ -537,7 +537,7 @@ const products = [
     "explanation": "يرطب البشرة بفعالية ويمنحها لمسة مضيئة ومفعمة بالحيوية.",
     "image": "images/112087.png",
     "name_pt": "EKOS OLEO HID DES TRIFASI BURITI 200ML",
-    "price": 44.03
+    "price": 62.93
   },
   {
     "name": "رحيق مرطب معطر للجسم إكوس ماراكويا \"طبيعة الأحلام\"",
