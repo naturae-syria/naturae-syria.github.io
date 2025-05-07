@@ -429,7 +429,7 @@ const products = [
     "explanation": "يساعد في توحيد لون البشرة وتقليل البقع الداكنة بفضل مكوناته المبيضة.",
     "image": "images/91821.png",
     "name_pt": "FACES CLAREADOR FACIAL PELE M O FPS15",
-    "price": 31.227
+    "price": 25.13
   },
   {
     "name": "كريم تفتيح الوجه فايسز للبشرة العادية والجافة – SPF15",
