@@ -45,7 +45,7 @@ const products = [
     "explanation": "يرطب البشرة ويحافظ على نعومتها، مع حماية فعالة ورائحة طبيعية خفيفة تدوم طوال اليوم.",
     "image": "images/1925.png",
     "name_pt": "TODODIA¿DES CREME MACADAMIA INVIS 80G",
-    "price": 16.604
+    "price": 16.6
   },
   {
     "name": "غسول نسائي لطيف من تودوديا",
@@ -69,7 +69,7 @@ const products = [
     "explanation": "يحافظ على الإنتعاش طوال اليوم، ويوفر عناية ناعمة ورائحة زهرية ناعمة وثابتة.",
     "image": "images/96518.png",
     "name_pt": "TODODIA DES CREME FLOR DE LIS INVIS 80G",
-    "price": 16.17
+    "price": 16.6
   },
   {
     "name": "بودي سبلاش تودوديا برائحة التمر والقرفة – 200مل",
@@ -93,7 +93,7 @@ const products = [
     "explanation": "بتركيبته الغنية يساعد على تجديد البشرة أثناء النوم ويمنحها نعومة فائقة.",
     "image": "images/121970.png",
     "name_pt": "TODODIA HID DES CORP NOTUR 400ML",
-    "price": 54.675
+    "price": 54.7
   },
   {
     "name": "مرطب الجسم تودوديا برائحة الزنجبيل واليوسفي",
@@ -105,7 +105,7 @@ const products = [
     "explanation": "يرطب البشرة ويمنحها إحساسًا بالانتعاش طوال اليوم مع رائحة فاخرة وحيوية.",
     "image": "images/152300.png",
     "name_pt": "TODODIA DES HID FLOR GENG E TANGE 400ML",
-    "price": 45.575
+    "price": 54.7
   },
   {
     "name": "مرطب تودوديا برائحة التمر والقرفة",
@@ -117,7 +117,7 @@ const products = [
     "explanation": "يوفر ترطيبًا غنيًا ويحسن من مرونة البشرة ويتركها بنعومة فائقة.",
     "image": "images/2786.png",
     "name_pt": "TODODIA HID DES TAMARA CANELA 400ML",
-    "price": 42.422
+    "price": 54.7
   },
   {
     "name": "مرطب الجسم تودوديا بالنعناع",
@@ -129,7 +129,7 @@ const products = [
     "explanation": "ينشط الدورة الدموية ويمنح البشرة شعوراً بالانتعاش مع عطر خفيف ومنعش.",
     "image": "images/109156.png",
     "name_pt": "TODODIA HID DES CORP HORTELA 400ML",
-    "price": 51.03
+    "price": 54.7
   },
   {
     "name": "مرطب الجسم تودوديا بجوز البقان – 400مل",
@@ -141,7 +141,7 @@ const products = [
     "explanation": "يعزز مرونة الجلد، يغذيه ويتركه ناعماً ومعطراً برائحة غنية مستوحاة من الطبيعة، مثالي لفصول البرد والجفاف.",
     "image": "images/2820.png",
     "name_pt": "TODODIA HID DES CORP NOZ PECA 400ML PM",
-    "price": 32.83
+    "price": 54.7
   },
   {
     "name": "مقشر الجسم تودوديا بالمكاديميا – 200مل",
@@ -153,7 +153,7 @@ const products = [
     "explanation": "يجدد البشرة ويمنحها مظهرًا مشرقًا وملمسًا ناعمًا.",
     "image": "images/140759.png",
     "name_pt": "TODODIA ESFOL MACADAMIA 200ML",
-    "price": 24.43
+    "price": 40.00
   },
   {
     "name": "جل الجسم المضيء من تودوديا برائحة الكاجو – 100غ",
@@ -165,7 +165,7 @@ const products = [
     "explanation": "يترك البشرة ناعمة ولمّاعة برائحة فاكهية استوائية.",
     "image": "images/172410.png",
     "name_pt": "tododia descorp gelilum caj100g",
-    "price": 41.93
+    "price": 40.00
   },
   {
     "name": "شامبو ترطيب تودوديا",
@@ -189,7 +189,7 @@ const products = [
     "explanation": "يمنح الشعر مظهرًا صحيًا ولمعانًا طبيعيًا مع الاستخدام المنتظم.",
     "image": "images/154869.png",
     "name_pt": "TODODIA SH NUTRICAO 300ML",
-    "price": 21.395
+    "price": 27.12
   },
   {
     "name": "كريم تمشيط مغذي من تودوديا",
@@ -201,7 +201,7 @@ const products = [
     "explanation": "يساعد في تقوية الشعر وجعله أكثر سهولة في التصفيف.",
     "image": "images/156237.png",
     "name_pt": "TODODIA CRM COND PENTEAR NUTRITIVO 180ML",
-    "price": 19.63
+    "price": 19.7
   },
   {
     "name": "ماسك مغذي للشعر من تودوديا – 250مل",
@@ -213,7 +213,7 @@ const products = [
     "explanation": "يعيد حيوية الشعر ويجعله أكثر نعومة ولمعانًا.",
     "image": "images/154872.png",
     "name_pt": "TODODIA COND MASCARA NUTRICAO 250ML",
-    "price": 27.23
+    "price": 20.00
   },
   {
     "name": "جل بلسم تودوديا لتجاعيد الشعر والكيرلي – 250غ",
@@ -225,7 +225,7 @@ const products = [
     "explanation": "يُظهر جمال التموجات الطبيعية للشعر ويقلل من تطايره.",
     "image": "images/173590.png",
     "name_pt": "TODODIA COND GEL CACHOS E CRESPOS 250G",
-    "price": 13.23
+    "price": 20.00
   },
   {
     "name": "كريم اليدين تودوديا بالمانغا الوردية وجوز الهند – 50مل",
@@ -261,7 +261,7 @@ const products = [
     "explanation": "يرطب البشرة بفعالية ويتركها ناعمة ومعطرة، مثالي للاستخدام اليومي لمن يحب العطور الهادئة والأنثوية.",
     "image": "images/959372.png",
     "name_pt": "Creme Hidratante Natura Sève Frésia 300ml",
-    "price": ""
+    "price": 60.00
   },
   {
     "name": "زيت جسم معطر سيف باللوز والقرفة – 200مل",
@@ -273,7 +273,7 @@ const products = [
     "explanation": "يغذي البشرة بعمق ويمنحها إحساسًا بالدفء والراحة، مثالي لفصل الشتاء أو بعد يوم طويل مرهق.",
     "image": "images/140684.png",
     "name_pt": "Óleo Desodorante Corporal Sève Amêndoas e Canela 200 ml",
-    "price": ""
+    "price": 62.93
   },
   {
     "name": "كريم النهار رينيو ألتيميت – 50غ",
@@ -309,7 +309,7 @@ const products = [
     "explanation": "يوفر ترطيبًا طويل الأمد مع إحساس بالنعومة الفاخرة ورائحة أنثوية جذابة.",
     "image": "images/102039.png",
     "name_pt": "LUNA CONFIANTE DES HIDRANTE 300ML",
-    "price": 60.13
+    "price": 60.00
   },
   {
     "name": "زيت ليمينا المغذي للشعر",
@@ -453,7 +453,7 @@ const products = [
     "explanation": "مثالي للاستخدام اليومي، عطر غير قوي ولكنه يدوم ويمنح إحساساً بالانتعاش الطبيعي والنعومة.",
     "image": "images/73564.png",
     "name_pt": "Ekos Frescor Maracujá 150 ml",
-    "price": ""
+    "price": 70.00
   },
   {
     "name": "مجموعة ترطيب مركز من إكوس برائحة الكستناء",
@@ -549,7 +549,7 @@ const products = [
     "explanation": "يمنح إحساساً بالراحة والاسترخاء، ويترك البشرة ناعمة ومعطّرة بعطر استوائي يدوم طوال اليوم.",
     "image": "images/132671.png",
     "name_pt": "Néctar Desodorante Hidratante Corporal Ekos Maracujá Natureza dos Sonhos",
-    "price": ""
+    "price": 70.00
   },
   {
     "name": "رحيق مرطب معطر للجسم إكوس بيتانغا سوداء",
@@ -561,7 +561,7 @@ const products = [
     "explanation": "يمنح البشرة إحساساً بالانتعاش والنعومة مع ترطيب يدوم طوال اليوم، مثالي للاستخدام اليومي.",
     "image": "images/174611.png",
     "name_pt": "Néctar Desodorante Hidratante para o Corpo Ekos Pitanga Preta",
-    "price": ""
+    "price": 60.00
   },
   {
     "name": "قناع وبلسم مقوي من إكوس بباتاوا",
@@ -597,7 +597,7 @@ const products = [
     "explanation": "يرطب البشرة الجافة، يمنع التشققات، ويمنح اليدين إحساساً بالراحة والانتعاش مع لمسة عطرية تدوم.",
     "image": "images/122945.png",
     "name_pt": "Polpa Hidratante para Mãos Ekos Pitanga Preta",
-    "price": ""
+    "price": 27.23
   },
   {
     "name": "كريم ترطيب اليدين إكوس أنديوروبا – 40غ",
@@ -609,7 +609,7 @@ const products = [
     "explanation": "مثالي للبشرة الحساسة أو المتعبة، يهدئ ويرمم الجلد الجاف ويمنحه نعومة فورية دون أن يترك ملمساً دهنياً.",
     "image": "images/147195.png",
     "name_pt": "Polpa Hidratante para as Mãos Ekos Andiroba 40 g",
-    "price": ""
+    "price": 27.23
   },
   {
     "name": "سيروم كرونوس للبشرة الدهنية",
