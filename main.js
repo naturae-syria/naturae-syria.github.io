@@ -290,3 +290,34 @@ document.addEventListener("DOMContentLoaded", () => {
   // عرض المنتجات عند تحميل الصفحة
   filterAndDisplayProducts()
 })
+
+  // دالة لإنشاء بطاقة منتج
+  function createProductCard(product) {
+    return `
+      <div class="product-card">
+        <img src="${product.image}" alt="${product.name}" class="product-image" />
+        <h3 class="product-name">${product.name}</h3>
+        <p class="product-brand">${product.brand} - ${product.line}</p>
+        <p class="product-description">${product.description}</p>
+        <p class="product-price">${product.price} ر.س</p>
+      </div>
+    `;
+  }
+
+  // دالة لعرض المنتجات
+  function displayProducts(productsList) {
+    productsGrid.innerHTML = ""; // مسح المحتوى الحالي
+    if (productsList.length === 0) {
+      noProducts.style.display = "block";
+      productsCount.textContent = "0 منتج";
+      return;
+    }
+    noProducts.style.display = "none";
+    productsList.forEach(product => {
+      productsGrid.innerHTML += createProductCard(product);
+    });
+    productsCount.textContent = `${productsList.length} منتج`;
+  }
+
+  // عرض المنتجات عند تحميل الصفحة
+  displayProducts(products);
