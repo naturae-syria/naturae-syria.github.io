@@ -98,7 +98,10 @@ body {
   justify-content: center;
   margin-left: 1rem;
 }
-
+.logo-container img.logo {
+  width: 120px;
+  height: auto;
+}
 .logo-icon i {
   font-size: 1.5rem;
   color: var(--primary);
@@ -653,4 +656,7 @@ select {
 .modal-product-details p {
   margin-bottom: 1rem;
   line-height: 1.6;
+}
+body, h1, h2, h3, h4, h5, h6, input, select, button, p, a, span, div {
+  font-family: 'Tajawal', sans-serif !important;
 }
