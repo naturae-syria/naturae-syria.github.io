@@ -224,7 +224,6 @@
   <script src="products.js"></script>
   <script src="main.js"></script>
 <script>
-  // إنشاء صندوق الدردشة
   const chatContainer = document.createElement('div');
   chatContainer.innerHTML = `
     <style>
@@ -263,7 +262,6 @@
     log.innerHTML += `<div class='message user'>${userMessage}</div>`;
     input.value = "";
 
-    // ننتظر تحميل products
     await new Promise(resolve => {
       const check = () => {
         if (window.products && Array.isArray(window.products)) resolve();
@@ -272,7 +270,7 @@
       check();
     });
 
-    const products = window.products.slice(0, 10); // أول 10 منتجات فقط
+    const products = window.products.slice(0, 10);
 
     const response = await fetch("https://openrouter.ai/api/v1/chat/completions", {
       method: "POST",
@@ -281,7 +279,7 @@
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        model: "openchat/openchat-3.5",
+        model: "nousresearch/nous-hermes-2-mistral-7b-dpo",
         messages: [
           {
             role: "system",
