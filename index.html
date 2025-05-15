@@ -3,13 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0;url=/naturae-syria.github.io">
   <title>دليل منتجات ناتورا وأفون</title>
+  <script>
+    // تحديد المسار الصحيح بناءً على اسم المستودع
+    var segmentCount = 1;
+    var repoName = location.pathname.split('/')[1];
+    var l = window.location;
+    var basePath = l.pathname.split('/').slice(0, 1 + segmentCount).join('/');
+    
+    // توجيه مباشر إلى الصفحة الرئيسية
+    window.location.href = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + basePath;
+  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       margin-top: 50px;
+      direction: rtl;
     }
     .loader {
       border: 5px solid #f3f3f3;
@@ -29,6 +39,6 @@
 <body>
   <h1>جاري التحويل إلى دليل المنتجات...</h1>
   <div class="loader"></div>
-  <p>إذا لم يتم تحويلك تلقائيًا، <a href="/naturae-syria.github.io">انقر هنا</a></p>
+  <p>إذا لم يتم تحويلك تلقائيًا، <a href="/">انقر هنا</a></p>
 </body>
 </html>

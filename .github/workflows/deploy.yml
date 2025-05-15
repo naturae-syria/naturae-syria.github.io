@@ -26,6 +26,14 @@ jobs:
       - name: Build
         run: npm run build
       
+      - name: Add .nojekyll file
+        run: touch out/.nojekyll
+      
+      - name: Copy index.html and 404.html to out directory
+        run: |
+          cp index.html out/
+          cp 404.html out/
+      
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:

@@ -3,8 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0;url=/naturae-syria.github.io">
   <title>404 - الصفحة غير موجودة</title>
+  <script>
+    // تحديد المسار الصحيح بناءً على اسم المستودع
+    var segmentCount = 1;
+    var l = window.location;
+    var basePath = l.pathname.split('/').slice(0, 1 + segmentCount).join('/');
+    
+    // توجيه مباشر إلى الصفحة الرئيسية
+    window.location.href = l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') + basePath;
+  </script>
   <style>
     body {
       font-family: Arial, sans-serif;
