@@ -10,8 +10,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // This ensures assets work correctly on GitHub Pages
-  assetPrefix: '.',
+  // تصحيح إعداد assetPrefix ليبدأ بشرطة مائلة
+  basePath: '/arabic-product-catalog',
+  assetPrefix: '/arabic-product-catalog',
 }
 
 export default nextConfig
