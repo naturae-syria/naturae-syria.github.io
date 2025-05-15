@@ -21,7 +21,7 @@
 body {
   font-family: "Tajawal", sans-serif;
   color: var(--text);
-  background-color: var(--secondary);
+  background-color: var(--secondary) !important;
   direction: rtl;
 }
 
@@ -46,23 +46,23 @@ body {
   font-weight: 500;
   cursor: pointer;
   transition: all 0.2s;
-  background-color: var(--primary);
+  background-color: var(--primary) !important;
   color: white;
   border: none;
 }
 
 .btn:hover {
-  background-color: var(--primary-hover);
+  background-color: var(--primary-hover) !important;
 }
 
 .btn-outline {
-  background-color: transparent;
+  background-color: transparent !important;
   border: 1px solid var(--border);
   color: var(--text);
 }
 
 .btn-outline:hover {
-  background-color: var(--background-light);
+  background-color: var(--background-light) !important;
 }
 
 .btn i {
@@ -71,7 +71,7 @@ body {
 
 /* ===== الرأس ===== */
 .header {
-  background-color: var(--background);
+  background-color: var(--background) !important;
   box-shadow: var(--shadow);
   padding: 1rem 0;
 }
@@ -92,7 +92,7 @@ body {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -126,7 +126,7 @@ body {
 .tab-btn {
   flex: 1;
   padding: 0.75rem 1.5rem;
-  background-color: var(--background-light);
+  background-color: var(--background-light) !important;
   border: 1px solid var(--border);
   cursor: pointer;
   font-weight: 500;
@@ -144,7 +144,7 @@ body {
 }
 
 .tab-btn.active {
-  background-color: var(--primary);
+  background-color: var(--primary) !important;
   color: white;
   border-color: var(--primary);
 }
@@ -164,7 +164,7 @@ body {
   flex-wrap: wrap;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  background-color: var(--background);
+  background-color: var(--background) !important;
   padding: 1.5rem;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -212,7 +212,7 @@ select {
   padding: 0.75rem 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  background-color: var(--background);
+  background-color: var(--background) !important;
   font-family: "Tajawal", sans-serif;
   appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23666'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
@@ -255,7 +255,7 @@ select {
 
 /* ===== بطاقة المنتج ===== */
 .product-card {
-  background-color: var(--background);
+  background-color: var(--background) !important;
   border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
@@ -270,7 +270,7 @@ select {
 
 .product-image {
   height: 200px;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -332,7 +332,7 @@ select {
 }
 
 .tag-brand {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   color: #d97706;
   border: 1px solid #fcd34d;
 }
@@ -362,7 +362,7 @@ select {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   margin-bottom: 1rem;
 }
 
@@ -392,7 +392,7 @@ select {
 .about-header {
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(to bottom right, #ffffff, #ffedd5);
+  background: linear-gradient(to bottom right, #ffffff, #ffedd5) !important;
 }
 
 .about-header h2 {
@@ -468,7 +468,7 @@ select {
 }
 
 .product-line-card {
-  background-color: var(--background-light);
+  background-color: var(--background-light) !important;
   border-radius: var(--radius);
   padding: 1.5rem;
   border: 1px solid var(--border);
@@ -493,7 +493,7 @@ select {
 }
 
 .final-note {
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   border: 1px solid #fcd34d;
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -507,7 +507,7 @@ select {
 
 /* ===== التذييل ===== */
 .footer {
-  background-color: var(--background);
+  background-color: var(--background) !important;
   border-top: 1px solid var(--border);
   padding: 1.5rem 0;
   text-align: center;
@@ -548,11 +548,11 @@ select {
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 .modal-content {
-  background-color: var(--background);
+  background-color: var(--background) !important;
   margin: 5% auto;
   padding: 2rem;
   border-radius: var(--radius);
@@ -591,7 +591,7 @@ select {
 
 .modal-product-image {
   height: 300px;
-  background-color: #ffffff;
+  background-color: #ffffff !important;
   border-radius: var(--radius);
   display: flex;
   align-items: center;
