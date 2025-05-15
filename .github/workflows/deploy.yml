@@ -17,9 +17,9 @@ jobs:
         with:
           node-version: '16'
       
-      # تغيير من npm ci إلى npm install
+      # استخدام --legacy-peer-deps لتجاوز تعارضات التبعيات
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
       
       - name: Build
         run: npm run build
