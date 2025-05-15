@@ -10,8 +10,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // This ensures assets work correctly on GitHub Pages
-  assetPrefix: '.',
+  // استبدل 'your-repo-name' باسم المستودع الخاص بك على GitHub
+  basePath: '/your-repo-name',
+  assetPrefix: '/your-repo-name',
 }
 
 export default nextConfig
