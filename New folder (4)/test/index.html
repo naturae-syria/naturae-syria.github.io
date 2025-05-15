@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>دليل المنتجات</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #fff8f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    header .logo-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    header .logo-container img.logo {
+      width: 120px;
+      height: auto;
+    }
+
+    header .logo-container h1 {
+      margin: 0;
+      font-size: 22px;
+      color: #d35400;
+      flex: 1;
+      text-align: right;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      background-color: #fff3e0;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    select,
+    input[type="text"] {
+      padding: 10px 14px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      flex: 1 1 200px;
+      min-width: 150px;
+      max-width: 100%;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      max-width: 100%;
+      height: 150px;
+      object-fit: contain;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .card h3 {
+      color: #d35400;
+      margin: 5px 0 2px 0;
+      font-size: 18px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      justify-content: center;
+    }
+
+    .tag {
+      background: #f39c12;
+      color: white;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      padding: 10px;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .close {
+      position: absolute;
+      left: 20px;
+      top: 10px;
+      font-size: 28px;
+      font-weight: bold;
+      color: #c0392b;
+      cursor: pointer;
+    }
+
+    .company-info {
+      margin-top: 30px;
+      text-align: center;
+      font-size: 12px;
+      color: #333;
+      background-color: white;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .company-info p {
+      margin: 5px 0;
+    }
+
+    .company-info a {
+      color: #d35400;
+      text-decoration: none;
+    }
+
+    .company-info a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo-container">
+      <img src="images/logo.png" class="logo" />
+      <h1>دليل المنتجات</h1>
+<div style="margin-top: 15px; display: flex; gap: 12px; flex-wrap: wrap;">
+  <button onclick="showAbout()" style="
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #f39c12, #d35400);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  " onmouseover="this.style.background='linear-gradient(135deg, #e67e22, #c0392b)'" onmouseout="this.style.background='linear-gradient(135deg, #f39c12, #d35400)'">
+    عن ناتورا وأفون
+  </button>
+  <button onclick="showCatalog()" style="
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  " onmouseover="this.style.background='linear-gradient(135deg, #2980b9, #2471a3)'" onmouseout="this.style.background='linear-gradient(135deg, #3498db, #2980b9)'">
+    📘 دليل المنتجات
+  </button>
+</div>
+
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="filters">
+      <input type="text" id="search" placeholder="🔍 ابحث باسم المنتج..." />
+      <select id="brandFilter"></select>
+      <select id="lineFilter"></select>
+      <select id="categoryFilter"></select>
+    </div>
+    <div class="grid" id="productGrid"></div>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close" id="closeModal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+  
+<div id="aboutSection" style="display: none; padding: 30px; background-color: #fff0e5; margin: 20px auto; border-radius: 12px; max-width: 1000px; font-size: 16px; line-height: 1.9; color: #333;">
+  <h2 style="color: #d35400; text-align: center;">عن ناتورا وأفون</h2>
+  <p>تبرز شركتا <strong>ناتورا</strong> و<strong>أفون</strong> كقوتين رائدتين في مجال مستحضرات التجميل والعناية الشخصية، حيث تنبع جذورهما من البرازيل وتنتشر فروع تأثيرهما في الأسواق العالمية. ويجمع بينهما التزام عميق بتقديم منتجات عالية الجودة، مصممة لتلبي الاحتياجات المتنوعة للمستهلكين، مع مراعاة الاستدامة البيئية والاجتماعية، واستلهام الابتكار من ثراء التنوع البيولوجي البرازيلي.</p>
+  <p>نحن في <strong>شركة المؤيد</strong> نفتخر بكوننا موزعين رسميين لمنتجات ناتورا وأفون في البرازيل، حيث نعمل على استيراد هذه المنتجات الأصلية مباشرة من قلب البرازيل لتصل إلى السوق السورية، حاملة معها خلاصة الجمال البرازيلي النقي.</p>
+
+  <h3 style="color: #d35400;">ناتورا: عندما تلتقي الطبيعة بالعلم</h3>
+  <p>تعتمد ناتورا في فلسفتها على مبدأ الاستدامة، حيث يتم اختيار مكوناتها الطبيعية من مصادر مسؤولة، ولا سيما من غابات الأمازون الغنية. وتنعكس هذه الفلسفة في مجموعاتها الرئيسية:</p>
+  <ul style="padding-right: 20px;">
+    <li><strong>تودوديا (Tododia):</strong> مجموعة مثالية للعناية اليومية بالجسم، بتركيبات طبيعية وروائح منعشة، تركز على ترطيب البشرة وتعزيز نعومتها.</li>
+    <li><strong>كرونوس (Chronos):</strong> حلول متقدمة لمكافحة علامات التقدم في العمر، باستخدام مكونات نباتية فعالة وتقنيات مبتكرة.</li>
+    <li><strong>إيكوس (Ekos):</strong> تجسد التزام ناتورا بالاستدامة من خلال استخدام مكونات أمازونية نادرة يتم جمعها بشكل أخلاقي وبطريقة تحافظ على البيئة والمجتمعات المحلية.</li>
+    <li><strong>لومينا (Lumina):</strong> تركيبات متطورة للعناية بالشعر، تعتمد على علوم حيوية ومكونات نباتية لإصلاح الشعر وتعزيز صحته.</li>
+  </ul>
+  <p><strong>شهادات ناتورا الموثوقة في الاستدامة:</strong></p>
+  <ul style="padding-right: 20px;">
+    <li><strong>B Corporation:</strong> شهادة مرموقة تعكس أعلى معايير الأداء الاجتماعي والبيئي.</li>
+    <li><strong>UEBT:</strong> تؤكد على جمع المكونات من مصادر مسؤولة وأخلاقية.</li>
+    <li><strong>Leaping Bunny:</strong> تضمن خلو المنتجات من أي اختبارات على الحيوانات.</li>
+    <li><strong>RSPO:</strong> عضوية في مائدة زيت النخيل المستدام.</li>
+    <li><strong>UEBT Regenerative:</strong> توثق ممارساتها التجديدية في سلسلة جوز البرازيل.</li>
+  </ul>
+  <p>ناتورا تحظى بحضور قوي في أسواق أمريكا اللاتينية، مثل البرازيل، الأرجنتين، كولومبيا، وتشيلي، إضافة إلى تواجد نوعي في فرنسا، ماليزيا، والولايات المتحدة. ونحن بدورنا نعمل على تقديم هذه المنتجات المتميزة في السوق السورية بكل موثوقية واحتراف.</p>
+
+  <h3 style="color: #d35400;">أفون: التمكين والجمال في متناول الجميع</h3>
+  <p>تُعرف أفون بتاريخ عريق في توفير منتجات تجميل وعناية شخصية عالية الجودة بأسعار مناسبة، مع تركيزها على تمكين المرأة ودعم خياراتها. وتقدم من خلال مجموعاتها تنوعًا واسعًا يشمل:</p>
+  <ul style="padding-right: 20px;">
+    <li><strong>أفون كير (Avon Care):</strong> مستحضرات أساسية للعناية اليومية بالبشرة والجسم، بتركيبات لطيفة وفعالة.</li>
+    <li><strong>زيوت أفون (Avon Óleo):</strong> زيوت طبيعية للعناية العميقة بالبشرة والشعر، تمنح ترطيبًا مكثفًا ولمعانًا صحيًا.</li>
+    <li><strong>مجموعة العناية بالشعر (Avon Capilar):</strong> حلول متنوعة تناسب جميع أنواع الشعر وتلبي احتياجاته المتعددة.</li>
+    <li><strong>مجموعة (Renew):</strong> هي مجموعة متخصصة في العناية بالبشرة ومكافحة علامات التقدم في السن, تركز هذه المجموعة على تقديم حلول مبتكرة وفعالة لمساعدة البشرة على استعادة شبابها وإشراقتها.</li> 
+  </ul>
+  <p><strong>شهادات أفون الموثوقة:</strong></p>
+  <ul style="padding-right: 20px;">
+    <li><strong>Leaping Bunny:</strong> تؤكد خلو المنتجات من أي اختبار على الحيوانات.</li>
+    <li><strong>FSC:</strong> لضمان استخدام عبوات مصنوعة من مصادر غابية مسؤولة.</li>
+  </ul>
+  <p>تتواجد أفون في أكثر من 100 دولة حول العالم، مما يجعلها واحدة من أكثر العلامات شمولًا وانتشارًا عالميًا. ونحن في شركة المؤيد نضمن وصول هذه المنتجات الأصلية إلى سوريا مباشرة من المصدر، لنقدم الأفضل دائمًا.</p>
+
+  <h3 style="color: #d35400;">كلمة أخيرة:</h3>
+  <p>تجسد ناتورا وأفون مستقبل الجمال القائم على <strong>الابتكار، الأخلاق، والاستدامة</strong>. ونحن في <strong>شركة المؤيد</strong> نعتز بأن نكون الجسر الذي يصل هذا الجمال البرازيلي إلى كل بيت سوري، عبر منتجات موثوقة، طبيعية، وفعّالة، لتجربة تجميل آمنة وفريدة من نوعها.</p>
+</div>
+
+<div id="company-info" class="company-info">
+  <p>&copy; 2025 جميع الحقوق محفوظة لشركة المؤيد.</p>
+  <p><a href="https://wa.me/963933255667" target="_blank">WhatsApp</a></p>
+</div>
+
+
+<script src="products.js"></script>
+  <script src="script.js"></script>
+
+<script>
+  function showAbout() {
+    document.getElementById('aboutSection').style.display = 'block';
+    document.querySelector('.container').style.display = 'none';
+  }
+
+  function showCatalog() {
+    document.getElementById('aboutSection').style.display = 'none';
+    document.querySelector('.container').style.display = 'block';
+  }
+</script>
+
+</body>
+</html>
