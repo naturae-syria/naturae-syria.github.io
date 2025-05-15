@@ -129,33 +129,33 @@ body {
   background-color: var(--background-light) !important;
   border: 1px solid var(--border) important;
   cursor: pointer important;
-  font-weight: 500 important;
-  transition: all 0.2s important;
+  font-weight: 500 ;
+  transition: all 0.2s;
 }
 
 .tab-btn:first-child {
-  border-top-right-radius: var(--radius) important;
-  border-bottom-right-radius: var(--radius) important;
+  border-top-right-radius: var(--radius);
+  border-bottom-right-radius: var(--radius);
 }
 
 .tab-btn:last-child {
-  border-top-left-radius: var(--radius) important;
-  border-bottom-left-radius: var(--radius) important;
+  border-top-left-radius: var(--radius);
+  border-bottom-left-radius: var(--radius);
 }
 
 .tab-btn.active {
   background-color: var(--primary) !important;
-  color: white important;
-  border-color: var(--primary) important;
+  color: white;
+  border-color: var(--primary);
 }
 
 .tab-content {
-  display: none important;
-  padding: 2rem 0 important;
+  display: none;
+  padding: 2rem 0;
 }
 
 .tab-content.active {
-  display: block important;
+  display: block;
 }
 
 /* ===== الفلاتر ===== */
