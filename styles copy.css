@@ -92,13 +92,16 @@ body {
   width: 3rem;
   height: 3rem;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #fff3e0;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-left: 1rem;
 }
-
+.logo-container img.logo {
+  width: 120px;
+  height: auto;
+}
 .logo-icon i {
   font-size: 1.5rem;
   color: var(--primary);
@@ -332,7 +335,7 @@ select {
 }
 
 .tag-brand {
-  background-color: #ffffff;
+  background-color: #fff3e0;
   color: #d97706;
   border: 1px solid #fcd34d;
 }
@@ -362,7 +365,7 @@ select {
   width: 4rem;
   height: 4rem;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: #fff3e0;
   margin-bottom: 1rem;
 }
 
@@ -392,7 +395,7 @@ select {
 .about-header {
   text-align: center;
   padding: 2rem;
-  background: linear-gradient(to bottom right, #ffffff, #ffedd5);
+  background: linear-gradient(to bottom right, #fff3e0, #ffedd5);
 }
 
 .about-header h2 {
@@ -493,7 +496,7 @@ select {
 }
 
 .final-note {
-  background-color: #ffffff;
+  background-color: #fff3e0;
   border: 1px solid #fcd34d;
   border-radius: var(--radius);
   padding: 1.5rem;
@@ -654,7 +657,6 @@ select {
   margin-bottom: 1rem;
   line-height: 1.6;
 }
-
 body, h1, h2, h3, h4, h5, h6, input, select, button, p, a, span, div {
   font-family: 'Tajawal', sans-serif !important;
 }
