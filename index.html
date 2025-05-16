@@ -28,6 +28,7 @@
         <nav class="tabs">
           <button class="tab-btn active" data-tab="catalog">المنتجات</button>
           <button class="tab-btn" data-tab="about">عن الشركة</button>
+          <a href="privacy.html" class="tab-btn" style="text-decoration: none;">سياسة الخصوصية</a>
         </nav>
       </div>
     </div>
@@ -229,5 +230,82 @@
 
   <script src="products.js"></script>
   <script src="main.js"></script>
+  <!-- اضف الكود التالي قبل نهاية الوسم </body> مباشرة -->
+
+<!-- عنصر الشات بوت -->
+<div id="chatbot" style="position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1000;">
+  <button id="chat-toggle" class="btn" style="border-radius: 50%; width: 3.5rem; height: 3.5rem; font-size: 1.2rem;">
+    💬
+  </button>
+  <div id="chat-box" class="hidden" style="width: 320px; max-height: 500px; background-color: white; border-radius: 1rem; box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;">
+    <div style="background-color: var(--primary); color: white; padding: 1rem; font-weight: bold; text-align: center;">مساعد العناية بالمنتج</div>
+    <div id="chat-messages" style="flex: 1; padding: 1rem; overflow-y: auto; font-size: 0.95rem;"></div>
+    <form id="chat-form" style="display: flex; border-top: 1px solid #eee;">
+      <input type="text" id="chat-input" placeholder="اكتب استفسارك هنا..." style="flex: 1; padding: 0.75rem; border: none; font-family: 'Tajawal', sans-serif;">
+      <button type="submit" style="background-color: var(--primary); color: white; border: none; padding: 0 1rem; cursor: pointer;">إرسال</button>
+    </form>
+  </div>
+</div>
+
+<script>
+  const chatbot = document.getElementById("chatbot");
+  const chatBox = document.getElementById("chat-box");
+  const chatToggle = document.getElementById("chat-toggle");
+  const chatForm = document.getElementById("chat-form");
+  const chatInput = document.getElementById("chat-input");
+  const chatMessages = document.getElementById("chat-messages");
+
+  chatToggle.onclick = () => {
+    chatBox.classList.toggle("hidden");
+  };
+
+  function appendMessage(content, sender = 'user') {
+    const msg = document.createElement('div');
+    msg.style.margin = '0.5rem 0';
+    msg.style.textAlign = sender === 'user' ? 'right' : 'left';
+    msg.innerHTML = `<div style="display: inline-block; background-color: ${sender === 'user' ? '#f3f4f6' : '#fef3c7'}; padding: 0.5rem 1rem; border-radius: 1rem; max-width: 80%;">${content}</div>`;
+    chatMessages.appendChild(msg);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+  chatForm.onsubmit = (e) => {
+    e.preventDefault();
+    const userMsg = chatInput.value.trim();
+    if (!userMsg) return;
+    appendMessage(userMsg, 'user');
+    chatInput.value = '';
+
+    const lowerMsg = userMsg.toLowerCase();
+    let response = "عذرًا، لم أفهم سؤالك. الرجاء المحاولة بصيغة مختلفة أو ذكر نوع البشرة أو الشعر.";
+
+    const keywords = [
+      { kw: "شعري خفيف", match: /شعري\s*خفيف/, response: () => {
+          const thinHairProducts = products.filter(p => p.explanation.includes("يكثف") || p.description.includes("يكثف") || p.description.includes("قوة"));
+          if (thinHairProducts.length === 0) return "أنصحك باستخدام منتجات تحتوي على زيت الأرغان أو البروتينات النباتية لتغذية الشعر الخفيف.";
+          return `أنصحك باستخدام المنتجات التالية لتقوية الشعر الخفيف:<ul>${thinHairProducts.map(p => `<li><strong>${p.name}</strong>: ${p.explanation}</li>`).join('')}</ul>`;
+      } },
+      { kw: "بشرتي دهنية", match: /بشرتي\s*دهنية/, response: () => {
+          const oilySkin = products.filter(p => p.description.includes("البشرة الدهنية") || p.explanation.includes("تنظيم إفراز الدهون"));
+          return oilySkin.length > 0
+            ? `هذه بعض المنتجات المناسبة للبشرة الدهنية:<ul>${oilySkin.map(p => `<li><strong>${p.name}</strong>: ${p.explanation}</li>`).join('')}</ul>`
+            : "لا يوجد حالياً منتجات مخصصة للبشرة الدهنية في الكتالوج.";
+      } },
+      { kw: "تفتيح", match: /تفتيح|توحيد لون/, response: () => {
+          const whitening = products.filter(p => p.description.includes("تفتيح") || p.explanation.includes("البقع الداكنة"));
+          return `المنتجات التي تساعد في التفتيح:<ul>${whitening.map(p => `<li><strong>${p.name}</strong>: ${p.explanation}</li>`).join('')}</ul>`;
+      } },
+    ];
+
+    for (const item of keywords) {
+      if (item.match.test(lowerMsg)) {
+        response = item.response();
+        break;
+      }
+    }
+
+    setTimeout(() => appendMessage(response, 'bot'), 500);
+  };
+</script>
+
 </body>
 </html>
