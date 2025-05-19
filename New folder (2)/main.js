@@ -16,14 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModal = document.querySelector(".close-modal")
   const modalContentContainer = document.getElementById("modal-content-container")
 
-  // متغيرات الشات بوت
-  const chatToggle = document.getElementById("chat-toggle")
-  const chatBox = document.getElementById("chat-box")
-  const chatMessages = document.getElementById("chat-messages")
-  const chatForm = document.getElementById("chat-form")
-  const chatInput = document.getElementById("chat-input")
-
-  // تهيئة التبويبات
   const tabBtns = document.querySelectorAll(".tab-btn")
   const tabContents = document.querySelectorAll(".tab-content")
 
@@ -135,7 +127,7 @@ document.addEventListener("DOMContentLoaded", () => {
         productCard.setAttribute("aria-label", `عرض تفاصيل ${product.name || product.name_pt || "المنتج"}`)
         productCard.innerHTML = `
           <div class="product-image">
-            <img src="images/${product.image}" alt="${product.name || product.name_pt || "صورة منتج"}" loading="lazy">
+            <img src="${product.image}" alt="${product.name || product.name_pt || "صورة منتج"}" loading="lazy">
           </div>
           <div class="product-info">
             <h3 class="product-title">${product.name_pt || ""}</h3>
@@ -166,7 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalContentContainer.innerHTML = `
       <div class="modal-product">
         <div class="modal-product-image">
-          <img src="images/${product.image}" alt="${product.name || product.name_pt || "صورة منتج"}">
+          <img src="${product.image}" alt="${product.name || product.name_pt || "صورة منتج"}">
         </div>
         <div class="modal-product-info">
           <h2 id="modal-title">${product.name_pt || ""}</h2>
@@ -209,98 +201,6 @@ document.addEventListener("DOMContentLoaded", () => {
     filterAndDisplayProducts()
   }
 
-  // وظائف الشات بوت
-  function toggleChat() {
-    chatBox.classList.toggle("hidden")
-    const isExpanded = chatBox.classList.contains("hidden") ? "false" : "true"
-    chatToggle.setAttribute("aria-expanded", isExpanded)
-
-    if (isExpanded === "true") {
-      // إضافة رسالة ترحيب إذا كانت الدردشة فارغة
-      if (chatMessages.children.length === 0) {
-        addChatMessage("مرحباً! أنا مساعدك الافتراضي للعناية بالمنتجات. كيف يمكنني مساعدتك اليوم؟", "bot")
-      }
-      chatInput.focus()
-    }
-  }
-
-  function addChatMessage(message, sender) {
-    const messageElement = document.createElement("div")
-    messageElement.className = `chat-message ${sender}-message`
-    messageElement.style.marginBottom = "10px"
-    messageElement.style.padding = "8px 12px"
-    messageElement.style.borderRadius = "8px"
-    messageElement.style.maxWidth = "80%"
-
-    if (sender === "user") {
-      messageElement.style.marginLeft = "auto"
-      messageElement.style.backgroundColor = "#f97316"
-      messageElement.style.color = "white"
-    } else {
-      messageElement.style.marginRight = "auto"
-      messageElement.style.backgroundColor = "#f1f1f1"
-      messageElement.style.color = "#333"
-    }
-
-    // تحويل الروابط إلى روابط قابلة للنقر
-    const linkedMessage = message.replace(
-      /\b(زيت الأرغان|سيروم|كريم|شامبو|بلسم|ماسك|مرطب|بخاخ|غسول|مقشر|جل)\s+([^.،,]+)/g,
-      "<strong>$1 $2</strong>",
-    )
-
-    messageElement.innerHTML = linkedMessage
-    chatMessages.appendChild(messageElement)
-    chatMessages.scrollTop = chatMessages.scrollHeight
-  }
-
-  async function sendChatMessage(message) {
-    if (!message.trim()) return
-
-    // إضافة رسالة المستخدم
-    addChatMessage(message, "user")
-
-    // إظهار مؤشر الكتابة
-    const typingIndicator = document.createElement("div")
-    typingIndicator.className = "typing-indicator"
-    typingIndicator.textContent = "جاري الكتابة..."
-    typingIndicator.style.color = "#888"
-    typingIndicator.style.fontStyle = "italic"
-    typingIndicator.style.margin = "10px 0"
-    chatMessages.appendChild(typingIndicator)
-
-    try {
-      // استدعاء API للحصول على الرد
-      const response = await fetch("/api/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message }),
-      })
-
-      if (!response.ok) {
-        throw new Error("Network response was not ok")
-      }
-
-      const data = await response.json()
-
-      // إزالة مؤشر الكتابة
-      chatMessages.removeChild(typingIndicator)
-
-      // إضافة رد الروبوت
-      addChatMessage(data.response, "bot")
-    } catch (error) {
-      console.error("Error:", error)
-
-      // إزالة مؤشر الكتابة
-      chatMessages.removeChild(typingIndicator)
-
-      // إضافة رسالة خطأ
-      addChatMessage("عذراً، حدث خطأ أثناء معالجة طلبك. يرجى المحاولة مرة أخرى.", "bot")
-    }
-  }
-
-  // إضافة مستمعي الأحداث
   searchInput.addEventListener("input", filterAndDisplayProducts)
   brandFilter.addEventListener("change", filterAndDisplayProducts)
   lineFilter.addEventListener("change", filterAndDisplayProducts)
@@ -308,15 +208,6 @@ document.addEventListener("DOMContentLoaded", () => {
   resetFiltersBtn.addEventListener("click", resetFilters)
   resetFiltersBtnAlt.addEventListener("click", resetFilters)
   closeModal.addEventListener("click", closeProductModal)
-
-  // مستمعي أحداث الشات بوت
-  chatToggle.addEventListener("click", toggleChat)
-  chatForm.addEventListener("submit", (e) => {
-    e.preventDefault()
-    const message = chatInput.value
-    chatInput.value = ""
-    sendChatMessage(message)
-  })
 
   window.addEventListener("click", (event) => {
     if (event.target === productModal) {

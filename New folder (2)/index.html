@@ -14,90 +14,6 @@
       width: 40px;
       height: auto;
     }
-    
-    /* تنسيقات الشات بوت */
-    #chatbot {
-      position: fixed;
-      bottom: 1.5rem;
-      right: 1.5rem;
-      z-index: 1000;
-    }
-    
-    #chat-toggle {
-      border-radius: 50%;
-      width: 3.5rem;
-      height: 3.5rem;
-      font-size: 1.2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      transition: transform 0.3s;
-    }
-    
-    #chat-toggle:hover {
-      transform: scale(1.05);
-    }
-    
-    #chat-box {
-      width: 320px;
-      max-height: 500px;
-      background-color: white;
-      border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      transition: all 0.3s;
-      margin-bottom: 1rem;
-    }
-    
-    #chat-title {
-      background-color: var(--primary);
-      color: white;
-      padding: 1rem;
-      font-weight: bold;
-      text-align: center;
-    }
-    
-    #chat-messages {
-      flex: 1;
-      padding: 1rem;
-      overflow-y: auto;
-      font-size: 0.95rem;
-      min-height: 250px;
-      max-height: 350px;
-    }
-    
-    #chat-form {
-      display: flex;
-      border-top: 1px solid #eee;
-    }
-    
-    #chat-input {
-      flex: 1;
-      padding: 0.75rem;
-      border: none;
-      font-family: 'Tajawal', sans-serif;
-    }
-    
-    #chat-input:focus {
-      outline: none;
-    }
-    
-    .user-message {
-      text-align: right;
-    }
-    
-    .bot-message {
-      text-align: left;
-    }
-    
-    @media (max-width: 480px) {
-      #chat-box {
-        width: 280px;
-        position: fixed;
-        bottom: 5rem;
-        right: 1rem;
-      }
-    }
   </style>
 </head>
 <body>
@@ -314,22 +230,23 @@
     </div>
   </div>
 
-  <!-- عنصر الشات بوت -->
-  <div id="chatbot">
-    <div id="chat-box" class="hidden">
-      <div id="chat-title">مساعد العناية بالمنتج</div>
-      <div id="chat-messages" role="log" aria-live="polite"></div>
-      <form id="chat-form">
-        <input type="text" id="chat-input" placeholder="اكتب استفسارك هنا..." aria-label="اكتب استفسارك">
-        <button type="submit" class="btn" aria-label="إرسال">إرسال</button>
-      </form>
-    </div>
-    <button id="chat-toggle" class="btn" aria-label="فتح المساعد" aria-expanded="false">
-      <i class="fas fa-comments"></i>
-    </button>
-  </div>
-
   <script src="products.js"></script>
   <script src="main.js"></script>
+  <!-- اضف الكود التالي قبل نهاية الوسم </body> مباشرة -->
+
+<!-- عنصر الشات بوت -->
+<div id="chatbot" style="position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1000;">
+  <button id="chat-toggle" class="btn" style="border-radius: 50%; width: 3.5rem; height: 3.5rem; font-size: 1.2rem;" aria-label="فتح المساعد" aria-expanded="false">
+    💬
+  </button>
+  <div id="chat-box" class="hidden" style="width: 320px; max-height: 500px; background-color: white; border-radius: 1rem; box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;" aria-labelledby="chat-title">
+    <div id="chat-title" style="background-color: var(--primary); color: white; padding: 1rem; font-weight: bold; text-align: center;">مساعد العناية بالمنتج</div>
+    <div id="chat-messages" style="flex: 1; padding: 1rem; overflow-y: auto; font-size: 0.95rem;" role="log" aria-live="polite"></div>
+    <form id="chat-form" style="display: flex; border-top: 1px solid #eee;">
+      <input type="text" id="chat-input" placeholder="اكتب استفسارك هنا..." style="flex: 1; padding: 0.75rem; border: none; font-family: 'Tajawal', sans-serif;" aria-label="اكتب استفسارك">
+      <button type="submit" style="background-color: var(--primary); color: white; border: none; padding: 0 1rem; cursor: pointer;" aria-label="إرسال">إرسال</button>
+    </form>
+  </div>
+</div>
 </body>
 </html>
