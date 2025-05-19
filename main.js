@@ -243,269 +243,9 @@ document.addEventListener("DOMContentLoaded", () => {
       messageElement.style.color = "#333"
     }
 
-    // تحويل الروابط إلى روابط قابلة للنقر
-    const linkedMessage = message.replace(
-      /\b(زيت الأرغان|سيروم|كريم|شامبو|بلسم|ماسك|مرطب|بخاخ|غسول|مقشر|جل)\s+([^.،,]+)/g,
-      "<strong>$1 $2</strong>",
-    )
-
-    messageElement.innerHTML = linkedMessage
+    messageElement.innerHTML = message
     chatMessages.appendChild(messageElement)
     chatMessages.scrollTop = chatMessages.scrollHeight
-  }
-
-  // وظيفة لحساب درجة التطابق بين نص الاستعلام والمنتج
-  function calculateMatchScore(query, product) {
-    const queryWords = query
-      .toLowerCase()
-      .split(/\s+/)
-      .filter((word) => word.length > 2)
-    if (queryWords.length === 0) return 0
-
-    let score = 0
-
-    // البحث في اسم المنتج
-    if (product.name) {
-      const productName = product.name.toLowerCase()
-      queryWords.forEach((word) => {
-        if (productName.includes(word)) {
-          score += 3 // وزن أعلى لتطابق الاسم
-        }
-      })
-    }
-
-    // البحث في الاسم البرتغالي
-    if (product.name_pt) {
-      const productNamePt = product.name_pt.toLowerCase()
-      queryWords.forEach((word) => {
-        if (productNamePt.includes(word)) {
-          score += 1
-        }
-      })
-    }
-
-    // البحث في الوصف
-    if (product.description) {
-      const description = product.description.toLowerCase()
-      queryWords.forEach((word) => {
-        if (description.includes(word)) {
-          score += 2
-        }
-      })
-    }
-
-    // البحث في الفئة
-    if (product.category) {
-      const category = product.category.toLowerCase()
-      queryWords.forEach((word) => {
-        if (category.includes(word)) {
-          score += 4 // وزن أعلى للفئة
-        }
-      })
-    }
-
-    // البحث في العلامة التجارية
-    if (product.brand) {
-      const brand = product.brand.toLowerCase()
-      queryWords.forEach((word) => {
-        if (brand.includes(word)) {
-          score += 2
-        }
-      })
-    }
-
-    // البحث في الخط
-    if (product.line) {
-      const line = product.line.toLowerCase()
-      queryWords.forEach((word) => {
-        if (line.includes(word)) {
-          score += 2
-        }
-      })
-    }
-
-    // البحث في طريقة الاستخدام
-    if (product.usage) {
-      const usage = product.usage.toLowerCase()
-      queryWords.forEach((word) => {
-        if (usage.includes(word)) {
-          score += 1
-        }
-      })
-    }
-
-    // البحث في الشرح
-    if (product.explanation) {
-      const explanation = product.explanation.toLowerCase()
-      queryWords.forEach((word) => {
-        if (explanation.includes(word)) {
-          score += 1
-        }
-      })
-    }
-
-    return score
-  }
-
-  // وظيفة للبحث عن منتجات مطابقة للاستعلام
-  function findMatchingProducts(query, limit = 3) {
-    if (!query || query.trim().length < 3) return []
-
-    // حساب درجة التطابق لكل منتج
-    const scoredProducts = products.map((product) => ({
-      product,
-      score: calculateMatchScore(query, product),
-    }))
-
-    // ترتيب المنتجات حسب درجة التطابق
-    const sortedProducts = scoredProducts.filter((item) => item.score > 0).sort((a, b) => b.score - a.score)
-
-    // إرجاع المنتجات الأكثر تطابقًا
-    return sortedProducts.slice(0, limit).map((item) => item.product)
-  }
-
-  // وظيفة لتحليل استعلام المستخدم وتحديد نوع الاستعلام
-  function analyzeQuery(query) {
-    const lowerQuery = query.toLowerCase()
-
-    // تحديد الفئات الرئيسية
-    const categories = {
-      hair: ["شعر", "الشعر", "شامبو", "بلسم", "ماسك", "سيروم", "زيت"],
-      skin: ["بشرة", "البشرة", "وجه", "الوجه", "كريم", "مرطب", "تفتيح", "تجاعيد"],
-      hands: ["يد", "اليدين", "يدين"],
-      feet: ["قدم", "القدمين", "قدمين"],
-      body: ["جسم", "الجسم", "مرطب جسم", "زيت جسم"],
-      fragrance: ["عطر", "رائحة", "عطور"],
-      price: ["سعر", "تكلفة", "ثمن", "غالي", "رخيص"],
-      delivery: ["توصيل", "شحن", "استلام"],
-      brands: ["ناتورا", "أفون", "natura", "avon"],
-    }
-
-    // تحديد الخصائص
-    const attributes = {
-      dry: ["جاف", "جافة", "ترطيب", "تشقق"],
-      oily: ["دهني", "دهنية", "زيتي", "لمعان"],
-      damaged: ["تالف", "متقصف", "مقصف", "تكسر", "تقصف"],
-      curly: ["مجعد", "كيرلي", "تجعيد", "تموج"],
-      aging: ["تجاعيد", "شيخوخة", "علامات تقدم", "خطوط"],
-      sensitive: ["حساس", "حساسة", "تهيج", "احمرار"],
-    }
-
-    // تحديد نوع الاستعلام
-    let queryType = null
-    for (const [type, keywords] of Object.entries(categories)) {
-      if (keywords.some((keyword) => lowerQuery.includes(keyword))) {
-        queryType = type
-        break
-      }
-    }
-
-    // تحديد الخصائص
-    const queryAttributes = []
-    for (const [attr, keywords] of Object.entries(attributes)) {
-      if (keywords.some((keyword) => lowerQuery.includes(keyword))) {
-        queryAttributes.push(attr)
-      }
-    }
-
-    return {
-      type: queryType,
-      attributes: queryAttributes,
-      originalQuery: query,
-    }
-  }
-
-  // وظيفة لإنشاء رد ديناميكي بناءً على تحليل الاستعلام
-  function generateDynamicResponse(queryAnalysis) {
-    const { type, attributes, originalQuery } = queryAnalysis
-
-    // البحث عن منتجات مطابقة
-    const matchingProducts = findMatchingProducts(originalQuery, 3)
-
-    // إذا لم يتم العثور على منتجات مطابقة
-    if (matchingProducts.length === 0) {
-      return "لم أتمكن من العثور على منتجات تطابق استفسارك. يمكنك تجربة استخدام كلمات أخرى أو اختيار إحدى الفئات من الأزرار أدناه."
-    }
-
-    // إنشاء مقدمة الرد بناءً على نوع الاستعلام والخصائص
-    let responseIntro = ""
-
-    if (type === "hair") {
-      if (attributes.includes("dry") || attributes.includes("damaged")) {
-        responseIntro = "للعناية بالشعر الجاف والمتقصف، أنصحك بهذه المنتجات:\n\n"
-      } else if (attributes.includes("curly")) {
-        responseIntro = "للعناية بالشعر المجعد والكيرلي، أنصحك بهذه المنتجات:\n\n"
-      } else if (attributes.includes("oily")) {
-        responseIntro = "للعناية بالشعر الدهني، أنصحك بهذه المنتجات:\n\n"
-      } else {
-        responseIntro = "للعناية بالشعر، أنصحك بهذه المنتجات:\n\n"
-      }
-    } else if (type === "skin") {
-      if (attributes.includes("dry")) {
-        responseIntro = "للبشرة الجافة، أنصحك بهذه المنتجات:\n\n"
-      } else if (attributes.includes("oily")) {
-        responseIntro = "للبشرة الدهنية، أنصحك بهذه المنتجات:\n\n"
-      } else if (attributes.includes("aging")) {
-        responseIntro = "لمكافحة التجاعيد وعلامات التقدم في السن، أنصحك بهذه المنتجات:\n\n"
-      } else if (attributes.includes("sensitive")) {
-        responseIntro = "للبشرة الحساسة، أنصحك بهذه المنتجات:\n\n"
-      } else {
-        responseIntro = "للعناية بالبشرة، أنصحك بهذه المنتجات:\n\n"
-      }
-    } else if (type === "hands") {
-      responseIntro = "للعناية باليدين، أنصحك بهذه المنتجات:\n\n"
-    } else if (type === "feet") {
-      responseIntro = "للعناية بالقدمين، أنصحك بهذه المنتجات:\n\n"
-    } else if (type === "body") {
-      responseIntro = "للعناية بالجسم، أنصحك بهذه المنتجات:\n\n"
-    } else if (type === "fragrance") {
-      responseIntro = "للعطور والروائح، أنصحك بهذه المنتجات:\n\n"
-    } else if (type === "price") {
-      return (
-        "أسعار منتجاتنا متنوعة لتناسب جميع الميزانيات:\n\n" +
-        "- منتجات العناية الشخصية الأساسية: من 4$ إلى 20$\n" +
-        "- منتجات العناية بالشعر المتخصصة: من 20$ إلى 60$\n" +
-        "- منتجات العناية بالبشرة المتقدمة: من 50$ إلى 140$\n\n" +
-        "يمكنك تصفح المنتجات في الموقع لمعرفة السعر المحدد لكل منتج."
-      )
-    } else if (type === "delivery") {
-      return (
-        "نوفر خدمة التوصيل لجميع المناطق في سوريا:\n\n" +
-        "- التوصيل داخل دمشق: خلال 1-2 يوم عمل\n" +
-        "- التوصيل للمحافظات الأخرى: خلال 3-5 أيام عمل\n\n" +
-        "للطلب والاستفسار عن التوصيل، يرجى التواصل معنا عبر واتساب على الرقم الموجود أسفل الصفحة."
-      )
-    } else if (type === "brands") {
-      if (originalQuery.includes("ناتورا") || originalQuery.toLowerCase().includes("natura")) {
-        return (
-          "ناتورا هي شركة برازيلية رائدة في مجال مستحضرات التجميل والعناية الشخصية. تعتمد في فلسفتها على مبدأ الاستدامة، حيث يتم اختيار مكوناتها الطبيعية من مصادر مسؤولة، خاصة من غابات الأمازون الغنية.\n\n" +
-          "من أشهر مجموعاتها:\n" +
-          "- تودوديا (Tododia): للعناية اليومية بالجسم\n" +
-          "- كرونوس (Chronos): لمكافحة علامات التقدم في العمر\n" +
-          "- إيكوس (Ekos): تجسد التزام ناتورا بالاستدامة\n" +
-          "- لومينا (Lumina): تركيبات متطورة للعناية بالشعر"
-        )
-      } else if (originalQuery.includes("أفون") || originalQuery.toLowerCase().includes("avon")) {
-        return (
-          "أفون هي شركة عالمية معروفة بتاريخها العريق في توفير منتجات تجميل وعناية شخصية عالية الجودة بأسعار مناسبة، مع تركيزها على تمكين المرأة.\n\n" +
-          "من أشهر مجموعاتها:\n" +
-          "- أفون كير (Avon Care): مستحضرات أساسية للعناية اليومية\n" +
-          "- زيوت أفون (Avon Óleo): زيوت طبيعية للعناية العميقة\n" +
-          "- رينيو (Renew): متخصصة في مكافحة علامات التقدم في السن"
-        )
-      }
-    } else {
-      responseIntro = "وجدت بعض المنتجات التي قد تهمك:\n\n"
-    }
-
-    // إضافة المنتجات المطابقة إلى الرد
-    let productsInfo = ""
-    matchingProducts.forEach((product, index) => {
-      const price = product.price ? convertToUSD(transformPrice(product.price).toFixed(2)) : "غير متوفر"
-      productsInfo += `${index + 1}. <strong>${product.name || product.name_pt}</strong>: ${product.description || ""}${price ? ` - السعر: $${price}` : ""}\n\n`
-    })
-
-    return responseIntro + productsInfo
   }
 
   async function sendChatMessage(message) {
@@ -516,27 +256,78 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // إظهار مؤشر الكتابة
     const typingIndicator = document.createElement("div")
-    typingIndicator.className = "typing-indicator"
-    typingIndicator.textContent = "جاري الكتابة..."
-    typingIndicator.style.color = "#888"
-    typingIndicator.style.fontStyle = "italic"
-    typingIndicator.style.margin = "10px 0"
+    typingIndicator.className = "typing-indicator bot-message"
+    typingIndicator.innerHTML = `
+      <div class="typing-dots">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    `
     chatMessages.appendChild(typingIndicator)
+    chatMessages.scrollTop = chatMessages.scrollHeight
 
-    // محاكاة تأخير الرد (1 ثانية)
-    setTimeout(() => {
+    try {
+      // إرسال الرسالة إلى API
+      const response = await fetch("/.netlify/functions/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ message }),
+      })
+
+      if (!response.ok) {
+        throw new Error("فشل الاتصال بالخادم")
+      }
+
+      const data = await response.json()
+
       // إزالة مؤشر الكتابة
       chatMessages.removeChild(typingIndicator)
 
-      // تحليل استعلام المستخدم
-      const queryAnalysis = analyzeQuery(message)
-
-      // إنشاء رد ديناميكي
-      const botResponse = generateDynamicResponse(queryAnalysis)
-
       // إضافة رد الروبوت
-      addChatMessage(botResponse, "bot")
-    }, 1000)
+      if (data.response) {
+        // تنسيق الرد لتحسين العرض
+        const formattedResponse = formatBotResponse(data.response)
+        addChatMessage(formattedResponse, "bot")
+      } else {
+        addChatMessage("عذراً، لم أتمكن من فهم طلبك. هل يمكنك إعادة صياغته؟", "bot")
+      }
+    } catch (error) {
+      console.error("Error sending message:", error)
+
+      // إزالة مؤشر الكتابة
+      if (typingIndicator.parentNode) {
+        chatMessages.removeChild(typingIndicator)
+      }
+
+      // إضافة رسالة خطأ
+      addChatMessage("عذراً، حدث خطأ أثناء معالجة طلبك. يرجى المحاولة مرة أخرى لاحقاً.", "bot")
+    }
+  }
+
+  // تنسيق رد الروبوت لتحسين العرض
+  function formatBotResponse(response) {
+    // تحويل أسماء المنتجات إلى نص بارز
+    let formattedResponse = response.replace(
+      /\b(زيت|سيروم|كريم|شامبو|بلسم|ماسك|مرطب|بخاخ|غسول|مقشر|جل)\s+([^.،,]+)/g,
+      "<strong>$1 $2</strong>",
+    )
+
+    // تحويل أسماء العلامات التجارية إلى نص بارز
+    formattedResponse = formattedResponse.replace(
+      /\b(ناتورا|أفون|Natura|Avon|TODODIA|CHRONOS|EKOS|LUMINA|RENEW|FACES)\b/g,
+      "<strong>$1</strong>",
+    )
+
+    // تحويل الأسعار إلى نص بارز
+    formattedResponse = formattedResponse.replace(/\$(\d+(\.\d+)?)/g, "<strong class='price'>$$$1</strong>")
+
+    // تحويل النقاط إلى قائمة منسقة
+    formattedResponse = formattedResponse.replace(/(\d+\.\s+)/g, "<br>• ")
+
+    return formattedResponse
   }
 
   // إضافة الخيارات السريعة
