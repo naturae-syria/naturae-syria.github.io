@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="دليل منتجات ناتورا وأفون للعناية الشخصية والجمال - شركة المؤيد">
+  <meta name="theme-color" content="#f97316">
   <title>دليل منتجات ناتورا وأفون</title>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-    <style>
+  <style>
     .logo-icon img.logo {
       width: 40px;
       height: auto;
@@ -18,16 +20,16 @@
   <header class="header">
     <div class="container">
       <div class="header-content">
-     <div class="logo">
+        <div class="logo">
           <div class="logo-icon">
-            <img src="images/logo.png" class="logo" />
+            <img src="images/logo.png" class="logo" alt="شعار ناتورا سوريا" />
           </div>
           <h1>دليل المنتجات</h1>
         </div>
         
-        <nav class="tabs">
-          <button class="tab-btn active" data-tab="catalog">المنتجات</button>
-          <button class="tab-btn" data-tab="about">عن الشركة</button>
+        <nav class="tabs" aria-label="التبويبات الرئيسية">
+          <button class="tab-btn active" data-tab="catalog" aria-selected="true" role="tab">المنتجات</button>
+          <button class="tab-btn" data-tab="about" aria-selected="false" role="tab">عن الشركة</button>
         </nav>
       </div>
     </div>
@@ -37,14 +39,14 @@
     <div class="container">
       <!-- قسم المنتجات -->
       <section id="catalog" class="tab-content active">
-        <div class="filters">
+        <div class="filters" role="search" aria-label="فلترة المنتجات">
           <div class="search-container">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" id="search-input" placeholder="ابحث عن منتج...">
+            <i class="fas fa-search search-icon" aria-hidden="true"></i>
+            <input type="text" id="search-input" placeholder="ابحث عن منتج..." aria-label="ابحث عن منتج">
           </div>
           
           <div class="select-container">
-            <select id="brand-filter">
+            <select id="brand-filter" aria-label="فلترة حسب العلامة التجارية">
               <option value="">العلامة التجارية</option>
               <option value="all">كل العلامات التجارية</option>
               <!-- سيتم ملؤها بواسطة JavaScript -->
@@ -52,7 +54,7 @@
           </div>
           
           <div class="select-container">
-            <select id="line-filter">
+            <select id="line-filter" aria-label="فلترة حسب الخط">
               <option value="">الخط</option>
               <option value="all">كل الخطوط</option>
               <!-- سيتم ملؤها بواسطة JavaScript -->
@@ -60,15 +62,15 @@
           </div>
           
           <div class="select-container">
-            <select id="category-filter">
+            <select id="category-filter" aria-label="فلترة حسب الفئة">
               <option value="">الفئة</option>
               <option value="all">كل الفئات</option>
               <!-- سيتم ملؤها بواسطة JavaScript -->
             </select>
           </div>
           
-          <button id="reset-filters" class="btn btn-outline">
-            <i class="fas fa-times"></i>
+          <button id="reset-filters" class="btn btn-outline" aria-label="إعادة ضبط الفلاتر">
+            <i class="fas fa-times" aria-hidden="true"></i>
             <span>إعادة ضبط</span>
           </button>
         </div>
@@ -219,9 +221,9 @@
   </footer>
 
   <!-- نافذة تفاصيل المنتج -->
-  <div id="product-modal" class="modal">
+  <div id="product-modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-description">
     <div class="modal-content">
-      <span class="close-modal">&times;</span>
+      <span class="close-modal" tabindex="0" role="button" aria-label="إغلاق">&times;</span>
       <div id="modal-content-container">
         <!-- سيتم ملؤها بواسطة JavaScript -->
       </div>
@@ -234,15 +236,15 @@
 
 <!-- عنصر الشات بوت -->
 <div id="chatbot" style="position: fixed; bottom: 1.5rem; left: 1.5rem; z-index: 1000;">
-  <button id="chat-toggle" class="btn" style="border-radius: 50%; width: 3.5rem; height: 3.5rem; font-size: 1.2rem;">
+  <button id="chat-toggle" class="btn" style="border-radius: 50%; width: 3.5rem; height: 3.5rem; font-size: 1.2rem;" aria-label="فتح المساعد" aria-expanded="false">
     💬
   </button>
-  <div id="chat-box" class="hidden" style="width: 320px; max-height: 500px; background-color: white; border-radius: 1rem; box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;">
-    <div style="background-color: var(--primary); color: white; padding: 1rem; font-weight: bold; text-align: center;">مساعد العناية بالمنتج</div>
-    <div id="chat-messages" style="flex: 1; padding: 1rem; overflow-y: auto; font-size: 0.95rem;"></div>
+  <div id="chat-box" class="hidden" style="width: 320px; max-height: 500px; background-color: white; border-radius: 1rem; box-shadow: var(--shadow); overflow: hidden; display: flex; flex-direction: column;" aria-labelledby="chat-title">
+    <div id="chat-title" style="background-color: var(--primary); color: white; padding: 1rem; font-weight: bold; text-align: center;">مساعد العناية بالمنتج</div>
+    <div id="chat-messages" style="flex: 1; padding: 1rem; overflow-y: auto; font-size: 0.95rem;" role="log" aria-live="polite"></div>
     <form id="chat-form" style="display: flex; border-top: 1px solid #eee;">
-      <input type="text" id="chat-input" placeholder="اكتب استفسارك هنا..." style="flex: 1; padding: 0.75rem; border: none; font-family: 'Tajawal', sans-serif;">
-      <button type="submit" style="background-color: var(--primary); color: white; border: none; padding: 0 1rem; cursor: pointer;">إرسال</button>
+      <input type="text" id="chat-input" placeholder="اكتب استفسارك هنا..." style="flex: 1; padding: 0.75rem; border: none; font-family: 'Tajawal', sans-serif;" aria-label="اكتب استفسارك">
+      <button type="submit" style="background-color: var(--primary); color: white; border: none; padding: 0 1rem; cursor: pointer;" aria-label="إرسال">إرسال</button>
     </form>
   </div>
 </div>

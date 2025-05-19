@@ -10,7 +10,7 @@ const tajawal = Tajawal({
 export const metadata = {
   title: "دليل المنتجات - ناتورا وأفون",
   description: "دليل منتجات ناتورا وأفون للعناية الشخصية والجمال",
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({ children }) {
