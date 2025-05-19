@@ -135,7 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         productCard.setAttribute("aria-label", `عرض تفاصيل ${product.name || product.name_pt || "المنتج"}`)
         productCard.innerHTML = `
           <div class="product-image">
-            <img src="images/${product.image}" alt="${product.name || product.name_pt || "صورة منتج"}" loading="lazy">
+            <img src="${product.image}" alt="${product.name || product.name_pt || "صورة منتج"}" loading="lazy">
           </div>
           <div class="product-info">
             <h3 class="product-title">${product.name_pt || ""}</h3>
@@ -166,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
     modalContentContainer.innerHTML = `
       <div class="modal-product">
         <div class="modal-product-image">
-          <img src="images/${product.image}" alt="${product.name || product.name_pt || "صورة منتج"}">
+          <img src="${product.image}" alt="${product.name || product.name_pt || "صورة منتج"}">
         </div>
         <div class="modal-product-info">
           <h2 id="modal-title">${product.name_pt || ""}</h2>
