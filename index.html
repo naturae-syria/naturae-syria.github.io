@@ -62,8 +62,8 @@
       padding: 1rem;
       overflow-y: auto;
       font-size: 0.95rem;
-      min-height: 250px;
-      max-height: 350px;
+      min-height: 200px;
+      max-height: 300px;
     }
     
     #chat-form {
@@ -90,12 +90,45 @@
       text-align: left;
     }
     
+    /* تنسيقات الخيارات السريعة */
+    #quick-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 0.75rem;
+      border-top: 1px solid #eee;
+      background-color: #f9f9f9;
+    }
+    
+    .quick-option-btn {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      border-radius: 1rem;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    
+    .quick-option-btn:hover {
+      background-color: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+    
     @media (max-width: 480px) {
       #chat-box {
         width: 280px;
         position: fixed;
         bottom: 5rem;
         right: 1rem;
+      }
+      
+      #quick-options {
+        overflow-x: auto;
+        padding: 0.5rem;
+        justify-content: flex-start;
       }
     }
   </style>
@@ -319,6 +352,9 @@
     <div id="chat-box" class="hidden">
       <div id="chat-title">مساعد العناية بالمنتج</div>
       <div id="chat-messages" role="log" aria-live="polite"></div>
+      <div id="quick-options">
+        <!-- سيتم ملؤها بواسطة JavaScript -->
+      </div>
       <form id="chat-form">
         <input type="text" id="chat-input" placeholder="اكتب استفسارك هنا..." aria-label="اكتب استفسارك">
         <button type="submit" class="btn" aria-label="إرسال">إرسال</button>
