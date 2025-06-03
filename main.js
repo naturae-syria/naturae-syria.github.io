@@ -16,14 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeModal = document.querySelector(".close-modal")
   const modalContentContainer = document.getElementById("modal-content-container")
 
-  // متغيرات الشات بوت
-  const chatToggle = document.getElementById("chat-toggle")
-  const chatBox = document.getElementById("chat-box")
-  const chatMessages = document.getElementById("chat-messages")
-  const chatForm = document.getElementById("chat-form")
-  const chatInput = document.getElementById("chat-input")
-  const quickOptions = document.getElementById("quick-options")
-
   // تهيئة التبويبات
   const tabBtns = document.querySelectorAll(".tab-btn")
   const tabContents = document.querySelectorAll(".tab-content")
@@ -144,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="product-tags" aria-label="فئات المنتج">
               ${product.brand ? `<span class="product-tag tag-brand">${product.brand}</span>` : ""}
               ${product.category ? `<span class="product-tag tag-category">${product.category}</span>` : ""}
+              ${product.availability ? `<span class="product-tag tag-availability" style="background-color: ${product.availability === 'متوفر' ? '#28a745' : '#fd7e14'};">${product.availability}</span>` : ""}
             </div>
             ${usdPrice ? `<div class="product-price" aria-label="سعر المنتج: ${usdPrice} دولار">$${usdPrice}</div>` : ""}
           </div>
@@ -176,6 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${product.brand ? `<span class="modal-product-tag tag-brand">${product.brand}</span>` : ""}
             ${product.line ? `<span class="modal-product-tag tag-brand">${product.line}</span>` : ""}
             ${product.category ? `<span class="modal-product-tag tag-category">${product.category}</span>` : ""}
+            ${product.availability ? `<span class="modal-product-tag tag-availability" style="background-color: ${product.availability === 'متوفر' ? '#28a745' : '#fd7e14'};">${product.availability}</span>` : ""}
           </div>
           ${usdPrice ? `<div class="modal-product-price">$${usdPrice}</div>` : ""}
           <div class="modal-product-details">
@@ -210,152 +204,6 @@ document.addEventListener("DOMContentLoaded", () => {
     filterAndDisplayProducts()
   }
 
-  // وظائف الشات بوت
-  function toggleChat() {
-    chatBox.classList.toggle("hidden")
-    const isExpanded = chatBox.classList.contains("hidden") ? "false" : "true"
-    chatToggle.setAttribute("aria-expanded", isExpanded)
-
-    if (isExpanded === "true") {
-      // إضافة رسالة ترحيب إذا كانت الدردشة فارغة
-      if (chatMessages.children.length === 0) {
-        addChatMessage("مرحباً! أنا مساعدك الافتراضي للعناية بالمنتجات. كيف يمكنني مساعدتك اليوم؟", "bot")
-      }
-      chatInput.focus()
-    }
-  }
-
-  function addChatMessage(message, sender) {
-    const messageElement = document.createElement("div")
-    messageElement.className = `chat-message ${sender}-message`
-    messageElement.style.marginBottom = "10px"
-    messageElement.style.padding = "8px 12px"
-    messageElement.style.borderRadius = "8px"
-    messageElement.style.maxWidth = "80%"
-
-    if (sender === "user") {
-      messageElement.style.marginLeft = "auto"
-      messageElement.style.backgroundColor = "#f97316"
-      messageElement.style.color = "white"
-    } else {
-      messageElement.style.marginRight = "auto"
-      messageElement.style.backgroundColor = "#f1f1f1"
-      messageElement.style.color = "#333"
-    }
-
-    messageElement.innerHTML = message
-    chatMessages.appendChild(messageElement)
-    chatMessages.scrollTop = chatMessages.scrollHeight
-  }
-
-  async function sendChatMessage(message) {
-    if (!message.trim()) return
-
-    // إضافة رسالة المستخدم
-    addChatMessage(message, "user")
-
-    // إظهار مؤشر الكتابة
-    const typingIndicator = document.createElement("div")
-    typingIndicator.className = "typing-indicator bot-message"
-    typingIndicator.innerHTML = `
-      <div class="typing-dots">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-      </div>
-    `
-    chatMessages.appendChild(typingIndicator)
-    chatMessages.scrollTop = chatMessages.scrollHeight
-
-    try {
-      // إرسال الرسالة إلى API
-      const response = await fetch("/.netlify/functions/chat", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ message }),
-      })
-
-      if (!response.ok) {
-        throw new Error("فشل الاتصال بالخادم")
-      }
-
-      const data = await response.json()
-
-      // إزالة مؤشر الكتابة
-      chatMessages.removeChild(typingIndicator)
-
-      // إضافة رد الروبوت
-      if (data.response) {
-        // تنسيق الرد لتحسين العرض
-        const formattedResponse = formatBotResponse(data.response)
-        addChatMessage(formattedResponse, "bot")
-      } else {
-        addChatMessage("عذراً، لم أتمكن من فهم طلبك. هل يمكنك إعادة صياغته؟", "bot")
-      }
-    } catch (error) {
-      console.error("Error sending message:", error)
-
-      // إزالة مؤشر الكتابة
-      if (typingIndicator.parentNode) {
-        chatMessages.removeChild(typingIndicator)
-      }
-
-      // إضافة رسالة خطأ
-      addChatMessage("عذراً، حدث خطأ أثناء معالجة طلبك. يرجى المحاولة مرة أخرى لاحقاً.", "bot")
-    }
-  }
-
-  // تنسيق رد الروبوت لتحسين العرض
-  function formatBotResponse(response) {
-    // تحويل أسماء المنتجات إلى نص بارز
-    let formattedResponse = response.replace(
-      /\b(زيت|سيروم|كريم|شامبو|بلسم|ماسك|مرطب|بخاخ|غسول|مقشر|جل)\s+([^.،,]+)/g,
-      "<strong>$1 $2</strong>",
-    )
-
-    // تحويل أسماء العلامات التجارية إلى نص بارز
-    formattedResponse = formattedResponse.replace(
-      /\b(ناتورا|أفون|Natura|Avon|TODODIA|CHRONOS|EKOS|LUMINA|RENEW|FACES)\b/g,
-      "<strong>$1</strong>",
-    )
-
-    // تحويل الأسعار إلى نص بارز
-    formattedResponse = formattedResponse.replace(/\$(\d+(\.\d+)?)/g, "<strong class='price'>$$$1</strong>")
-
-    // تحويل النقاط إلى قائمة منسقة
-    formattedResponse = formattedResponse.replace(/(\d+\.\s+)/g, "<br>• ")
-
-    return formattedResponse
-  }
-
-  // إضافة الخيارات السريعة
-  function setupQuickOptions() {
-    const quickOptionsData = [
-      { text: "العناية بالشعر", query: "ما هي أفضل منتجات العناية بالشعر؟" },
-      { text: "العناية بالبشرة", query: "أريد منتجات للعناية بالبشرة" },
-      { text: "شعر جاف", query: "منتجات للشعر الجاف والمتقصف" },
-      { text: "بشرة دهنية", query: "منتجات للبشرة الدهنية" },
-      { text: "مكافحة التجاعيد", query: "كريم لمكافحة التجاعيد" },
-      { text: "الأسعار", query: "ما هي أسعار المنتجات؟" },
-      { text: "التوصيل", query: "كيف يتم التوصيل؟" },
-    ]
-
-    quickOptions.innerHTML = ""
-    quickOptionsData.forEach((option) => {
-      const button = document.createElement("button")
-      button.className = "quick-option-btn"
-      button.textContent = option.text
-      button.addEventListener("click", () => {
-        chatInput.value = option.query
-        sendChatMessage(option.query)
-      })
-      quickOptions.appendChild(button)
-    })
-  }
-
-  // إضافة مستمعي الأحداث
   searchInput.addEventListener("input", filterAndDisplayProducts)
   brandFilter.addEventListener("change", filterAndDisplayProducts)
   lineFilter.addEventListener("change", filterAndDisplayProducts)
@@ -363,15 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
   resetFiltersBtn.addEventListener("click", resetFilters)
   resetFiltersBtnAlt.addEventListener("click", resetFilters)
   closeModal.addEventListener("click", closeProductModal)
-
-  // مستمعي أحداث الشات بوت
-  chatToggle.addEventListener("click", toggleChat)
-  chatForm.addEventListener("submit", (e) => {
-    e.preventDefault()
-    const message = chatInput.value
-    chatInput.value = ""
-    sendChatMessage(message)
-  })
 
   window.addEventListener("click", (event) => {
     if (event.target === productModal) {
@@ -385,9 +224,6 @@ document.addEventListener("DOMContentLoaded", () => {
       closeProductModal()
     }
   })
-
-  // تهيئة الخيارات السريعة
-  setupQuickOptions()
 
   filterAndDisplayProducts()
 })
