@@ -269,7 +269,7 @@ const products = [
     "explanation": "يمنح اليدين نعومة فائقة، يحمي من الجفاف والأشعة فوق البنفسجية، مثالي للاستخدام اليومي، خصوصًا في النهار.",
     "image": "images/72179.png",
     "name_pt": "Creme Nutritivo para as Mãos Tododia Noz Pecã e Cacau FPS 20",
-    "price": 16.17,
+    "price": 17.43,
     "availability": "متوفر قريبا"
   },
   {
@@ -386,7 +386,7 @@ const products = [
     "explanation": "يوفر إحساساً بالانتعاش والثقة مع حماية فعالة من التعرق، ومناسب للبشرة الحساسة.",
     "image": "images/189407.png",
     "name_pt": "TODODIA DES ROLLON AMEIXA 70ML",
-    "price": 19.23,
+    "price": 15.95,
     "availability": "متوفر قريبا"
   },
   {
@@ -399,7 +399,7 @@ const products = [
     "explanation": "يوفر حماية فعالة ضد التعرق والرائحة، ويحافظ على توازن البشرة مع إحساس دائم بالانتعاش الطبيعي.",
     "image": "images/123129.png",
     "name_pt": "TODODIA DEO ROLL ON PREB ALECR 70ML",
-    "price": 19.23,
+    "price": 15.95,
     "availability": "متوفر قريبا"
   },
   {
@@ -412,7 +412,7 @@ const products = [
     "explanation": "يوازن رطوبة البشرة، يمنح إحساساً فورياً بالانتعاش، ولا يترك بقعاً على الملابس.",
     "image": "images/189415.png",
     "name_pt": "TODODIA DES ROLLON CAPIMHORTELA 70ML",
-    "price": 19.23,
+    "price": 15.95,
     "availability": "متوفر قريبا"
   },
   {
@@ -750,7 +750,7 @@ const products = [
     "explanation": "يرطب البشرة الجافة، يتركها ناعمة ومعطّرة، ويعزز الإحساس بالراحة والأنوثة، مثالي لفصل الشتاء أو المساء.",
     "image": "images/100423.png",
     "name_pt": "Creme Desodorante Nutritivo para o Corpo Tododia Ameixa e Flor de Baunilha",
-    "price": 41.93,
+    "price": 40.00,
     "availability": "متوفر قريبا"
   },
   {
