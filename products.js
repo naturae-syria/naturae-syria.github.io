@@ -477,7 +477,7 @@ const products = [
     "explanation": "يجدد البشرة بإزالة الخلايا الميتة، يتركها ناعمة ونظيفة برائحة طبيعية منعشة، مثالي للاستخدام اليومي أو الأسبوعي.",
     "image": "images/129797.png",
     "name_pt": "EKOS SAB BAR MULTI ESFOLIA 4X100G",
-    "price": 24.68,
+    "price": 7.5,
     "availability": "متوفر قريبا"
   },
   {
@@ -607,7 +607,7 @@ const products = [
     "explanation": "ينظف البشرة بفعالية دون أن يجففها، مثالي للاستخدام اليومي لجميع أفراد العائلة، مع رائحة خفيفة ومنعشة.",
     "image": "images/129799.png",
     "name_pt": "EKOS SAB BAR MULTI REFRESCA X100G",
-    "price": 29.17,
+    "price": 7.5,
     "availability": "متوفر قريبا"
   },
   {
@@ -620,7 +620,7 @@ const products = [
     "explanation": "يمنح البشرة نعومة ولمسة حريرية بعد كل استخدام، مثالي للبشرة الجافة أو الحساسة، وللاستخدام اليومي.",
     "image": "images/134575.png",
     "name_pt": "EKOS SAB BAR MULTI CREMOSO 4X100G",
-    "price": 29.17,
+    "price": 7.5,
     "availability": "متوفر قريبا"
   },
   {
@@ -802,7 +802,7 @@ const products = [
     "explanation": "مثالي للبشرة الجافة، يرطب ويغذي أثناء التنظيف اليومي ويترك البشرة ناعمة ومعطّرة بعطر الكاكاو الطبيعي.",
     "image": "images/162220.png",
     "name_pt": "EKOS SAB BAR CACAU 4X100G TERC",
-    "price": 47.53,
+    "price": 12.5,
     "availability": "متوفر قريبا"
   },
   {
