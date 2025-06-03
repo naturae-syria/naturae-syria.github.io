@@ -997,7 +997,7 @@ const products = [
     "explanation": "يجدد البشرة ويتركها ناعمة ومتألقة، مناسب للبشرة الجافة.",
     "image": "images/69825.png",
     "name_pt": "EKOS HID POLP ESF CASTANHA 200G TERC",
-    "price": 58.725,
+    "price": 61.425,
     "availability": "متوفر"
   },
   {
@@ -1088,7 +1088,7 @@ const products = [
     "explanation": "يرطب البشرة بفعالية ويمنحها لمسة مضيئة ومفعمة بالحيوية.",
     "image": "images/112087.png",
     "name_pt": "EKOS OLEO HID DES TRIFASI BURITI 200ML",
-    "price": 62.93,
+    "price": 61.13,
     "availability": "متوفر"
   },
   {
@@ -1101,7 +1101,7 @@ const products = [
     "explanation": "يرطب البشرة بعمق ويمنحها ملمسًا حريريًا ولمعانًا مع رائحة فاكهية جذابة.",
     "image": "images/110643.png",
     "name_pt": "EKOS OLEO HID DES TRIFASICO ACAI 200ML",
-    "price": 62.93,
+    "price": 61.13,
     "availability": "متوفر"
   },
   {
@@ -1114,7 +1114,7 @@ const products = [
     "explanation": "يمنح البشرة نعومة مميزة ولمعانًا طبيعيًا مع لمسة عطرية فاخرة تدوم لساعات.",
     "image": "images/97426.png",
     "name_pt": "EKOS OLEO HID DES TRIFASIC PITANGA 200ML",
-    "price": 62.93,
+    "price": 61.13,
     "availability": "متوفر"
   },
   {
@@ -1153,7 +1153,7 @@ const products = [
     "explanation": "يعزز الترطيب العميق للبشرة ويحسن مرونتها ويتركها ناعمة طوال اليوم.",
     "image": "images/27238.png",
     "name_pt": "EKOS BALSAM DES HID TUKUMA 200G TERC",
-    "price": 65.03,
+    "price": 61.13,
     "availability": "متوفر"
   },
   {
