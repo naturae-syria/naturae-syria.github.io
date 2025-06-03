@@ -1,5 +1,18 @@
 const products = [
   {
+    "name": "صابون تودوديا",
+    "brand": "Natura",
+    "line": "TODODIA",
+    "category": "العناية الشخصية",
+    "description": "صابون نباتي بتركيبة غنية بخلاصات طبيعية وزبدة الشيا، ينظف البشرة بلطف دون أن يسبب الجفاف، ويأتي بروائح متنوعة مثل اللوز، التمر والقرفة، الورد، الكاكاو، وغيرها.",
+    "usage": "يُستخدم على بشرة مبللة حتى تتكون رغوة، ثم يُشطف بالماء.",
+    "explanation": "يمنح تنظيفًا عميقًا مع ترطيب لطيف، ويترك البشرة ناعمة ومعطرة بعطر يدوم بعد الاستخدام.",
+    "image": "images/202431.png",
+    "name_pt": "Kit Sabonetes em Barra Tododia",
+    "price": 4.00,
+    "availability": "متوفر قريبا"
+  },
+  {
     "name": "مزيل عرق كريم أفون للنساء بدون عطر – 50غ",
     "brand": "Avon",
     "line": "AVON DESODORANTE",
@@ -9,7 +22,8 @@ const products = [
     "explanation": "يوفر حماية فعالة ويمنح شعوراً بالنظافة دون تغطية برائحة.",
     "image": "images/135727.png",
     "name_pt": "AVON DESOD CREME SEM PERFUM FEM 50G",
-    "price": 4.1
+    "price": 4.1,
+    "availability": "متوفر"
   },
   {
     "name": "مزيل عرق كريم أكوافايب برائحة الأطفال – 50غ",
@@ -21,7 +35,8 @@ const products = [
     "explanation": "مناسب للبشرة الحساسة، لا يسبب التهيج ويمتص بسرعة دون أن يترك بقايا.",
     "image": "images/135725.png",
     "name_pt": "AQUAVIBE DESODORANTE CREME BABY SMEL 50G",
-    "price": 4.1
+    "price": 4.1,
+    "availability": "متوفر"
   },
   {
     "name": "مزيل عرق كريم أفون برائحة الأعشاب الحلوة – 50غ",
@@ -33,7 +48,8 @@ const products = [
     "explanation": "يمنح راحة وثقة طوال اليوم مع ترطيب خفيف وعطر منعش يدوم.",
     "image": "images/135726.png",
     "name_pt": "AVON DESODE CREME ERVA DOCE 50G",
-    "price": 4.1
+    "price": 4.1,
+    "availability": "متوفر"
   },
   {
     "name": "مزيل عرق كريم فار أواي سبلندوريا – أكسل",
@@ -45,7 +61,8 @@ const products = [
     "explanation": "يجمع بين الأناقة والحماية، يمنح إحساسًا بالانتعاش مع لمسة عطرية ساحرة.",
     "image": "images/177792.png",
     "name_pt": "FAR AWAY SPLENDORIA DESOD CREME AXL",
-    "price": 4.1
+    "price": 4.1,
+    "availability": "متوفر"
   },
   {
     "name": "مزيل عرق كريم فار أواي أورجينال – أكسل",
@@ -57,7 +74,8 @@ const products = [
     "explanation": "مثالي للنساء الباحثات عن حماية يومية برائحة أنثوية تقليدية من أفون.",
     "image": "images/177793.png",
     "name_pt": "FAR AWAY ORIGINAL DESOD CREME AXL",
-    "price": 4.1
+    "price": 4.1,
+    "availability": "متوفر"
   },
   {
     "name": "مزيل عرق كريم فار أواي غلامور – أكسل",
@@ -69,7 +87,8 @@ const products = [
     "explanation": "حماية تدوم طويلاً بعطر أنيق يضيف لمسة من التألق والثقة.",
     "image": "images/179546.png",
     "name_pt": "FAR AWAY GLAMOUR¿DESOD CREME AXL",
-    "price": 4.718
+    "price": 4.718,
+    "availability": "متوفر"
   },
   {
     "name": "كريم أفون كير لليدين بالسيليكون – 75غ",
@@ -81,7 +100,8 @@ const products = [
     "explanation": "يرطب ويحمي اليدين من العوامل الخارجية مع ملمس غير دهني.",
     "image": "images/161063.png",
     "name_pt": "AVON CARE CR DES MAO SILICONE 75G",
-    "price": 6.45
+    "price": 6.45,
+    "availability": "متوفر"
   },
   {
     "name": "كريم أفون كير لليدين بالسيليكون والمكاديميا – 75غ",
@@ -93,7 +113,21 @@ const products = [
     "explanation": "يغذي البشرة بعمق ويحسن من مرونتها مع حماية فعالة من الجفاف.",
     "image": "images/161079.png",
     "name_pt": "AVON CARE CR DES MAO SILIC MACADAMIA 75G",
-    "price": 6.45
+    "price": 6.45,
+    "availability": "متوفر"
+  },
+  {
+    "name": "كريم اليدين أفون كير بالسيليكون – 120غ",
+    "brand": "Avon",
+    "line": "AVON CARE",
+    "category": "عناية باليدين",
+    "description": "كريم غني بالسيليكون يُشكل طبقة واقية على البشرة، يمنح ترطيبًا طويل الأمد ويحمي اليدين من الجفاف والعوامل الخارجية.",
+    "usage": "يُستخدم عدة مرات يومياً على اليدين النظيفة أو عند الحاجة.",
+    "explanation": "يرطب بعمق، يمتص بسرعة دون ترك أثر دهني، ويمنح حماية يومية مثالية خاصة في الطقس البارد أو الجاف.",
+    "image": "images/161066.png",
+    "name_pt": "AVON CARE CR DES MAO SILICONE 120G",
+    "price": 9.9,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "كريم أفون فُت وركس لترطيب القدمين المكثف – 80غ",
@@ -105,7 +139,8 @@ const products = [
     "explanation": "يمنح راحة فورية للقدمين ويُستخدم يومياً للعناية المستمرة.",
     "image": "images/174931.png",
     "name_pt": "FOOTWORKS HID DES PES INTENSIVA 80G",
-    "price": 10.55
+    "price": 10.55,
+    "availability": "متوفر"
   },
   {
     "name": "كريم الوجه الليلي أفون كير – ليلة سعيدة – 100غ",
@@ -117,7 +152,8 @@ const products = [
     "explanation": "يعزز تجدد البشرة أثناء النوم ويمنحها مظهراً منتعشاً عند الاستيقاظ.",
     "image": "images/136026.png",
     "name_pt": "AVON CARE CREME FAC BOA NOITE 100G",
-    "price": 10.79
+    "price": 10.79,
+    "availability": "متوفر"
   },
   {
     "name": "كريم الوجه النهاري أفون كير بالفيتامينات المتعددة – 100غ",
@@ -129,7 +165,8 @@ const products = [
     "explanation": "مثالي للبشرة الباهتة، يعزز الحيوية والترطيب مع الاستخدام اليومي.",
     "image": "images/152724.png",
     "name_pt": "AVON CARE MULTIVITAMIN CREME DIA 100G",
-    "price": 10.79
+    "price": 10.79,
+    "availability": "متوفر"
   },
   {
     "name": "كريم الوجه النهاري من أفون كير لمقاومة التجاعيد – 100غ",
@@ -141,7 +178,73 @@ const products = [
     "explanation": "يحارب علامات التقدم في السن ويوفر ترطيباً مستمراً.",
     "image": "images/136024.png",
     "name_pt": "AVON CARE CREME FAC ANTISSINAIS DIA 100G",
-    "price": 10.79
+    "price": 10.79,
+    "availability": "متوفر"
+  },
+  {
+    "name": "سيروم تنعيم الشعر أدفانسد تكنيك – 30مل",
+    "brand": "Avon",
+    "line": "Avon OLEO",
+    "category": "عناية بالشعر",
+    "description": "سيروم خفيف مصمم للشعر الأملس، يحتوي على زيت الأرغان ومكونات مضادة للرطوبة، يتحكم في التجعد ويمنح لمسة نهائية ناعمة ولامعة دون إثقال الشعر.",
+    "usage": "يُوضع على شعر نظيف ورطب أو جاف، من منتصف الطول حتى الأطراف، دون شطف.",
+    "explanation": "يحافظ على استقامة الشعر لفترة أطول، يقلل من التطاير، ويمنحه مظهراً مصقولاً وحريرياً طوال اليوم.",
+    "image": "images/135945.png",
+    "name_pt": "ADV TECH LISO SERUM 30ML",
+    "price": 11.79,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "سيروم أفون أدفانسد تكنيك لتجاعيد الشعر القوية – 30مل",
+    "brand": "Avon",
+    "line": "Avon OLEO",
+    "category": "عناية بالشعر",
+    "description": "سيروم مخصص للشعر الكيرلي والمجعد، غني بزيت جوز الهند والبروتينات، يرطب بعمق، يعزز مرونة التجعيدات، ويقلل من النفشة ويمنح لمعانًا صحيًا.",
+    "usage": "يُوضع على الشعر الرطب أو الجاف، من الأطراف إلى الأعلى، دون شطف.",
+    "explanation": "يحافظ على شكل التموجات الطبيعية ويترك الشعر ناعماً، محدداً وخالياً من التطاير مع لمسة نهائية غير دهنية.",
+    "image": "images/160276.png",
+    "name_pt": "ADV TECH CACHOS PODEROSOS SERUM 30ML",
+    "price": 11.79,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "سيروم إعادة البناء أدفانسد تكنيك – 30مل",
+    "brand": "Avon",
+    "line": "Avon OLEO",
+    "category": "عناية بالشعر",
+    "description": "سيروم مركز لإعادة بناء الشعر التالف، غني بالبروتينات النباتية وزيت الأرغان، يعيد القوة والمرونة للشعر التالف أو المعالج كيميائيًا.",
+    "usage": "يُوضع كمية قليلة على أطراف الشعر الرطب أو الجاف دون شطف.",
+    "explanation": "يعيد بنية الشعر من الداخل، يقلل التقصف، ويمنح نعومة ولمعان فوري مع مظهر صحي ومتجدد.",
+    "image": "images/135138.png",
+    "name_pt": "ADV TECH RECONSTRUCAO SERUM 30ML",
+    "price": 11.892,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "صابون الوجه كلير سكين للتحكم في اللمعان وتنظيف المسام – 50غ",
+    "brand": "Avon",
+    "line": "CLEARSKIN",
+    "category": "عناية بالبشرة",
+    "description": "تركيبة مخصصة للبشرة الدهنية، تحتوي على حمض الساليسيليك وزنك PCA، تقلل من لمعان الوجه، تنظف المسام بعمق، وتساعد على منع ظهور البثور.",
+    "usage": "يُستخدم مرتين يومياً على بشرة مبللة، يُدلك بلطف ويُشطف جيداً.",
+    "explanation": "ينظف البشرة ويقلل من الإفرازات الدهنية، يساعد على تصغير المسام ويمنح مظهرًا غير لامع ونقي مع الاستخدام المنتظم.",
+    "image": "images/136036.png",
+    "name_pt": "CLEARSKIN SAB FAC CONTROLE BRIL PORO 50G",
+    "price": 13.63,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "كريم أفون فُت وركس متعدد الفوائد للقدمين – 80غ",
+    "brand": "Avon",
+    "line": "AVON CARE",
+    "category": "عناية بالقدمين",
+    "description": "تركيبة غنية بزبدة الشيا ومجموعة من الزيوت المغذية، يرطب ويخفف من جفاف وتشقق القدمين، ويمنح نعومة فورية.",
+    "usage": "يُستخدم يومياً على القدمين النظيفة، ويدلك حتى الامتصاص.",
+    "explanation": "يوفر ترطيباً مكثفاً، يحسن من مظهر وملمس القدمين، ويمنح راحة تدوم طوال اليوم مع استخدام منتظم.",
+    "image": "images/174932.png",
+    "name_pt": "FOOTWORKS CREME PES MULTIBENEFICIO 80G",
+    "price": 13.63,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "مجموعة رول أون تفتيح من تودوديا",
@@ -153,7 +256,21 @@ const products = [
     "explanation": "يفتّح البشرة بلطف ويحمي من التعرق بتركيبة فعالة وغير مهيجة.",
     "image": "images/130305.png",
     "name_pt": "TODODIA CJ ROLL ON ACLARAR 3 UN",
-    "price": 15.95
+    "price": 15.95,
+    "availability": "متوفر"
+  },
+  {
+    "name": "كريم مغذٍ لليدين تودوديا بجوز البقان والكاكاو مع واقٍ شمسي SPF 20",
+    "brand": "Natura",
+    "line": "TODODIA",
+    "category": "عناية باليدين",
+    "description": "تركيبة مغذية بخلاصة جوز البقان وزبدة الكاكاو، توفر ترطيبًا عميقًا لليدين، مع حماية من أشعة الشمس بفضل عامل الحماية SPF 20.",
+    "usage": "يُستخدم يوميًا على اليدين، ويفضل بعد غسل اليدين أو قبل التعرض للشمس.",
+    "explanation": "يمنح اليدين نعومة فائقة، يحمي من الجفاف والأشعة فوق البنفسجية، مثالي للاستخدام اليومي، خصوصًا في النهار.",
+    "image": "images/72179.png",
+    "name_pt": "Creme Nutritivo para as Mãos Tododia Noz Pecã e Cacau FPS 20",
+    "price": 16.17,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "كريم مزيل عرق تودوديا برائحة زهرة الليس – 80غ",
@@ -165,7 +282,8 @@ const products = [
     "explanation": "يحافظ على الإنتعاش طوال اليوم، ويوفر عناية ناعمة ورائحة زهرية ناعمة وثابتة.",
     "image": "images/96518.png",
     "name_pt": "TODODIA DES CREME FLOR DE LIS INVIS 80G",
-    "price": 16.6
+    "price": 16.6,
+    "availability": "متوفر"
   },
   {
     "name": "كريم مزيل عرق تودوديا بالمكاديميا – 80غ",
@@ -177,7 +295,34 @@ const products = [
     "explanation": "يرطب البشرة ويحافظ على نعومتها، مع حماية فعالة ورائحة طبيعية خفيفة تدوم طوال اليوم.",
     "image": "images/1925.png",
     "name_pt": "TODODIA¿DES CREME MACADAMIA INVIS 80G",
-    "price": 16.6
+    "price": 16.6,
+    "availability": "متوفر"
+  },
+  {
+    "name": "ماسك الوجه الأسود كلير سكين – 50غ",
+    "brand": "Avon",
+    "line": "CLEARSKIN",
+    "category": "عناية بالبشرة",
+    "description": "ماسك تنظيف عميق يحتوي على الفحم النشط وحمض الساليسيليك، يساعد على إزالة الرؤوس السوداء، تقليل اللمعان، وتنقية المسام من الشوائب والدهون.",
+    "usage": "يُوضع على وجه نظيف وجاف، يُترك حتى يجف (حوالي 20 دقيقة) ثم يُزال بلطف.",
+    "explanation": "ينقي البشرة بفعالية، يقلل من حجم المسام، ويمنح ملمسًا ناعمًا غير لامع للبشرة الدهنية والمختلطة.",
+    "image": "images/152075.png",
+    "name_pt": "CLEARSKIN MASCARA FAC PRETA 50G",
+    "price": 17.35,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "ماسك الوجه من كلير سكين لإزالة الرؤوس السوداء – 50غ",
+    "brand": "Avon",
+    "line": "CLEARSKIN",
+    "category": "عناية بالبشرة",
+    "description": "ماسك علاجي يحتوي على حمض الساليسيليك والطين الطبيعي، يعمل على تنظيف المسام بعمق، إزالة الرؤوس السوداء، وتنقية البشرة من الشوائب والدهون الزائدة.",
+    "usage": "يُوضع على الوجه النظيف، يُترك لمدة 15 دقيقة ثم يُشطف بالماء الفاتر.",
+    "explanation": "يقلل من ظهور الرؤوس السوداء مع الاستخدام المنتظم، ينقي البشرة ويتركها ناعمة ونظيفة وخالية من اللمعان.",
+    "image": "images/152077.png",
+    "name_pt": "CLEARSKIN MASCARA FACIAL CRAVOS 50G",
+    "price": 17.35,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "كريم اليدين تودوديا بالمانغا الوردية وجوز الهند – 50مل",
@@ -189,7 +334,8 @@ const products = [
     "explanation": "مثالي للترطيب الفوري، لا يترك أثراً دهنياً ويمتص بسرعة.",
     "image": "images/95937.png",
     "name_pt": "TODODIA HID MAOS MANGA ROSA COCO 50ML",
-    "price": 17.43
+    "price": 17.43,
+    "availability": "متوفر"
   },
   {
     "name": "كريم اليدين تودوديا بالكرز والفانيليا – 50مل",
@@ -201,7 +347,8 @@ const products = [
     "explanation": "كريم خفيف وسريع الامتصاص، يمنح ترطيباً فعالاً وعطراً مميزاً يدوم طويلاً.",
     "image": "images/959371.png",
     "name_pt": "tododia hidcereja eavela maos50ml",
-    "price": 17.43
+    "price": 17.43,
+    "availability": "متوفر"
   },
   {
     "name": "زيت الأرغان وجوز الهند للعلاج من أدفانسد تكنيك – 30مل",
@@ -213,7 +360,8 @@ const products = [
     "explanation": "يُرطب بعمق ويغذي الشعر من الجذور للأطراف بفضل الزيوت الطبيعية.",
     "image": "images/135141.png",
     "name_pt": "ADV TECH OLEO ARGAN TRATAMENTO COCO 30ML",
-    "price": 17.79
+    "price": 17.79,
+    "availability": "متوفر"
   },
   {
     "name": "سيروم الأرغان والكاميليا من أدفانسد تكنيك – 30مل",
@@ -225,7 +373,47 @@ const products = [
     "explanation": "يمنح مظهرًا صحيًا وناعمًا للشعر مع تقوية الأطراف ومنع تكسرها.",
     "image": "images/135140.png",
     "name_pt": "ADV TECH OLEO ARGAN SERUM CAMELIA 30ML",
-    "price": 17.79
+    "price": 17.79,
+    "availability": "متوفر"
+  },
+  {
+    "name": "مزيل عرق رول أون تودوديا برائحة البرقوق – 70مل",
+    "brand": "Natura",
+    "line": "TODODIA",
+    "category": "العناية الشخصية",
+    "description": "مزيل عرق لطيف بخلاصة البرقوق (أميشا)، يمنح حماية تدوم حتى 48 ساعة، ويترك رائحة فاكهية أنثوية منعشة طوال اليوم، دون أن يترك بقعاً على الملابس.",
+    "usage": "يُستخدم يومياً على بشرة نظيفة وجافة تحت الإبطين.",
+    "explanation": "يوفر إحساساً بالانتعاش والثقة مع حماية فعالة من التعرق، ومناسب للبشرة الحساسة.",
+    "image": "images/189407.png",
+    "name_pt": "TODODIA DES ROLLON AMEIXA 70ML",
+    "price": 19.23,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "مزيل عرق رول أون تودوديا بإكليل الجبل والمريمية – 70مل",
+    "brand": "Natura",
+    "line": "TODODIA",
+    "category": "العناية الشخصية",
+    "description": "مزيل عرق مضاد للتعرق بتركيبة لطيفة تحتوي على مستخلصات إكليل الجبل والمريمية، يمنح حماية لمدة 48 ساعة مع عطر عشبي منعش ومتوازن.",
+    "usage": "يُستخدم يوميًا على بشرة نظيفة وجافة تحت الإبط.",
+    "explanation": "يوفر حماية فعالة ضد التعرق والرائحة، ويحافظ على توازن البشرة مع إحساس دائم بالانتعاش الطبيعي.",
+    "image": "images/123129.png",
+    "name_pt": "TODODIA DEO ROLL ON PREB ALECR 70ML",
+    "price": 19.23,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "مزيل عرق رول أون تودوديا برائحة الليمون والنعناع – 70مل",
+    "brand": "Natura",
+    "line": "TODODIA",
+    "category": "العناية الشخصية",
+    "description": "مزيل عرق يمنح حماية تدوم حتى 48 ساعة، بتركيبة لطيفة تحتوي على خلاصة نباتات طبيعية مثل الليمون العشبي (capim-limão) والنعناع، برائحة منعشة ومريحة.",
+    "usage": "يُستخدم على بشرة نظيفة وجافة تحت الإبط يومياً.",
+    "explanation": "يوازن رطوبة البشرة، يمنح إحساساً فورياً بالانتعاش، ولا يترك بقعاً على الملابس.",
+    "image": "images/189415.png",
+    "name_pt": "TODODIA DES ROLLON CAPIMHORTELA 70ML",
+    "price": 19.23,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "كريم تمشيط مغذي من تودوديا",
@@ -237,7 +425,8 @@ const products = [
     "explanation": "يساعد في تقوية الشعر وجعله أكثر سهولة في التصفيف.",
     "image": "images/156237.png",
     "name_pt": "TODODIA CRM COND PENTEAR NUTRITIVO 180ML",
-    "price": 19.7
+    "price": 19.7,
+    "availability": "متوفر"
   },
   {
     "name": "ماسك مغذي للشعر من تودوديا – 250مل",
@@ -249,7 +438,8 @@ const products = [
     "explanation": "يعيد حيوية الشعر ويجعله أكثر نعومة ولمعانًا.",
     "image": "images/154872.png",
     "name_pt": "TODODIA COND MASCARA NUTRICAO 250ML",
-    "price": 20.0
+    "price": 20.0,
+    "availability": "متوفر"
   },
   {
     "name": "جل بلسم تودوديا لتجاعيد الشعر والكيرلي – 250غ",
@@ -261,7 +451,34 @@ const products = [
     "explanation": "يُظهر جمال التموجات الطبيعية للشعر ويقلل من تطايره.",
     "image": "images/173590.png",
     "name_pt": "TODODIA COND GEL CACHOS E CRESPOS 250G",
-    "price": 20.0
+    "price": 20.0,
+    "availability": "متوفر"
+  },
+  {
+    "name": "ماسك ترطيب فايسز – 50مل",
+    "brand": "Natura",
+    "line": "FACES",
+    "category": "عناية بالبشرة",
+    "description": "ماسك ترطيب فوري بتركيبة خفيفة، غني بحمض الهيالورونيك وخلاصة الألوة فيرا، يساعد على إنعاش البشرة الجافة وتغذيتها بعمق.",
+    "usage": "يُوضع على بشرة نظيفة ويُترك لمدة 10 إلى 15 دقيقة، ثم يُشطف بالماء.",
+    "explanation": "يمنح البشرة ترطيبًا فوريًا ويعيد لها الحيوية والنعومة، مثالي لجميع أنواع البشرة خاصة الباهتة أو المتعبة.",
+    "image": "images/105024.png",
+    "name_pt": "FACES HID MASCARA 50ML",
+    "price": 24.41,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "صابون تقشير متعدد من إكوس  × 100غ",
+    "brand": "Natura",
+    "line": "EKOS",
+    "category": "العناية الشخصية",
+    "description": " صابون نباتي غني بزيوت أمازونية (مثل الكستناء والبوريتي)، يحتوي على جزيئات تقشير طبيعية، ينظف البشرة ويقشرها بلطف.",
+    "usage": "يُستخدم على بشرة مبللة، يُفرك بلطف بحركات دائرية ثم يُشطف جيدًا.",
+    "explanation": "يجدد البشرة بإزالة الخلايا الميتة، يتركها ناعمة ونظيفة برائحة طبيعية منعشة، مثالي للاستخدام اليومي أو الأسبوعي.",
+    "image": "images/129797.png",
+    "name_pt": "EKOS SAB BAR MULTI ESFOLIA 4X100G",
+    "price": 24.68,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "كريم تفتيح الوجه من فايسز مع واقي شمس",
@@ -273,7 +490,8 @@ const products = [
     "explanation": "يساعد في توحيد لون البشرة وتقليل البقع الداكنة بفضل مكوناته المبيضة.",
     "image": "images/91821.png",
     "name_pt": "FACES CLAREADOR FACIAL PELE M O FPS15",
-    "price": 25.13
+    "price": 25.13,
+    "availability": "متوفر"
   },
   {
     "name": "كريم تفتيح الوجه فايسز للبشرة العادية والجافة – SPF15",
@@ -285,7 +503,8 @@ const products = [
     "explanation": "يساعد في تقليل التصبغات ويمنح إشراقة للبشرة مع حماية يومية.",
     "image": "images/91820.png",
     "name_pt": "FACES CLAREADOR FACIAL PELE N S FPS15",
-    "price": 25.13
+    "price": 25.13,
+    "availability": "متوفر"
   },
   {
     "name": "شامبو التغذية تودوديا",
@@ -297,7 +516,8 @@ const products = [
     "explanation": "يمنح الشعر مظهرًا صحيًا ولمعانًا طبيعيًا مع الاستخدام المنتظم.",
     "image": "images/154869.png",
     "name_pt": "TODODIA SH NUTRICAO 300ML",
-    "price": 27.12
+    "price": 27.12,
+    "availability": "متوفر"
   },
   {
     "name": "شامبو ترطيب تودوديا",
@@ -309,7 +529,21 @@ const products = [
     "explanation": "يمنح الشعر نعومة ولمعانًا طبيعيًا مع ترطيب طويل الأمد.",
     "image": "images/154866.png",
     "name_pt": "TODODIA SH HIDRATACAO 300ML",
-    "price": 27.12
+    "price": 27.12,
+    "availability": "متوفر"
+  },
+  {
+    "name": "ماسك فايسز للمسام – ستوب بورز",
+    "brand": "Natura",
+    "line": "FACES",
+    "category": "عناية بالبشرة",
+    "description": "ماسك وجه مخصص لتقليص مظهر المسام، يحتوي على الطين الطبيعي وحمض الساليسيليك، يساعد على تنظيف البشرة بعمق وامتصاص الدهون الزائدة.",
+    "usage": "يُوضع على بشرة نظيفة، يُترك حتى يجف تمامًا ثم يُشطف بالماء الفاتر.",
+    "explanation": "يقلل من لمعان البشرة، يصغر حجم المسام، ويمنح البشرة مظهراً أنقى وأكثر نعومة مع كل استخدام.",
+    "image": "images/85003.png",
+    "name_pt": "FACES MASCARA PARA POROS STOP PORES",
+    "price": 27.13,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "كريم ترطيب اليدين إكوس بزيت الكستناء – 40غ",
@@ -321,7 +555,8 @@ const products = [
     "explanation": "يمنح اليدين نعومة فائقة ويحميهما من الجفاف خاصة في الأجواء الباردة.",
     "image": "images/69821.png",
     "name_pt": "ekos hidpolpa maoscastanha40g nf",
-    "price": 27.23
+    "price": 27.23,
+    "availability": "متوفر"
   },
   {
     "name": "كريم ترطيب اليدين إكوس أنديوروبا – 40غ",
@@ -333,7 +568,8 @@ const products = [
     "explanation": "مثالي للبشرة الحساسة أو المتعبة، يهدئ ويرمم الجلد الجاف ويمنحه نعومة فورية دون أن يترك ملمساً دهنياً.",
     "image": "images/147195.png",
     "name_pt": "Polpa Hidratante para as Mãos Ekos Andiroba 40 g",
-    "price": 27.23
+    "price": 27.23,
+    "availability": "متوفر"
   },
   {
     "name": "كريم ترطيب اليدين إكوس بيتانغا سوداء",
@@ -345,7 +581,8 @@ const products = [
     "explanation": "يرطب البشرة الجافة، يمنع التشققات، ويمنح اليدين إحساساً بالراحة والانتعاش مع لمسة عطرية تدوم.",
     "image": "images/122945.png",
     "name_pt": "Polpa Hidratante para Mãos Ekos Pitanga Preta",
-    "price": 27.23
+    "price": 27.23,
+    "availability": "متوفر"
   },
   {
     "name": "غسول نسائي لطيف من تودوديا",
@@ -357,7 +594,60 @@ const products = [
     "explanation": "ينظف بلطف ويحافظ على التوازن الطبيعي للمنطقة الحساسة مع إحساس دائم بالانتعاش.",
     "image": "images/83641.png",
     "name_pt": "TODODIA SAB LIQ INTIMO SUAVE CONFORTO",
-    "price": 27.23
+    "price": 27.23,
+    "availability": "متوفر"
+  },
+  {
+    "name": "صابون إكوس الصلب المنعش × 100غ",
+    "brand": "Natura",
+    "line": "EKOS",
+    "category": "العناية الشخصية",
+    "description": "مجموعة صابون نباتي من إكوس بتركيبة منعشة بخلاصات الأمازون الطبيعية، تنظف البشرة بلطف وتمنحها إحساساً بالنظافة والانتعاش يدوم طوال اليوم.",
+    "usage": "يُستخدم على بشرة مبللة حتى تتكون رغوة، ثم يُشطف جيدًا.",
+    "explanation": "ينظف البشرة بفعالية دون أن يجففها، مثالي للاستخدام اليومي لجميع أفراد العائلة، مع رائحة خفيفة ومنعشة.",
+    "image": "images/129799.png",
+    "name_pt": "EKOS SAB BAR MULTI REFRESCA X100G",
+    "price": 29.17,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "صابون إكوس الصلب الكريمي  × 100غ",
+    "brand": "Natura",
+    "line": "EKOS",
+    "category": "العناية الشخصية",
+    "description": "مجموعة صابون نباتي بتركيبة غنية ومرطبة، تحتوي على زيوت أمازونية طبيعية، تنظف البشرة بلطف وتغذيها مع ترك رغوة كريمية ناعمة.",
+    "usage": "يُستخدم على بشرة مبللة حتى تتكون رغوة، ثم يُشطف جيدًا.",
+    "explanation": "يمنح البشرة نعومة ولمسة حريرية بعد كل استخدام، مثالي للبشرة الجافة أو الحساسة، وللاستخدام اليومي.",
+    "image": "images/134575.png",
+    "name_pt": "EKOS SAB BAR MULTI CREMOSO 4X100G",
+    "price": 29.17,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "جل جلتر فايسز – 80غ",
+    "brand": "Natura",
+    "line": "FACES",
+    "category": "عناية بالبشرة",
+    "description": "جل شفاف مزود بجزيئات لامعة (Glitter)، يستخدم لتزيين البشرة ولمسات المكياج اللامعة، مثالي للمناسبات، الحفلات، أو الإطلالات الجريئة.",
+    "usage": "يُوضع على الوجه أو الجسم باستخدام الأصابع أو فرشاة، ويُترك ليجف.",
+    "explanation": "يمنح لمسة لامعة ومشرقة للوجه أو الجسم، يجف بسرعة ولا يترك بقايا دهنية، سهل الإزالة بالماء أو مزيل المكياج.",
+    "image": "images/105026.png",
+    "name_pt": "FACES GEL GLITTER 80G",
+    "price": 31.21,
+    "availability": "متوفر قريبا"
+  },
+  {
+    "name": "واقي شمس أفون كير SPF 50 – 120مل",
+    "brand": "Avon",
+    "line": "AVON CARE",
+    "category": "عناية بالبشرة / واقي شمس",
+    "description": "واقي شمس بعامل حماية عالي +50، تركيبة خفيفة وسريعة الامتصاص، مقاومة للماء، تحمي من الأشعة فوق البنفسجية UVA/UVB وتساعد في الوقاية من حروق الشمس والشيخوخة المبكرة.",
+    "usage": "يُوضع بسخاء قبل التعرض للشمس بـ15 دقيقة، ويُعاد وضعه كل ساعتين أو بعد السباحة أو التعرق.",
+    "explanation": "يحمي البشرة من أضرار أشعة الشمس، يُرطب دون أن يترك ملمسًا دهنياً، مناسب لجميع أنواع البشرة والاستخدام اليومي.",
+    "image": "images/136063.png",
+    "name_pt": "AVON CARE PROT SOLAR FPS 50 120ML",
+    "price": 32.18,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "زيت الأرغان وجوز الهند للعلاج من أدفانسد تكنيك – 90مل",
@@ -369,7 +659,8 @@ const products = [
     "explanation": "مثالي للشعر الجاف والمجعد، يقلل من التكسر والتطاير ويمنح الشعر لمعانًا طبيعيًا.",
     "image": "images/135144.png",
     "name_pt": "ADV TECH OLEO ARGAN TRATAMENTO COCO 90ML",
-    "price": 33.74
+    "price": 33.74,
+    "availability": "متوفر"
   },
   {
     "name": "سيروم أرغان ثنائي الطبقة من أدفانسد تكنيك – 90مل",
@@ -381,7 +672,8 @@ const products = [
     "explanation": "يمنح الشعر ترطيبًا ولمعانًا مع تأثير خفيف وبدون مظهر زيتي.",
     "image": "images/135145.png",
     "name_pt": "ADV TECH OLEO ARGAN SERUM BIFASICO 90ML",
-    "price": 33.74
+    "price": 33.74,
+    "availability": "متوفر"
   },
   {
     "name": "سيروم الأرغان والكاميليا من أدفانسد تكنيك",
@@ -393,7 +685,8 @@ const products = [
     "explanation": "يحسن ملمس الشعر ويمنحه لمعانًا صحيًا دون إثقاله.",
     "image": "images/135143.png",
     "name_pt": "ADV TECH OLEO ARGAN SERUM CAMELIA 90ML",
-    "price": 33.74
+    "price": 33.74,
+    "availability": "متوفر"
   },
   {
     "name": "صابون سائل مقشر تودوديا برائحة الليمون والنعناع",
@@ -405,7 +698,8 @@ const products = [
     "explanation": "يزيل خلايا الجلد الميتة وينعش البشرة ويمنحها نعومة وانتعاشًا يدومان.",
     "image": "images/113412.png",
     "name_pt": "TODODIA SAB LIQUIDO ESFOL CAPIM 190G",
-    "price": 34.23
+    "price": 34.23,
+    "availability": "متوفر"
   },
   {
     "name": "شامبو ليمينا للتصبغات",
@@ -417,7 +711,8 @@ const products = [
     "explanation": "يعادل لون الشعر ويحافظ على إشراقه الطبيعي دون التسبب بجفاف.",
     "image": "images/148158.png",
     "name_pt": "LUMINA SH MATIZACAO 300ML",
-    "price": 39.12
+    "price": 39.12,
+    "availability": "متوفر"
   },
   {
     "name": "مقشر الجسم تودوديا بالمكاديميا – 200مل",
@@ -429,7 +724,8 @@ const products = [
     "explanation": "يجدد البشرة ويمنحها مظهرًا مشرقًا وملمسًا ناعمًا.",
     "image": "images/140759.png",
     "name_pt": "TODODIA ESFOL MACADAMIA 200ML",
-    "price": 40.0
+    "price": 40.0,
+    "availability": "متوفر"
   },
   {
     "name": "جل الجسم المضيء من تودوديا برائحة الكاجو – 100غ",
@@ -441,7 +737,21 @@ const products = [
     "explanation": "يترك البشرة ناعمة ولمّاعة برائحة فاكهية استوائية.",
     "image": "images/172410.png",
     "name_pt": "tododia descorp gelilum caj100g",
-    "price": 40.0
+    "price": 40.0,
+    "availability": "متوفر"
+  },
+  {
+    "name": "كريم مغذٍ معطر للجسم تودوديا برائحة البرقوق وزهرة الفانيليا",
+    "brand": "Natura",
+    "line": "TODODIA",
+    "category": "عناية بالجسم",
+    "description": "تركيبة نباتية غنية بخلاصة البرقوق وزهرة الفانيليا وزبدة الشيا، تمنح ترطيبًا مكثفًا وتغذية عميقة، مع عطر دافئ وأنثوي يدوم طوال اليوم.",
+    "usage": "يُستخدم بعد الاستحمام أو متى ما احتاجت البشرة إلى الترطيب.",
+    "explanation": "يرطب البشرة الجافة، يتركها ناعمة ومعطّرة، ويعزز الإحساس بالراحة والأنوثة، مثالي لفصل الشتاء أو المساء.",
+    "image": "images/100423.png",
+    "name_pt": "Creme Desodorante Nutritivo para o Corpo Tododia Ameixa e Flor de Baunilha",
+    "price": 41.93,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "كريم تمشيط ليمينا للشعر المجعد",
@@ -453,7 +763,21 @@ const products = [
     "explanation": "يعزز مرونة الخصلات المجعدة ويتركها ناعمة ومعرّفة وطبيعية.",
     "image": "images/148436.png",
     "name_pt": "LUMINA COND CR PENTEAR CRESPOS 300ML",
-    "price": 43.92
+    "price": 43.92,
+    "availability": "متوفر"
+  },
+  {
+    "name": "كريم العين المجدد رينيو باور – 15غ",
+    "brand": "Avon",
+    "line": "RENEW",
+    "category": "عناية بالبشرة / العيون",
+    "description": "كريم مخصص لمنطقة تحت العين، غني بالنياسيناميد وحمض الهيالورونيك، يقلل من الهالات السوداء، الانتفاخ، والخطوط الدقيقة حول العينين.",
+    "usage": "يُستخدم صباحًا ومساءً، توضع كمية صغيرة بلطف حول منطقة العين باستخدام البنصر.",
+    "explanation": "يمنح إشراقة فورية، يرطب بعمق، ويعيد الحيوية لمحيط العين مع نتائج واضحة خلال أسابيع من الاستخدام المنتظم.",
+    "image": "images/155730.png",
+    "name_pt": "RENEW POWER CREME OLHOS RENOVADOR 15G",
+    "price": 45.2,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "بخاخ ليمينا اللامع لتثبيت اللون",
@@ -465,7 +789,21 @@ const products = [
     "explanation": "يحمي الشعر المصبوغ من البهتان ويضيف له تألقًا طبيعيًا ولمسة نهائية حريرية.",
     "image": "images/148449.png",
     "name_pt": "LUMINA COND SPRAY BRI COR 150ML TERC",
-    "price": 45.225
+    "price": 45.225,
+    "availability": "متوفر"
+  },
+  {
+    "name": "صابون صلب من إكوس بالكاكاو × 100غ",
+    "brand": "Natura",
+    "line": "EKOS",
+    "category": "العناية الشخصية",
+    "description": "صابون نباتي غني بزبدة الكاكاو من الأمازون، ينظف البشرة بلطف ويمنحها ترطيباً فورياً مع عطر دافئ وناعم.",
+    "usage": "يُستخدم على بشرة مبللة حتى تتكون رغوة، ثم يُشطف جيداً.",
+    "explanation": "مثالي للبشرة الجافة، يرطب ويغذي أثناء التنظيف اليومي ويترك البشرة ناعمة ومعطّرة بعطر الكاكاو الطبيعي.",
+    "image": "images/162220.png",
+    "name_pt": "EKOS SAB BAR CACAU 4X100G TERC",
+    "price": 47.53,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "زيت ليمينا لتجعيدات الشعر",
@@ -477,7 +815,8 @@ const products = [
     "explanation": "يعزز مرونة التجاعيد ويحمي الشعر من الجفاف ويمنحه لمعانًا طبيعيًا.",
     "image": "images/148165.png",
     "name_pt": "LUMINA OLEO CACH CRE 100ML TERC",
-    "price": 51.225
+    "price": 51.225,
+    "availability": "متوفر"
   },
   {
     "name": "بخاخ ليمينا لتجعيدات الشعر – 150مل",
@@ -489,7 +828,8 @@ const products = [
     "explanation": "يمنح تموجات طبيعية مرنة ولمعانًا ناعمًا دون إثقال الشعر.",
     "image": "images/148419.png",
     "name_pt": "lumina spryrea cachcre 150mlterc",
-    "price": 51.73
+    "price": 51.73,
+    "availability": "متوفر"
   },
   {
     "name": "بخاخ ليمينا لتأثير التصفيف والملمس – 150مل",
@@ -501,7 +841,8 @@ const products = [
     "explanation": "مناسب لتصفيف الشعر اليومي وزيادة حجمه وثباته دون تثقيله.",
     "image": "images/148455.png",
     "name_pt": "luminaspray text150ml terc",
-    "price": 51.73
+    "price": 51.73,
+    "availability": "متوفر"
   },
   {
     "name": "كريم الليل رينيو ألتيميت – 50غ",
@@ -513,7 +854,8 @@ const products = [
     "explanation": "يعزز عملية تجدد الخلايا ويترك البشرة ناعمة ومشدودة عند الاستيقاظ.",
     "image": "images/155728.png",
     "name_pt": "RENEW ULTIMATE CREME NOITE 50G 24",
-    "price": 51.94
+    "price": 51.94,
+    "availability": "متوفر"
   },
   {
     "name": "كريم النهار رينيو ألتيميت – 50غ",
@@ -525,7 +867,8 @@ const products = [
     "explanation": "يساعد على شد البشرة وتقليل التجاعيد بفعالية علمية مثبتة.",
     "image": "images/155727.png",
     "name_pt": "RENEW ULTIMATE CREME DIA 50G 24",
-    "price": 51.94
+    "price": 51.94,
+    "availability": "متوفر"
   },
   {
     "name": "كريم معالجة وترطيب محيط العين من كرونوس",
@@ -537,7 +880,8 @@ const products = [
     "explanation": "يعيد إشراقة العين ويرطب الجلد الرقيق بتركيبة مغذية وغير مهيجة.",
     "image": "images/111332.png",
     "name_pt": "CHRONOS BALM HIDRA TRAT OLHOS 15G",
-    "price": 53.2
+    "price": 53.2,
+    "availability": "متوفر"
   },
   {
     "name": "مرطب الجسم تودوديا بالنعناع",
@@ -549,7 +893,8 @@ const products = [
     "explanation": "ينشط الدورة الدموية ويمنح البشرة شعوراً بالانتعاش مع عطر خفيف ومنعش.",
     "image": "images/109156.png",
     "name_pt": "TODODIA HID DES CORP HORTELA 400ML",
-    "price": 54.7
+    "price": 54.7,
+    "availability": "متوفر"
   },
   {
     "name": "مرطب الجسم تودوديا بجوز البقان – 400مل",
@@ -561,7 +906,8 @@ const products = [
     "explanation": "يعزز مرونة الجلد، يغذيه ويتركه ناعماً ومعطراً برائحة غنية مستوحاة من الطبيعة، مثالي لفصول البرد والجفاف.",
     "image": "images/2820.png",
     "name_pt": "TODODIA HID DES CORP NOZ PECA 400ML PM",
-    "price": 54.7
+    "price": 54.7,
+    "availability": "متوفر"
   },
   {
     "name": "مرطب الجسم تودوديا برائحة الزنجبيل واليوسفي",
@@ -573,7 +919,8 @@ const products = [
     "explanation": "يرطب البشرة ويمنحها إحساسًا بالانتعاش طوال اليوم مع رائحة فاخرة وحيوية.",
     "image": "images/152300.png",
     "name_pt": "TODODIA DES HID FLOR GENG E TANGE 400ML",
-    "price": 54.7
+    "price": 54.7,
+    "availability": "متوفر"
   },
   {
     "name": "مرطب تودوديا برائحة التمر والقرفة",
@@ -585,7 +932,8 @@ const products = [
     "explanation": "يوفر ترطيبًا غنيًا ويحسن من مرونة البشرة ويتركها بنعومة فائقة.",
     "image": "images/2786.png",
     "name_pt": "TODODIA HID DES TAMARA CANELA 400ML",
-    "price": 54.7
+    "price": 54.7,
+    "availability": "متوفر"
   },
   {
     "name": "مرطب الجسم الليلي من تودوديا",
@@ -597,7 +945,8 @@ const products = [
     "explanation": "بتركيبته الغنية يساعد على تجديد البشرة أثناء النوم ويمنحها نعومة فائقة.",
     "image": "images/121970.png",
     "name_pt": "TODODIA HID DES CORP NOTUR 400ML",
-    "price": 54.7
+    "price": 54.7,
+    "availability": "متوفر"
   },
   {
     "name": "واقي حراري ليمينا للشعر",
@@ -609,7 +958,8 @@ const products = [
     "explanation": "يقلل التلف الناتج عن الحرارة ويحافظ على رطوبة الشعر ولمعانه.",
     "image": "images/148459.png",
     "name_pt": "LUMINA PROTETOR TERM 150ML TERC",
-    "price": 55.425
+    "price": 55.425,
+    "availability": "متوفر"
   },
   {
     "name": "سيروم بلسم معالج ليمينا",
@@ -621,7 +971,8 @@ const products = [
     "explanation": "يُصلح الشعر التالف ويعزز من متانته، مناسب للشعر الضعيف أو المعالج كيميائيًا.",
     "image": "images/148421.png",
     "name_pt": "LUMINA COND SERUM RECONST 100ML TERC",
-    "price": 55.425
+    "price": 55.425,
+    "availability": "متوفر"
   },
   {
     "name": "زيت ليمينا المغذي للشعر",
@@ -633,7 +984,8 @@ const products = [
     "explanation": "يساعد في تقليل التقصف ويزيد من مرونة الشعر ويحميه من العوامل الخارجية.",
     "image": "images/147439.png",
     "name_pt": "LUMINA OLEO NUTRIC CAPILAR 100ML TERC PS",
-    "price": 55.425
+    "price": 55.425,
+    "availability": "متوفر"
   },
   {
     "name": "كريم تقشير مرطب إكوس بالكستناء",
@@ -645,7 +997,8 @@ const products = [
     "explanation": "يجدد البشرة ويتركها ناعمة ومتألقة، مناسب للبشرة الجافة.",
     "image": "images/69825.png",
     "name_pt": "EKOS HID POLP ESF CASTANHA 200G TERC",
-    "price": 58.725
+    "price": 58.725,
+    "availability": "متوفر"
   },
   {
     "name": "مجموعة ترطيب مركز من إكوس برائحة الكستناء",
@@ -657,7 +1010,8 @@ const products = [
     "explanation": "يعزز حاجز الرطوبة الطبيعي للبشرة ويمنحها نعومة ونضارة بفضل تركيزه العالي.",
     "image": "images/150219.png",
     "name_pt": "EKOS CONJ DES HID CASTANHA CONCENT",
-    "price": 59.175
+    "price": 59.175,
+    "availability": "متوفر"
   },
   {
     "name": "كريم مرطب ناتورا سيف برائحة الفريزيا – 300مل",
@@ -669,7 +1023,8 @@ const products = [
     "explanation": "يرطب البشرة بفعالية ويتركها ناعمة ومعطرة، مثالي للاستخدام اليومي لمن يحب العطور الهادئة والأنثوية.",
     "image": "images/959372.png",
     "name_pt": "Creme Hidratante Natura Sève Frésia 300ml",
-    "price": 60.0
+    "price": 60.0,
+    "availability": "متوفر"
   },
   {
     "name": "مرطب لونا كونفيانتي للجسم",
@@ -681,7 +1036,8 @@ const products = [
     "explanation": "يوفر ترطيبًا طويل الأمد مع إحساس بالنعومة الفاخرة ورائحة أنثوية جذابة.",
     "image": "images/102039.png",
     "name_pt": "LUNA CONFIANTE DES HIDRANTE 300ML",
-    "price": 60.0
+    "price": 60.0,
+    "availability": "متوفر"
   },
   {
     "name": "رحيق مرطب معطر للجسم إكوس بيتانغا سوداء",
@@ -693,7 +1049,21 @@ const products = [
     "explanation": "يمنح البشرة إحساساً بالانتعاش والنعومة مع ترطيب يدوم طوال اليوم، مثالي للاستخدام اليومي.",
     "image": "images/174611.png",
     "name_pt": "Néctar Desodorante Hidratante para o Corpo Ekos Pitanga Preta",
-    "price": 60.0
+    "price": 60.0,
+    "availability": "متوفر"
+  },
+  {
+    "name": "زيت مرطب معطر ثلاثي الطبقات من إكوس برائحة الماراكويا – 200مل",
+    "brand": "Natura",
+    "line": "EKOS",
+    "category": "عناية بالجسم",
+    "description": "زيت نباتي بثلاث طبقات يحتوي على زيت الماراكويا من الأمازون، يرطب، يهدئ، ويترك البشرة مع لمسة حريرية وعطر فاكهي منعش يدوم طويلاً.",
+    "usage": "يُرج جيدًا قبل الاستخدام، يُستخدم على البشرة المبللة ثم يُشطف بلطف أو يُترك على الجلد حسب الرغبة.",
+    "explanation": "يمنح ترطيبًا مكثفًا ونعومة فائقة، يهدئ البشرة ويضفي عليها لمعانًا طبيعيًا، مثالي بعد الاستحمام أو قبل النوم.",
+    "image": "images/97425.png",
+    "name_pt": "EKOS OLEO HID DES TRIFASI MARACUJA 200ML",
+    "price": 61.13,
+    "availability": "متوفر قريبا"
   },
   {
     "name": "قناع وبلسم مقوي من إكوس بباتاوا",
@@ -705,7 +1075,8 @@ const products = [
     "explanation": "يغذي الشعر من الجذور حتى الأطراف ويمنحه القوة واللمعان الطبيعي.",
     "image": "images/112764.png",
     "name_pt": "EKOS MASC COND FORT PATAUA NFV 200G TERC",
-    "price": 61.425
+    "price": 61.425,
+    "availability": "متوفر"
   },
   {
     "name": "زيت مرطب ثلاثي الطبقات من إكوس بوريتي – 200مل",
@@ -717,7 +1088,8 @@ const products = [
     "explanation": "يرطب البشرة بفعالية ويمنحها لمسة مضيئة ومفعمة بالحيوية.",
     "image": "images/112087.png",
     "name_pt": "EKOS OLEO HID DES TRIFASI BURITI 200ML",
-    "price": 62.93
+    "price": 62.93,
+    "availability": "متوفر"
   },
   {
     "name": "زيت مرطب ثلاثي الطبقات من إكوس بأساي",
@@ -729,7 +1101,8 @@ const products = [
     "explanation": "يرطب البشرة بعمق ويمنحها ملمسًا حريريًا ولمعانًا مع رائحة فاكهية جذابة.",
     "image": "images/110643.png",
     "name_pt": "EKOS OLEO HID DES TRIFASICO ACAI 200ML",
-    "price": 62.93
+    "price": 62.93,
+    "availability": "متوفر"
   },
   {
     "name": "زيت ثلاثي الطبقات مرطب من إكوس برائحة بيتانغا",
@@ -741,7 +1114,8 @@ const products = [
     "explanation": "يمنح البشرة نعومة مميزة ولمعانًا طبيعيًا مع لمسة عطرية فاخرة تدوم لساعات.",
     "image": "images/97426.png",
     "name_pt": "EKOS OLEO HID DES TRIFASIC PITANGA 200ML",
-    "price": 62.93
+    "price": 62.93,
+    "availability": "متوفر"
   },
   {
     "name": "زيت ثنائي الطبقة من إكوس بتوكوما",
@@ -753,7 +1127,8 @@ const products = [
     "explanation": "يترك البشرة حريرية ولامعة مع عطر طبيعي يدوم طويلاً.",
     "image": "images/75522.png",
     "name_pt": "EKOS OLEO BIF DES TUKUMA 200ML TERC NV",
-    "price": 62.93
+    "price": 62.93,
+    "availability": "متوفر"
   },
   {
     "name": "زيت جسم معطر سيف باللوز والقرفة – 200مل",
@@ -765,7 +1140,8 @@ const products = [
     "explanation": "يغذي البشرة بعمق ويمنحها إحساسًا بالدفء والراحة، مثالي لفصل الشتاء أو بعد يوم طويل مرهق.",
     "image": "images/140684.png",
     "name_pt": "Óleo Desodorante Corporal Sève Amêndoas e Canela 200 ml",
-    "price": 62.93
+    "price": 62.93,
+    "availability": "متوفر"
   },
   {
     "name": "بلسم مرطب من إكوس بتوكوما",
@@ -777,7 +1153,8 @@ const products = [
     "explanation": "يعزز الترطيب العميق للبشرة ويحسن مرونتها ويتركها ناعمة طوال اليوم.",
     "image": "images/27238.png",
     "name_pt": "EKOS BALSAM DES HID TUKUMA 200G TERC",
-    "price": 65.03
+    "price": 65.03,
+    "availability": "متوفر"
   },
   {
     "name": "رحيق مرطب معطر للجسم إكوس ماراكويا \"طبيعة الأحلام\"",
@@ -789,7 +1166,8 @@ const products = [
     "explanation": "يمنح إحساساً بالراحة والاسترخاء، ويترك البشرة ناعمة ومعطّرة بعطر استوائي يدوم طوال اليوم.",
     "image": "images/132671.png",
     "name_pt": "Néctar Desodorante Hidratante Corporal Ekos Maracujá Natureza dos Sonhos",
-    "price": 70.0
+    "price": 70.0,
+    "availability": "متوفر"
   },
   {
     "name": "عطر إكوس فريسكور ماراكويا – 150مل",
@@ -801,7 +1179,8 @@ const products = [
     "explanation": "مثالي للاستخدام اليومي، عطر غير قوي ولكنه يدوم ويمنح إحساساً بالانتعاش الطبيعي والنعومة.",
     "image": "images/73564.png",
     "name_pt": "Ekos Frescor Maracujá 150 ml",
-    "price": 70.0
+    "price": 70.0,
+    "availability": "متوفر"
   },
   {
     "name": "مرطب الجسم أونا آرتيزان",
@@ -813,7 +1192,8 @@ const products = [
     "explanation": "يمنح البشرة ترطيبًا يدوم طويلاً مع رائحة ناعمة ومميزة.",
     "image": "images/140595.png",
     "name_pt": "UNA DES HID UNA ARTISAN 200G",
-    "price": 89.925
+    "price": 89.925,
+    "availability": "متوفر"
   },
   {
     "name": "سيروم شد وتماسك البشرة من كرونوس",
@@ -825,7 +1205,8 @@ const products = [
     "explanation": "يمنح تأثير شد فوري ويحسن من مرونة الجلد على المدى الطويل.",
     "image": "images/108636.png",
     "name_pt": "CHRONOS SERUM INTE LIFTING E FIRMEZA 30M",
-    "price": 105.01
+    "price": 105.01,
+    "availability": "متوفر"
   },
   {
     "name": "كريم الليل من كرونوس بعامل ضد الشيخوخة",
@@ -837,7 +1218,8 @@ const products = [
     "explanation": "يحفّز تجدد الخلايا أثناء النوم، ويمنح البشرة مظهرًا أكثر شبابًا ونعومة مع الاستخدام المنتظم.",
     "image": "images/134593.png",
     "name_pt": "CHRONOS AS 30 NOITE 40G GAIA",
-    "price": 122.4
+    "price": 122.4,
+    "availability": "متوفر"
   },
   {
     "name": "كريم النهار بعامل حماية 30 من كرونوس",
@@ -849,7 +1231,8 @@ const products = [
     "explanation": "يساعد في ترطيب البشرة وحمايتها من الشمس وتقليل الخطوط الرفيعة بفضل تركيبته الفعالة.",
     "image": "images/134592.png",
     "name_pt": "CHRONOS AS 30 FPS30 DIA 40G GAIA",
-    "price": 122.4
+    "price": 122.4,
+    "availability": "متوفر"
   },
   {
     "name": "سيروم كرونوس للبشرة الدهنية",
@@ -861,7 +1244,8 @@ const products = [
     "explanation": "يحتوي على مكونات فعالة تنظم إفراز الدهون وتحسن من مظهر البشرة الدهنية بمرور الوقت.",
     "image": "images/69723.png",
     "name_pt": "CHRONOS SERUM PELE OLEOSA TERC",
-    "price": 141.75
+    "price": 141.75,
+    "availability": "متوفر"
   },
   {
     "name": "بودي سبلاش تودوديا برائحة التمر والقرفة – 200مل",
@@ -873,6 +1257,7 @@ const products = [
     "explanation": "مثالي للاستخدام اليومي، ينعش البشرة ويترك عطراً دافئاً وحسياً يدوم لساعات.",
     "image": "images/2795.png",
     "name_pt": "Body Splash Tododia Tâmara e Canela 200 ml",
-    "price": NaN
+    "price": NaN,
+    "availability": "متوفر"
   }
 ];
