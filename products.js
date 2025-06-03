@@ -789,7 +789,7 @@ const products = [
     "explanation": "يمنح إشراقة فورية، يرطب بعمق، ويعيد الحيوية لمحيط العين مع نتائج واضحة خلال أسابيع من الاستخدام المنتظم.",
     "image": "images/155730.png",
     "name_pt": "RENEW POWER CREME OLHOS RENOVADOR 15G",
-    "price": 45.2,
+    "price": 51.225,
     "availability": "متوفر قريبا"
   },
   {
@@ -802,7 +802,7 @@ const products = [
     "explanation": "يحمي الشعر المصبوغ من البهتان ويضيف له تألقًا طبيعيًا ولمسة نهائية حريرية.",
     "image": "images/148449.png",
     "name_pt": "LUMINA COND SPRAY BRI COR 150ML TERC",
-    "price": 45.225,
+    "price": 51.225,
     "availability": "متوفر"
   },
   {
@@ -828,7 +828,7 @@ const products = [
     "explanation": "يمنح تموجات طبيعية مرنة ولمعانًا ناعمًا دون إثقال الشعر.",
     "image": "images/148419.png",
     "name_pt": "lumina spryrea cachcre 150mlterc",
-    "price": 51.73,
+    "price": 51.225,
     "availability": "متوفر"
   },
   {
@@ -841,7 +841,7 @@ const products = [
     "explanation": "مناسب لتصفيف الشعر اليومي وزيادة حجمه وثباته دون تثقيله.",
     "image": "images/148455.png",
     "name_pt": "luminaspray text150ml terc",
-    "price": 51.73,
+    "price": 51.225,
     "availability": "متوفر"
   },
   {
