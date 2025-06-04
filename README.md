@@ -15,13 +15,13 @@ This repository contains the source code for the Naturae Syria website and chatb
    pnpm install
    ```
 
-2. (Optional) Run the automated install script which will prompt for your OpenAI API key and the port you wish to use (default `3000`):
+2. (Optional) Run the automated install script which clones the repository (if needed), installs Node.js and pnpm, then installs dependencies and builds the project. It will prompt for your OpenAI API key and desired port if they are not supplied:
 
    ```bash
-   ./scripts/install_chatbot_server.sh
+   ./scripts/install_chatbot_server.sh [target-dir] [OPENAI_API_KEY] [PORT]
    ```
 
-   The script writes these values to `.env.local`, installs all dependencies and builds the project.
+   The script writes these values to `.env.local`, installs all dependencies, opens the selected port with `ufw` (when available), and builds the project.
 
 3. If you prefer to create `.env.local` manually, provide your OpenAI API key like so:
 

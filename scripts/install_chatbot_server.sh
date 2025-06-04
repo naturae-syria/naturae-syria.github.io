@@ -6,8 +6,10 @@ set -euo pipefail
 # It will prompt for the OpenAI key and desired port if they are not provided as
 # arguments.
 
-API_KEY=${1:-}
-PORT=${2:-}
+REPO_URL="https://github.com/naturae-syria/naturae-syria.github.io.git"
+TARGET_DIR=${1:-naturae-syria.github.io}
+API_KEY=${2:-}
+PORT=${3:-}
 
 if [[ -z "$API_KEY" ]]; then
   read -rp "Enter your OpenAI API key: " API_KEY
@@ -17,6 +19,19 @@ if [[ -z "$PORT" ]]; then
   read -rp "Enter port to run the app [3000]: " PORT
   PORT=${PORT:-3000}
 fi
+
+# Ensure git is installed
+if ! command -v git >/dev/null; then
+  sudo apt-get update
+  sudo apt-get install -y git
+fi
+
+# Clone repository if needed
+if [[ ! -d "$TARGET_DIR" ]]; then
+  git clone "$REPO_URL" "$TARGET_DIR"
+fi
+
+cd "$TARGET_DIR"
 
 # Install Node.js if missing
 if ! command -v node >/dev/null; then
