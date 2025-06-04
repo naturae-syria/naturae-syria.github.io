@@ -411,8 +411,10 @@
   </div>
 
   <script>
-    // Update the URL below if you change the server port
-    window.CHAT_API_URL = "http://56.125.95.223:3000/api/chat"
+    const CHAT_HOST = "56.125.95.223"
+    const CHAT_PORT = "3000"
+    const protocol = location.protocol === "https:" ? "https" : "http"
+    window.CHAT_API_URL = `${protocol}://${CHAT_HOST}:${CHAT_PORT}/api/chat`
   </script>
   <script src="products.js"></script>
   <script src="main.js"></script>
