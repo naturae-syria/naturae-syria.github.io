@@ -141,13 +141,16 @@ document.addEventListener("DOMContentLoaded", () => {
             ${usdPrice ? `<div class="product-price" aria-label="سعر المنتج: ${usdPrice} دولار">$${usdPrice}</div>` : ""}
           </div>
         `
-        productCard.addEventListener("click", () => openProductModal(product))
+        productCard.addEventListener("click", (e) => openProductModal(product, e.currentTarget))
         productsGrid.appendChild(productCard)
       })
     }
   }
 
-  function openProductModal(product) {
+  let openerElement = null
+
+  function openProductModal(product, opener) {
+    openerElement = opener || document.activeElement
     const adjustedBRL = transformPrice(product.price).toFixed(2)
     const usdPrice = convertToUSD(adjustedBRL)
 
@@ -191,7 +194,10 @@ document.addEventListener("DOMContentLoaded", () => {
   function closeProductModal() {
     productModal.style.display = "none"
     // إعادة التركيز إلى العنصر الذي فتح النافذة المنبثقة
-    if (document.activeElement) {
+    if (openerElement) {
+      openerElement.focus()
+      openerElement = null
+    } else if (document.activeElement) {
       document.activeElement.focus()
     }
   }
