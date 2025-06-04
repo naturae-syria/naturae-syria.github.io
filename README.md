@@ -72,7 +72,8 @@ bottom of `index.html` and replace the port if necessary:
 </script>
 ```
 
-If your server runs on a different port, adjust the URL accordingly. The
+If your server uses a different IP or port, update the URL in the snippet so it
+matches your deployment, e.g. `http://<server-ip>:<port>/api/chat`. The
 client-side script in `main.js` reads this variable to communicate with the
 chatbot server.
 
