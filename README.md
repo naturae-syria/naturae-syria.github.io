@@ -60,6 +60,22 @@ The server listens on the port defined in `.env.local` (defaults to `3000`).
 When deployed on your AWS instance (e.g. `18.228.211.21`) you can access the
 site using `http://<server-ip>:<port>`.
 
+## Connecting the Front End
+
+The static site in `index.html` needs to know where to send chat requests.
+Before uploading the site to GitHub Pages, edit the following snippet near the
+bottom of `index.html` and replace the port if necessary:
+
+```html
+<script>
+  window.CHAT_API_URL = "http://18.228.211.21:3000/api/chat"
+</script>
+```
+
+If your server runs on a different port, adjust the URL accordingly. The
+client-side script in `main.js` reads this variable to communicate with the
+chatbot server.
+
 ## Netlify Functions
 
 The project includes a serverless function located in `functions/chat.js`. When deployed on Netlify these functions are automatically built and exposed under the `/api/*` path as configured in `netlify.toml`.
