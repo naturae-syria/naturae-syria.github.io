@@ -23,6 +23,7 @@ This repository contains the source code for the Naturae Syria website and chatb
 
    The script writes these values to `.env.local`, installs all dependencies, opens the selected port with `ufw` (when available), and builds the project.
 
+
 3. If you prefer to create `.env.local` manually, provide your OpenAI API key like so:
 
    ```bash
@@ -102,6 +103,7 @@ If your server uses a different IP or port, update the URL in the snippet so it
 matches your deployment, e.g. `http://<server-ip>:<port>/api/chat`. The
 client-side script in `main.js` reads this variable to communicate with the
 chatbot server.
+
 
 ## Netlify Functions
 
