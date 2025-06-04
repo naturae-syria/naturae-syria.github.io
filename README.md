@@ -87,6 +87,18 @@ This launches `server-https.js` which wraps the Next.js app with Node's HTTPS
 server. The `cert` folder should contain `fullchain.pem` and `privkey.pem`.
 Sample self-signed files are included for local development.
 
+### Using a trusted certificate
+
+If you see `ERR_CERT_AUTHORITY_INVALID`, the browser does not trust your SSL certificate. For local development you can install [mkcert](https://github.com/FiloSottile/mkcert) and generate a locally trusted certificate:
+
+```bash
+sudo apt-get install -y libnss3-tools
+mkcert -install
+mkcert -key-file cert/privkey.pem -cert-file cert/fullchain.pem localhost 127.0.0.1
+```
+
+For production, obtain a certificate from a provider such as Let's Encrypt and place the resulting `fullchain.pem` and `privkey.pem` files in the `cert` directory.
+
 ## Deploying on AWS
 
 1. **Clone the repository** onto your EC2 instance and run the install script. It installs Node.js, pnpm and all dependencies, then builds the project and opens the chosen port with `ufw` when available:
