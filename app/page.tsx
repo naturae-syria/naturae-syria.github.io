@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { products } from "@/data/products"
+import { transformPrice, convertToUSD } from "@/lib/pricing"
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -68,22 +69,6 @@ export default function Home() {
     setFilteredProducts(filtered)
   }, [searchTerm, selectedBrand, selectedLine, selectedCategory])
 
-  // Transform price function
-  const transformPrice = (priceBRL) => {
-    if (!priceBRL || isNaN(priceBRL)) return 0
-    const base = Number.parseFloat(priceBRL)
-    if (base >= 106) return base * 1.5
-    if (base >= 60) return base * 2
-    if (base < 20) return base * 4.2
-    return base <= 50 ? base * 3.2 : base * 2.5
-  }
-
-  // Convert to USD function
-  const convertToUSD = (brlAmount) => {
-    if (!brlAmount || isNaN(brlAmount)) return ""
-    const value = Number.parseFloat(brlAmount) * usdRate
-    return (Math.ceil(value * 10) / 10).toFixed(1)
-  }
 
   // Open product modal
   const openProductModal = (product) => {
@@ -190,7 +175,7 @@ export default function Home() {
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                 {filteredProducts.map((product, index) => {
                   const adjustedBRL = transformPrice(product.price).toFixed(2)
-                  const usdPrice = convertToUSD(adjustedBRL)
+                  const usdPrice = convertToUSD(adjustedBRL, usdRate)
 
                   return (
                     <ProductCard
@@ -239,7 +224,10 @@ export default function Home() {
       {selectedProduct && (
         <ProductModal
           product={selectedProduct}
-          usdPrice={convertToUSD(transformPrice(selectedProduct.price).toFixed(2))}
+          usdPrice={convertToUSD(
+            transformPrice(selectedProduct.price).toFixed(2),
+            usdRate
+          )}
           isOpen={isModalOpen}
           onClose={() => setIsModalOpen(false)}
         />

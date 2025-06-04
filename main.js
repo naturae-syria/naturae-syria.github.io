@@ -1,3 +1,5 @@
+import { transformPrice, convertToUSD } from "./lib/pricing.js";
+
 document.addEventListener("DOMContentLoaded", () => {
   // تحديث السنة الحالية في التذييل
   document.getElementById("current-year").textContent = new Date().getFullYear()
@@ -75,21 +77,6 @@ document.addEventListener("DOMContentLoaded", () => {
     categoryFilter.appendChild(option)
   })
 
-  function transformPrice(priceBRL) {
-    if (!priceBRL || isNaN(priceBRL)) return 0
-    const base = Number.parseFloat(priceBRL)
-    if (base >= 106) return base * 1.5
-    if (base >= 60) return base * 2
-    if (base < 20) return base * 4.2
-    return base <= 50 ? base * 3.2 : base * 2.5
-  }
-
-  function convertToUSD(brlAmount) {
-    if (!brlAmount || isNaN(brlAmount)) return ""
-    const usdRate = 1 / 5.2
-    const value = Number.parseFloat(brlAmount) * usdRate
-    return (Math.ceil(value * 10) / 10).toFixed(1)
-  }
 
   function filterAndDisplayProducts() {
     const searchTerm = searchInput.value.toLowerCase()
@@ -120,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productsGrid.innerHTML = ""
       filteredProducts.forEach((product) => {
         const adjustedBRL = transformPrice(product.price).toFixed(2)
-        const usdPrice = convertToUSD(adjustedBRL)
+        const usdPrice = convertToUSD(adjustedBRL, 1 / 5.2)
         const productCard = document.createElement("div")
         productCard.className = "product-card"
         productCard.setAttribute("tabindex", "0")
@@ -149,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function openProductModal(product) {
     const adjustedBRL = transformPrice(product.price).toFixed(2)
-    const usdPrice = convertToUSD(adjustedBRL)
+    const usdPrice = convertToUSD(adjustedBRL, 1 / 5.2)
 
     // إضافة سمات ARIA للنافذة المنبثقة
     productModal.setAttribute("role", "dialog")
