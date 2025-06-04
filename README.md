@@ -66,8 +66,18 @@ pnpm run start
 ```
 
 The server listens on the port defined in `.env.local` (defaults to `3000`).
-When deployed on your AWS instance (e.g. `18.228.211.21`) you can access the
+When deployed on your AWS instance (e.g. `56.125.95.223`) you can access the
 site using `http://<server-ip>:<port>`.
+
+If you need HTTPS, generate certificates in a directory named `cert` and start
+the server with:
+
+```bash
+pnpm run start:https
+```
+
+This launches `server-https.js` which wraps the Next.js app with Node's HTTPS
+server. The `cert` folder should contain `fullchain.pem` and `privkey.pem`.
 
 ## Deploying on AWS
 
@@ -85,11 +95,14 @@ site using `http://<server-ip>:<port>`.
 
    The app will listen on the port you specified in `.env.local`.
 
-3. **Point the front end** to your server by editing the snippet in `index.html` so it matches your server's IP address and port, for example:
+3. **Point the front end** to your server by editing the snippet in `index.html` so it matches your server's IP address and port:
 
    ```html
    <script>
-     window.CHAT_API_URL = "http://18.228.211.21:3000/api/chat"
+     const CHAT_HOST = "56.125.95.223"
+     const CHAT_PORT = "3000"
+     const protocol = location.protocol === "https:" ? "https" : "http"
+     window.CHAT_API_URL = `${protocol}://${CHAT_HOST}:${CHAT_PORT}/api/chat`
    </script>
    ```
 
@@ -103,7 +116,10 @@ bottom of `index.html` and replace the port if necessary:
 
 ```html
 <script>
-  window.CHAT_API_URL = "http://18.228.211.21:3000/api/chat"
+  const CHAT_HOST = "56.125.95.223"
+  const CHAT_PORT = "3000"
+  const protocol = location.protocol === "https:" ? "https" : "http"
+  window.CHAT_API_URL = `${protocol}://${CHAT_HOST}:${CHAT_PORT}/api/chat`
 </script>
 ```
 
