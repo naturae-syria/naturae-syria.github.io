@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import products from "../products-chat"
+import products from "../data/products.js"
 import { transformPrice, convertToUSD } from "@/lib/pricing"
 
 export default function Home() {
