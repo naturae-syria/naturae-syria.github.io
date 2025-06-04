@@ -227,4 +227,50 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   filterAndDisplayProducts()
+
+  // -----------------------------
+  // Chatbot functionality
+  const chatToggle = document.getElementById("chat-toggle")
+  const chatBox = document.getElementById("chat-box")
+  const chatMessages = document.getElementById("chat-messages")
+  const chatForm = document.getElementById("chat-form")
+  const chatInput = document.getElementById("chat-input")
+  const CHAT_API_URL = window.CHAT_API_URL || "/api/chat"
+
+  function appendMessage(sender, text) {
+    const el = document.createElement("div")
+    el.className = "chat-message"
+    el.innerHTML = `<strong>${sender}:</strong> ${text}`
+    chatMessages.appendChild(el)
+    chatMessages.scrollTop = chatMessages.scrollHeight
+    return el
+  }
+
+  chatToggle.addEventListener("click", () => {
+    chatBox.classList.toggle("hidden")
+    const expanded = chatToggle.getAttribute("aria-expanded") === "true"
+    chatToggle.setAttribute("aria-expanded", String(!expanded))
+  })
+
+  chatForm.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    const message = chatInput.value.trim()
+    if (!message) return
+    appendMessage("أنت", message)
+    chatInput.value = ""
+
+    const loading = appendMessage("المساعد", "...")
+    try {
+      const res = await fetch(CHAT_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message }),
+      })
+      const data = await res.json()
+      loading.innerHTML = `<strong>المساعد:</strong> ${data.response}`
+    } catch (err) {
+      loading.innerHTML = "<strong>المساعد:</strong> حدث خطأ بالاتصال بالخادم"
+    }
+  })
+  // -----------------------------
 })
