@@ -28,8 +28,14 @@ This repository contains the source code for the Naturae Syria website and chatb
 
    ```bash
    OPENAI_API_KEY=your-api-key
+   OPENAI_MODEL=gpt-3.5-turbo
+   PRODUCT_CONTEXT_LIMIT=30
    PORT=3000
-   ```
+  ```
+
+`OPENAI_MODEL` sets which model to use (defaults to `gpt-3.5-turbo`).
+`PRODUCT_CONTEXT_LIMIT` controls how many products are included in each
+request to keep the token count below OpenAI's limit.
 
 ### Product data
 
@@ -94,6 +100,9 @@ server. The `cert` folder should contain `fullchain.pem` and `privkey.pem`.
    ```
 
    The app will listen on the port you specified in `.env.local`.
+
+  The startup output may display the machine's private IP address (e.g. `172.31.x.x`). This is normal—Next.js listens on all interfaces by default. Access the app from other devices using your server's public IP, e.g. `http://56.125.95.223:3000/`. You do **not** need to set `--hostname` to the public IP.
+
 
 3. **Point the front end** to your server by editing the snippet in `index.html` so it matches your server's IP address and port:
 
