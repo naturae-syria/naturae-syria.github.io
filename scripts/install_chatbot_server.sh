@@ -11,6 +11,7 @@ TARGET_DIR=${1:-naturae-syria.github.io}
 API_KEY=${2:-}
 PORT=${3:-}
 
+
 if [[ -z "$API_KEY" ]]; then
   read -rp "Enter your OpenAI API key: " API_KEY
 fi
