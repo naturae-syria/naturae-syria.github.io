@@ -5,7 +5,7 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-3.5-turbo"
+const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-4.1-nano"
 const PRODUCTS_LIMIT = parseInt(process.env.PRODUCT_CONTEXT_LIMIT || "30", 10)
 
 function getProductsContext(limit: number): string {
@@ -51,6 +51,7 @@ export async function getChatResponse(message: string): Promise<string> {
 - توضح مكونات المنتجات وفوائدها، وتشرح كيف تتوافق مع احتياجاته.
 - تُبقي الإجابة موجزة ولكن مفيدة، لتكون سهلة الفهم والتطبيق.
 - تُشجع المستخدم على التفاعل، وسؤاله إن كان بحاجة إلى خيارات أخرى أو تفاصيل إضافية.
+- لا تُقدم أسعار المنتجات على الإطلاق.
 
 بهذه الطريقة، تقدم تجربة متكاملة تلبي احتياجات المستخدم بدقة واحترافية.
 
