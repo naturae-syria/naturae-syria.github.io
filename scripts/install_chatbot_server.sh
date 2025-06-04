@@ -66,11 +66,17 @@ fi
 CERT_DIR="cert"
 mkdir -p "$CERT_DIR"
 if [[ ! -f "$CERT_DIR/fullchain.pem" || ! -f "$CERT_DIR/privkey.pem" ]]; then
-  echo "Generating self-signed certificate..."
-  openssl req -x509 -newkey rsa:2048 -sha256 -days 365 -nodes \
-    -keyout "$CERT_DIR/privkey.pem" \
-    -out "$CERT_DIR/fullchain.pem" \
-    -subj "/CN=localhost"
+  if command -v mkcert >/dev/null; then
+    echo "Generating certificate with mkcert..."
+    mkcert -key-file "$CERT_DIR/privkey.pem" -cert-file "$CERT_DIR/fullchain.pem" localhost 127.0.0.1
+  else
+    echo "Generating self-signed certificate..."
+    openssl req -x509 -newkey rsa:2048 -sha256 -days 365 -nodes \
+      -keyout "$CERT_DIR/privkey.pem" \
+      -out "$CERT_DIR/fullchain.pem" \
+      -subj "/CN=localhost"
+    echo "Consider installing mkcert for a locally trusted certificate."
+  fi
 fi
 
 echo "Installation complete. Start the server with: PORT=$PORT pnpm run start:https"
