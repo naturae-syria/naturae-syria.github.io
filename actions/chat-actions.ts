@@ -5,8 +5,12 @@ const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 })
 
-function getProductsContext(): string {
+const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-3.5-turbo"
+const PRODUCTS_LIMIT = parseInt(process.env.PRODUCT_CONTEXT_LIMIT || "30", 10)
+
+function getProductsContext(limit: number): string {
   return (products as any[])
+    .slice(0, limit)
     .map((product) => {
       return `
 اسم المنتج: ${product.name}
@@ -23,10 +27,10 @@ function getProductsContext(): string {
 }
 
 export async function getChatResponse(message: string): Promise<string> {
-  const productsContext = getProductsContext()
+  const productsContext = getProductsContext(PRODUCTS_LIMIT)
 
   const completion = await openai.chat.completions.create({
-    model: "gpt-3.5-turbo",
+    model: OPENAI_MODEL,
     messages: [
       {
         role: "system",
