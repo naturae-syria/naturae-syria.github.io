@@ -1,5 +1,5 @@
 import { OpenAI } from "openai"
-import products from "../products-chat"
+import products from "../data/products.js"
 
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
