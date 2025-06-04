@@ -589,3 +589,7 @@ export const products = [
     price: 54.7,
   },
 ]
+
+if (typeof window !== "undefined") {
+  window.products = products;
+}

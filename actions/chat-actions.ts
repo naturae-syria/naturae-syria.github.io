@@ -1,7 +1,7 @@
 "use server"
 
 import OpenAI from "openai"
-import { products } from "../products"
+import { products } from "../data/products"
 
 // تهيئة OpenAI API
 const openai = new OpenAI({

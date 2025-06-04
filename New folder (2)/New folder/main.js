@@ -43,9 +43,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // هنا نتأكد أن المنتجات معرفة مسبقاً من ملف products.js
+  // هنا نتأكد أن المنتجات معرفة مسبقاً من ملف data/products.js
   if (typeof products === "undefined") {
-    console.error("البيانات غير متوفرة: تأكد من أن ملف products.js يتم تحميله قبل هذا الملف.");
+    console.error("البيانات غير متوفرة: تأكد من أن ملف data/products.js يتم تحميله قبل هذا الملف.");
     return;
   }
 
