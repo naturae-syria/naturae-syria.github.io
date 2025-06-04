@@ -63,4 +63,14 @@ if command -v ufw >/dev/null; then
   sudo ufw allow "$PORT"
 fi
 
-echo "Installation complete. Start the server with: PORT=$PORT pnpm run start"
+CERT_DIR="cert"
+mkdir -p "$CERT_DIR"
+if [[ ! -f "$CERT_DIR/fullchain.pem" || ! -f "$CERT_DIR/privkey.pem" ]]; then
+  echo "Generating self-signed certificate..."
+  openssl req -x509 -newkey rsa:2048 -sha256 -days 365 -nodes \
+    -keyout "$CERT_DIR/privkey.pem" \
+    -out "$CERT_DIR/fullchain.pem" \
+    -subj "/CN=localhost"
+fi
+
+echo "Installation complete. Start the server with: PORT=$PORT pnpm run start:https"
