@@ -11,6 +11,7 @@ TARGET_DIR=${1:-naturae-syria.github.io}
 API_KEY=${2:-}
 PORT=${3:-}
 
+
 if [[ -z "$API_KEY" ]]; then
   read -rp "Enter your OpenAI API key: " API_KEY
 fi
@@ -32,6 +33,7 @@ if [[ ! -d "$TARGET_DIR" ]]; then
 fi
 
 cd "$TARGET_DIR"
+
 
 # Install Node.js if missing
 if ! command -v node >/dev/null; then

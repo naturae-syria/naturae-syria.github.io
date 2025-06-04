@@ -237,6 +237,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatInput = document.getElementById("chat-input")
   const CHAT_API_URL = window.CHAT_API_URL || "/api/chat"
 
+
   function appendMessage(sender, text) {
     const el = document.createElement("div")
     el.className = "chat-message"
@@ -262,6 +263,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const loading = appendMessage("المساعد", "...")
     try {
       const res = await fetch(CHAT_API_URL, {
+
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message }),
