@@ -1,5 +1,5 @@
 const { OpenAI } = require("openai")
-const products = require("../products")
+const { products } = require("../products")
 
 // تهيئة OpenAI API
 const openai = new OpenAI({
