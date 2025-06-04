@@ -235,6 +235,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const chatMessages = document.getElementById("chat-messages")
   const chatForm = document.getElementById("chat-form")
   const chatInput = document.getElementById("chat-input")
+  const CHAT_API_URL = window.CHAT_API_URL || "/api/chat"
+
 
   function appendMessage(sender, text) {
     const el = document.createElement("div")
@@ -260,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const loading = appendMessage("المساعد", "...")
     try {
-      const res = await fetch("/api/chat", {
+      const res = await fetch(CHAT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ message }),

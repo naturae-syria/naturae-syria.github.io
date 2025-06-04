@@ -11,9 +11,29 @@ export async function POST(request: NextRequest) {
 
     const response = await getChatResponse(message)
 
-    return NextResponse.json({ response })
+    return NextResponse.json(
+      { response },
+      {
+        headers: {
+          "Access-Control-Allow-Origin": "https://naturae-syria.github.io",
+          "Access-Control-Allow-Headers": "Content-Type",
+        },
+      }
+    )
   } catch (error) {
     console.error("Error in chat API:", error)
     return NextResponse.json({ error: "حدث خطأ أثناء معالجة طلبك" }, { status: 500 })
   }
+}
+
+export function OPTIONS() {
+  return NextResponse.json(
+    {},
+    {
+      headers: {
+        "Access-Control-Allow-Origin": "https://naturae-syria.github.io",
+        "Access-Control-Allow-Headers": "Content-Type",
+      },
+    }
+  )
 }
