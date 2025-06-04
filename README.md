@@ -87,6 +87,15 @@ This launches `server-https.js` which wraps the Next.js app with Node's HTTPS
 server. The `cert` folder should contain `fullchain.pem` and `privkey.pem`.
 Sample self-signed files are included for local development.
 
+To run both HTTP and HTTPS servers simultaneously, use:
+
+```bash
+pnpm run start:both
+```
+
+`start:both` launches `server-both.js`, serving HTTP on the port defined by `PORT`
+and HTTPS on `HTTPS_PORT` (defaults to `3443`).
+
 ### Using a trusted certificate
 
 If you see `ERR_CERT_AUTHORITY_INVALID`, the browser does not trust your SSL certificate. For local development you can install [mkcert](https://github.com/FiloSottile/mkcert) and generate a locally trusted certificate:
