@@ -1,5 +1,10 @@
 const { OpenAI } = require("openai")
-const products = require("../data/products.js")
+const path = require("path")
+
+async function loadProducts() {
+  const mod = await import(path.resolve(__dirname, "../data/products.js"))
+  return mod.default
+}
 
 // تهيئة OpenAI API
 const openai = new OpenAI({
@@ -7,7 +12,8 @@ const openai = new OpenAI({
 })
 
 // تحويل بيانات المنتجات إلى نص للسياق
-function getProductsContext() {
+async function getProductsContext() {
+  const products = await loadProducts()
   return products
     .map((product) => {
       return `
@@ -45,7 +51,7 @@ exports.handler = async (event, context) => {
     }
 
     // الحصول على سياق المنتجات
-    const productsContext = getProductsContext()
+    const productsContext = await getProductsContext()
 
     // إنشاء رسالة للـ AI
     const response = await openai.chat.completions.create({
