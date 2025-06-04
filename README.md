@@ -15,13 +15,22 @@ This repository contains the source code for the Naturae Syria website and chatb
    pnpm install
    ```
 
-2. Create a `.env.local` file in the project root and provide your OpenAI API key:
+2. (Optional) Run the automated install script which clones the repository (if needed), installs Node.js and pnpm, then installs dependencies and builds the project. It will prompt for your OpenAI API key and desired port if they are not supplied:
+
+   ```bash
+   ./scripts/install_chatbot_server.sh [target-dir] [OPENAI_API_KEY] [PORT]
+   ```
+
+   The script writes these values to `.env.local`, installs all dependencies, opens the selected port with `ufw` (when available), and builds the project.
+
+3. If you prefer to create `.env.local` manually, provide your OpenAI API key like so:
 
    ```bash
    OPENAI_API_KEY=your-api-key
+   PORT=3000
    ```
 
-   This key is required for the chatbot features in `actions/chat-actions.ts` and `functions/chat.js`.
+   The `PORT` variable controls which port the server listens on when running `pnpm run start`.
 
 ## Development
 
@@ -46,6 +55,27 @@ You can then start the built application locally with:
 ```bash
 pnpm run start
 ```
+
+The server listens on the port defined in `.env.local` (defaults to `3000`).
+When deployed on your AWS instance (e.g. `18.228.211.21`) you can access the
+site using `http://<server-ip>:<port>`.
+
+## Connecting the Front End
+
+The static site in `index.html` needs to know where to send chat requests.
+Before uploading the site to GitHub Pages, edit the following snippet near the
+bottom of `index.html` and replace the port if necessary:
+
+```html
+<script>
+  window.CHAT_API_URL = "http://18.228.211.21:3000/api/chat"
+</script>
+```
+
+If your server uses a different IP or port, update the URL in the snippet so it
+matches your deployment, e.g. `http://<server-ip>:<port>/api/chat`. The
+client-side script in `main.js` reads this variable to communicate with the
+chatbot server.
 
 ## Netlify Functions
 
