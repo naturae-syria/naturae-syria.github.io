@@ -31,6 +31,14 @@ This repository contains the source code for the Naturae Syria website and chatb
    PORT=3000
    ```
 
+### Product data
+
+The static storefront reads its catalog from `products.js`. To keep this file
+unchanged while still making the list available to the chatbot server, an
+identical copy is exported from `data/products.js`. Both files contain the same
+array of products, but only `data/products.js` includes `module.exports` and a
+default export so Node.js code can import it without altering the original data.
+
    The `PORT` variable controls which port the server listens on when running `pnpm run start`.
 
 ## Development
