@@ -54,3 +54,21 @@ test('handles text message', async () => {
   const axios = require('axios');
   expect(axios.post).toHaveBeenCalled();
 });
+
+test('skips sending when credentials missing', async () => {
+  process.env.WHATSAPP_TOKEN = '';
+  process.env.WHATSAPP_PHONE_NUMBER_ID = '';
+  jest.resetModules();
+  const { handler } = require('../functions/whatsapp');
+  const body = {
+    entry: [
+      { changes: [ { value: { messages: [ { from: '1', type: 'text', text: { body: 'hi' } } ] } } ] }
+    ]
+  };
+  const event = { httpMethod: 'POST', body: JSON.stringify(body) };
+  const axios = require('axios');
+  axios.post.mockClear();
+  const res = await handler(event);
+  expect(res.statusCode).toBe(200);
+  expect(axios.post).not.toHaveBeenCalled();
+});

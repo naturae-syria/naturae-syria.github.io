@@ -182,6 +182,10 @@ WHATSAPP_PHONE_NUMBER_ID=<your-phone-number-id>
 WHATSAPP_VERIFY_TOKEN=<any-string-for-verification>
 ```
 
+If requests to the WhatsApp API fail with `401 Unauthorized`, double-check that
+`WHATSAPP_TOKEN` and `WHATSAPP_PHONE_NUMBER_ID` match the credentials from your
+Meta dashboard.
+
 Configure your WhatsApp application to point its webhook URL to `https://<your-domain>/api/whatsapp` and use `WHATSAPP_VERIFY_TOKEN` when verifying the callback. Incoming text, image captions and voice messages are forwarded to OpenAI. Text messages receive a text reply while voice messages are answered with synthesized speech. Responses preserve the user's language (Arabic or English).
 
 #### Testing the webhook

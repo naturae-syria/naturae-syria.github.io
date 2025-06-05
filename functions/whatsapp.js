@@ -36,7 +36,10 @@ const PHONE_NUMBER_ID = process.env.WHATSAPP_PHONE_NUMBER_ID;
 const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN;
 
 async function sendText(to, body) {
-  if (!WA_TOKEN || !PHONE_NUMBER_ID) return;
+  if (!WA_TOKEN || !PHONE_NUMBER_ID) {
+    console.error('Missing WhatsApp credentials; cannot send message');
+    return;
+  }
   await axios.post(
     `https://graph.facebook.com/v17.0/${PHONE_NUMBER_ID}/messages`,
     { messaging_product: 'whatsapp', to, text: { body } },
@@ -45,7 +48,10 @@ async function sendText(to, body) {
 }
 
 async function sendVoice(to, body) {
-  if (!WA_TOKEN || !PHONE_NUMBER_ID) return;
+  if (!WA_TOKEN || !PHONE_NUMBER_ID) {
+    console.error('Missing WhatsApp credentials; cannot send voice');
+    return;
+  }
   const speech = await openai.audio.speech.create({
     model: 'tts-1',
     voice: 'nova',
@@ -152,6 +158,11 @@ exports.handler = async (event) => {
           }
         } catch (err) {
           console.error('Error handling message', err);
+          if (err.response && err.response.status === 401) {
+            console.error(
+              'WhatsApp API responded with 401 Unauthorized. Check WHATSAPP_TOKEN and WHATSAPP_PHONE_NUMBER_ID.'
+            );
+          }
         }
       }
     }
