@@ -16,6 +16,8 @@ app.prepare().then(() => {
     handle(req, res);
   }).listen(HTTP_PORT, () => {
     console.log(`> Ready on http://localhost:${HTTP_PORT}`);
+    console.log(`> Chat API: http://localhost:${HTTP_PORT}/api/chat`);
+    console.log(`> WhatsApp API: http://localhost:${HTTP_PORT}/api/whatsapp`);
   });
 
   const options = {
@@ -27,5 +29,7 @@ app.prepare().then(() => {
     handle(req, res);
   }).listen(HTTPS_PORT, () => {
     console.log(`> Ready on https://localhost:${HTTPS_PORT}`);
+    console.log(`> Chat API: https://localhost:${HTTPS_PORT}/api/chat`);
+    console.log(`> WhatsApp API: https://localhost:${HTTPS_PORT}/api/whatsapp`);
   });
 });

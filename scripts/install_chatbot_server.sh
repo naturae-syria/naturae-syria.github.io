@@ -3,13 +3,16 @@ set -euo pipefail
 
 # Install dependencies and build the chatbot server
 # This script installs Node.js, pnpm, project dependencies, and builds the project.
-# It will prompt for the OpenAI key and desired port if they are not provided as
+# It will prompt for the OpenAI key, WhatsApp credentials and desired port if they are not provided as
 # arguments.
 
 REPO_URL="https://github.com/naturae-syria/naturae-syria.github.io.git"
 TARGET_DIR=${1:-naturae-syria.github.io}
 API_KEY=${2:-}
 PORT=${3:-}
+WA_TOKEN=${4:-}
+WA_PHONE=${5:-}
+WA_VERIFY=${6:-}
 
 
 if [[ -z "$API_KEY" ]]; then
@@ -19,6 +22,18 @@ fi
 if [[ -z "$PORT" ]]; then
   read -rp "Enter port to run the app [3000]: " PORT
   PORT=${PORT:-3000}
+fi
+
+if [[ -z "$WA_TOKEN" ]]; then
+  read -rp "Enter your WhatsApp access token (leave blank to skip): " WA_TOKEN
+fi
+
+if [[ -z "$WA_PHONE" ]]; then
+  read -rp "Enter your WhatsApp phone number ID (leave blank to skip): " WA_PHONE
+fi
+
+if [[ -z "$WA_VERIFY" ]]; then
+  read -rp "Enter your WhatsApp verify token (leave blank to skip): " WA_VERIFY
 fi
 
 # Ensure git is installed
@@ -53,10 +68,17 @@ pnpm install
 cat > .env.local <<EOS
 OPENAI_API_KEY=$API_KEY
 PORT=$PORT
+WHATSAPP_TOKEN=$WA_TOKEN
+WHATSAPP_PHONE_NUMBER_ID=$WA_PHONE
+WHATSAPP_VERIFY_TOKEN=$WA_VERIFY
 EOS
 
 # Build the project
 pnpm run build
+
+# Lint and test to verify APIs
+pnpm run lint
+pnpm test
 
 # Open the chosen port if using ufw firewall
 if command -v ufw >/dev/null; then
@@ -79,4 +101,8 @@ if [[ ! -f "$CERT_DIR/fullchain.pem" || ! -f "$CERT_DIR/privkey.pem" ]]; then
   fi
 fi
 
-echo "Installation complete. Start the server with: PORT=$PORT pnpm run start:https"
+IP=$(hostname -I | awk '{print $1}')
+echo "Installation complete."
+echo "Start the server with: PORT=$PORT pnpm run start"
+echo "Chat API: http://$IP:$PORT/api/chat"
+echo "WhatsApp API: http://$IP:$PORT/api/whatsapp"
