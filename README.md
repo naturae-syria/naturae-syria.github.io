@@ -15,7 +15,7 @@ This repository contains the source code for the Naturae Syria website and chatb
    pnpm install
    ```
 
-2. (Optional) Run the automated install script which clones the repository (if needed), installs Node.js and pnpm, then installs dependencies and builds the project. It will prompt for your OpenAI API key and desired port if they are not supplied:
+2. (Optional) Run the automated install script which clones the repository (if needed), installs Node.js and pnpm, then installs dependencies and builds the project. It will prompt for your OpenAI API key, WhatsApp credentials and desired port if they are not supplied:
 
    ```bash
    ./scripts/install_chatbot_server.sh [target-dir] [OPENAI_API_KEY] [PORT]
@@ -24,13 +24,16 @@ This repository contains the source code for the Naturae Syria website and chatb
    The script writes these values to `.env.local`, installs all dependencies, opens the selected port with `ufw` (when available), and builds the project.
 
 
-3. If you prefer to create `.env.local` manually, provide your OpenAI API key like so:
+3. If you prefer to create `.env.local` manually, provide your OpenAI API key and WhatsApp credentials like so:
 
    ```bash
-   OPENAI_API_KEY=your-api-key
-   OPENAI_MODEL=gpt-3.5-turbo
-   PRODUCT_CONTEXT_LIMIT=30
-   PORT=3000
+OPENAI_API_KEY=your-api-key
+OPENAI_MODEL=gpt-3.5-turbo
+PRODUCT_CONTEXT_LIMIT=30
+PORT=3000
+WHATSAPP_TOKEN=your-wa-token
+WHATSAPP_PHONE_NUMBER_ID=your-phone-id
+WHATSAPP_VERIFY_TOKEN=your-verify-token
   ```
 
 `OPENAI_MODEL` sets which model to use (defaults to `gpt-3.5-turbo`).
@@ -110,7 +113,7 @@ For production, obtain a certificate from a provider such as Let's Encrypt and p
 
 ## Deploying on AWS
 
-1. **Clone the repository** onto your EC2 instance and run the install script. It installs Node.js, pnpm and all dependencies, then builds the project and opens the chosen port with `ufw` when available:
+1. **Clone the repository** onto your EC2 instance and run the install script. It installs Node.js, pnpm and all dependencies, then builds the project and opens the chosen port with `ufw` when available. The script also prompts for your OpenAI and WhatsApp credentials:
 
    ```bash
    ./scripts/install_chatbot_server.sh naturae-syria.github.io YOUR_OPENAI_KEY 3000
@@ -164,4 +167,23 @@ chatbot server.
 ## Netlify Functions
 
 The project includes a serverless function located in `functions/chat.js`. When deployed on Netlify these functions are automatically built and exposed under the `/api/*` path as configured in `netlify.toml`.
+
+### WhatsApp Webhook
+
+An additional function `functions/whatsapp.js` handles messages coming from the
+WhatsApp Cloud API. Set the following environment variables so the webhook can
+send replies:
+
+```
+WHATSAPP_TOKEN=<your-access-token>
+WHATSAPP_PHONE_NUMBER_ID=<your-phone-number-id>
+WHATSAPP_VERIFY_TOKEN=<any-string-for-verification>
+```
+
+Configure your WhatsApp application to point its webhook URL to
+`https://<your-domain>/api/whatsapp` and use `WHATSAPP_VERIFY_TOKEN` when
+verifying the callback. Incoming text, image captions and voice messages are
+forwarded to OpenAI. Text messages receive a text reply while voice messages are
+answered with synthesized speech. Responses preserve the user\'s language
+(Arabic or English).
 
