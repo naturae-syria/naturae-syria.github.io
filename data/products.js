@@ -1261,4 +1261,4 @@ const products = [
     "availability": "متوفر"
   }
 ];
-export default products;
+module.exports = products;
