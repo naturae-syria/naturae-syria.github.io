@@ -19,5 +19,7 @@ app.prepare().then(() => {
     handle(req, res);
   }).listen(PORT, () => {
     console.log(`> Ready on https://localhost:${PORT}`);
+    console.log(`> Chat API: https://localhost:${PORT}/api/chat`);
+    console.log(`> WhatsApp API: https://localhost:${PORT}/api/whatsapp`);
   });
 });

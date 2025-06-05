@@ -1,9 +1,8 @@
 const { OpenAI } = require("openai")
-const path = require("path")
+const productsData = require("../data/products.js")
 
 async function loadProducts() {
-  const mod = await import(path.resolve(__dirname, "../data/products.js"))
-  return mod.default
+  return productsData.default || productsData
 }
 
 // تهيئة OpenAI API
