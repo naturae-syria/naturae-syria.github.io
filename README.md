@@ -15,7 +15,7 @@ This repository contains the source code for the Naturae Syria website and chatb
    pnpm install
    ```
 
-2. (Optional) Run the automated install script which clones the repository (if needed), installs Node.js and pnpm, then installs dependencies and builds the project. It will prompt for your OpenAI API key and desired port if they are not supplied:
+2. (Optional) Run the automated install script which clones the repository (if needed), installs Node.js and pnpm, then installs dependencies and builds the project. It will prompt for your OpenAI API key, WhatsApp credentials and desired port if they are not supplied:
 
    ```bash
    ./scripts/install_chatbot_server.sh [target-dir] [OPENAI_API_KEY] [PORT]
@@ -24,13 +24,16 @@ This repository contains the source code for the Naturae Syria website and chatb
    The script writes these values to `.env.local`, installs all dependencies, opens the selected port with `ufw` (when available), and builds the project.
 
 
-3. If you prefer to create `.env.local` manually, provide your OpenAI API key like so:
+3. If you prefer to create `.env.local` manually, provide your OpenAI API key and WhatsApp credentials like so:
 
    ```bash
-   OPENAI_API_KEY=your-api-key
-   OPENAI_MODEL=gpt-3.5-turbo
-   PRODUCT_CONTEXT_LIMIT=30
-   PORT=3000
+OPENAI_API_KEY=your-api-key
+OPENAI_MODEL=gpt-3.5-turbo
+PRODUCT_CONTEXT_LIMIT=30
+PORT=3000
+WHATSAPP_TOKEN=your-wa-token
+WHATSAPP_PHONE_NUMBER_ID=your-phone-id
+WHATSAPP_VERIFY_TOKEN=your-verify-token
   ```
 
 `OPENAI_MODEL` sets which model to use (defaults to `gpt-3.5-turbo`).
@@ -75,7 +78,8 @@ The server listens on the port defined in `.env.local` (defaults to `3000`).
 When deployed on your AWS instance (e.g. `56.125.95.223`) you can access the
 site using `http://<server-ip>:<port>`.
 
-If you need HTTPS, generate certificates in a directory named `cert` and start
+If you need HTTPS, place certificate files in a directory named `cert` or let
+the install script generate a self‑signed certificate automatically. Then start
 the server with:
 
 ```bash
@@ -84,10 +88,32 @@ pnpm run start:https
 
 This launches `server-https.js` which wraps the Next.js app with Node's HTTPS
 server. The `cert` folder should contain `fullchain.pem` and `privkey.pem`.
+Sample self-signed files are included for local development.
+
+To run both HTTP and HTTPS servers simultaneously, use:
+
+```bash
+pnpm run start:both
+```
+
+`start:both` launches `server-both.js`, serving HTTP on the port defined by `PORT`
+and HTTPS on `HTTPS_PORT` (defaults to `3443`).
+
+### Using a trusted certificate
+
+If you see `ERR_CERT_AUTHORITY_INVALID`, the browser does not trust your SSL certificate. For local development you can install [mkcert](https://github.com/FiloSottile/mkcert) and generate a locally trusted certificate:
+
+```bash
+sudo apt-get install -y libnss3-tools
+mkcert -install
+mkcert -key-file cert/privkey.pem -cert-file cert/fullchain.pem localhost 127.0.0.1
+```
+
+For production, obtain a certificate from a provider such as Let's Encrypt and place the resulting `fullchain.pem` and `privkey.pem` files in the `cert` directory.
 
 ## Deploying on AWS
 
-1. **Clone the repository** onto your EC2 instance and run the install script. It installs Node.js, pnpm and all dependencies, then builds the project and opens the chosen port with `ufw` when available:
+1. **Clone the repository** onto your EC2 instance and run the install script. It installs Node.js, pnpm and all dependencies, then builds the project and opens the chosen port with `ufw` when available. The script also prompts for your OpenAI and WhatsApp credentials:
 
    ```bash
    ./scripts/install_chatbot_server.sh naturae-syria.github.io YOUR_OPENAI_KEY 3000
@@ -107,12 +133,12 @@ server. The `cert` folder should contain `fullchain.pem` and `privkey.pem`.
 3. **Point the front end** to your server by editing the snippet in `index.html` so it matches your server's IP address and port:
 
    ```html
-   <script>
-     const CHAT_HOST = "56.125.95.223"
-     const CHAT_PORT = "3000"
-     const protocol = location.protocol === "https:" ? "https" : "http"
-     window.CHAT_API_URL = `${protocol}://${CHAT_HOST}:${CHAT_PORT}/api/chat`
-   </script>
+  <script>
+    const CHAT_HOST = "56.125.95.223"
+    const CHAT_PORT = "3000"
+    const protocol = location.protocol === "https:" ? "https" : "http"
+    window.CHAT_API_URL = `${protocol}://${CHAT_HOST}:${CHAT_PORT}/api/chat`
+  </script>
    ```
 
    Upload the updated static site to GitHub Pages at `https://naturae-syria.github.io/`.
@@ -141,4 +167,23 @@ chatbot server.
 ## Netlify Functions
 
 The project includes a serverless function located in `functions/chat.js`. When deployed on Netlify these functions are automatically built and exposed under the `/api/*` path as configured in `netlify.toml`.
+
+### WhatsApp Webhook
+
+An additional function `functions/whatsapp.js` handles messages coming from the
+WhatsApp Cloud API. Set the following environment variables so the webhook can
+send replies:
+
+```
+WHATSAPP_TOKEN=<your-access-token>
+WHATSAPP_PHONE_NUMBER_ID=<your-phone-number-id>
+WHATSAPP_VERIFY_TOKEN=<any-string-for-verification>
+```
+
+Configure your WhatsApp application to point its webhook URL to
+`https://<your-domain>/api/whatsapp` and use `WHATSAPP_VERIFY_TOKEN` when
+verifying the callback. Incoming text, image captions and voice messages are
+forwarded to OpenAI. Text messages receive a text reply while voice messages are
+answered with synthesized speech. Responses preserve the user\'s language
+(Arabic or English).
 
