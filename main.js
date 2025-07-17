@@ -81,13 +81,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const base = Number.parseFloat(priceBRL)
     if (base >= 106) return base * 1.5
     if (base >= 60) return base * 2
-    if (base < 20) return base * 4.2
+    if (base < 20) return base * 5.5
     return base <= 50 ? base * 3.2 : base * 2.5
   }
 
   function convertToUSD(brlAmount) {
     if (!brlAmount || isNaN(brlAmount)) return ""
-    const usdRate = 1 / 5.2
+    const usdRate = 1 / 6
     const value = Number.parseFloat(brlAmount) * usdRate
     return (Math.ceil(value * 10) / 10).toFixed(1)
   }
