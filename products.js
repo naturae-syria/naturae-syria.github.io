@@ -87,7 +87,7 @@ const products = [
     "explanation": "حماية تدوم طويلاً بعطر أنيق يضيف لمسة من التألق والثقة.",
     "image": "images/179546.png",
     "name_pt": "FAR AWAY GLAMOUR¿DESOD CREME AXL",
-    "price": 4.718,
+    "price": 4.1,
     "availability": "متوفر"
   },
   {
@@ -126,7 +126,7 @@ const products = [
     "explanation": "يجدد البشرة بإزالة الخلايا الميتة، يتركها ناعمة ونظيفة برائحة طبيعية منعشة، مثالي للاستخدام اليومي أو الأسبوعي.",
     "image": "images/129797.png",
     "name_pt": "EKOS SAB BAR MULTI ESFOLIA 4X100G",
-    "price": 7.5,
+    "price": 24.35,
     "availability": "متوفر قريبا"
   },
   {
@@ -165,7 +165,7 @@ const products = [
     "explanation": "يرطب بعمق، يمتص بسرعة دون ترك أثر دهني، ويمنح حماية يومية مثالية خاصة في الطقس البارد أو الجاف.",
     "image": "images/161066.png",
     "name_pt": "AVON CARE CR DES MAO SILICONE 120G",
-    "price": 9.9,
+    "price": 15,
     "availability": "متوفر قريبا"
   },
   {
@@ -178,7 +178,7 @@ const products = [
     "explanation": "يمنح راحة فورية للقدمين ويُستخدم يومياً للعناية المستمرة.",
     "image": "images/174931.png",
     "name_pt": "FOOTWORKS HID DES PES INTENSIVA 80G",
-    "price": 10.55,
+    "price": 11.2,
     "availability": "متوفر"
   },
   {
@@ -191,7 +191,7 @@ const products = [
     "explanation": "يعزز تجدد البشرة أثناء النوم ويمنحها مظهراً منتعشاً عند الاستيقاظ.",
     "image": "images/136026.png",
     "name_pt": "AVON CARE CREME FAC BOA NOITE 100G",
-    "price": 10.79,
+    "price": 13,
     "availability": "متوفر"
   },
   {
@@ -204,7 +204,7 @@ const products = [
     "explanation": "مثالي للبشرة الباهتة، يعزز الحيوية والترطيب مع الاستخدام اليومي.",
     "image": "images/152724.png",
     "name_pt": "AVON CARE MULTIVITAMIN CREME DIA 100G",
-    "price": 10.79,
+    "price": 13,
     "availability": "متوفر"
   },
   {
@@ -217,7 +217,7 @@ const products = [
     "explanation": "يحارب علامات التقدم في السن ويوفر ترطيباً مستمراً.",
     "image": "images/136024.png",
     "name_pt": "AVON CARE CREME FAC ANTISSINAIS DIA 100G",
-    "price": 10.79,
+    "price": 13,
     "availability": "متوفر"
   },
   {
@@ -230,7 +230,7 @@ const products = [
     "explanation": "يحافظ على استقامة الشعر لفترة أطول، يقلل من التطاير، ويمنحه مظهراً مصقولاً وحريرياً طوال اليوم.",
     "image": "images/135945.png",
     "name_pt": "ADV TECH LISO SERUM 30ML",
-    "price": 11.79,
+    "price": 16.73,
     "availability": "متوفر قريبا"
   },
   {
@@ -425,7 +425,7 @@ const products = [
     "explanation": "مثالي للترطيب الفوري، لا يترك أثراً دهنياً ويمتص بسرعة.",
     "image": "images/95937.png",
     "name_pt": "TODODIA HID MAOS MANGA ROSA COCO 50ML",
-    "price": 17.43,
+    "price": 15.5,
     "availability": "متوفر"
   },
   {
@@ -438,7 +438,7 @@ const products = [
     "explanation": "كريم خفيف وسريع الامتصاص، يمنح ترطيباً فعالاً وعطراً مميزاً يدوم طويلاً.",
     "image": "images/959371.png",
     "name_pt": "tododia hidcereja eavela maos50ml",
-    "price": 17.43,
+    "price":15.5,
     "availability": "متوفر"
   },
   {
@@ -633,7 +633,7 @@ const products = [
     "explanation": "ينظف بلطف ويحافظ على التوازن الطبيعي للمنطقة الحساسة مع إحساس دائم بالانتعاش.",
     "image": "images/83641.png",
     "name_pt": "TODODIA SAB LIQ INTIMO SUAVE CONFORTO",
-    "price": 27.23,
+    "price": 32.44,
     "availability": "متوفر"
   },
   {
@@ -672,7 +672,7 @@ const products = [
     "explanation": "مثالي للشعر الجاف والمجعد، يقلل من التكسر والتطاير ويمنح الشعر لمعانًا طبيعيًا.",
     "image": "images/135144.png",
     "name_pt": "ADV TECH OLEO ARGAN TRATAMENTO COCO 90ML",
-    "price": 33.74,
+    "price": 30.99,
     "availability": "متوفر"
   },
   {
@@ -685,7 +685,7 @@ const products = [
     "explanation": "يمنح الشعر ترطيبًا ولمعانًا مع تأثير خفيف وبدون مظهر زيتي.",
     "image": "images/135145.png",
     "name_pt": "ADV TECH OLEO ARGAN SERUM BIFASICO 90ML",
-    "price": 33.74,
+    "price": 30.99,
     "availability": "متوفر"
   },
   {
@@ -698,7 +698,7 @@ const products = [
     "explanation": "يحسن ملمس الشعر ويمنحه لمعانًا صحيًا دون إثقاله.",
     "image": "images/135143.png",
     "name_pt": "ADV TECH OLEO ARGAN SERUM CAMELIA 90ML",
-    "price": 33.74,
+    "price": 30.99,
     "availability": "متوفر"
   },
   {
@@ -737,7 +737,7 @@ const products = [
     "explanation": "يجدد البشرة ويمنحها مظهرًا مشرقًا وملمسًا ناعمًا.",
     "image": "images/140759.png",
     "name_pt": "TODODIA ESFOL MACADAMIA 200ML",
-    "price": 40.0,
+    "price": 34.23,
     "availability": "متوفر"
   },
   {
@@ -1075,7 +1075,7 @@ const products = [
     "explanation": "يغذي الشعر من الجذور حتى الأطراف ويمنحه القوة واللمعان الطبيعي.",
     "image": "images/112764.png",
     "name_pt": "EKOS MASC COND FORT PATAUA NFV 200G TERC",
-    "price": 61.425,
+    "price": 53.24,
     "availability": "متوفر"
   },
   {

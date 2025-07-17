@@ -77,13 +77,37 @@ document.addEventListener("DOMContentLoaded", () => {
   })
 
   function transformPrice(priceBRL) {
-    if (!priceBRL || isNaN(priceBRL)) return 0
-    const base = Number.parseFloat(priceBRL)
-    if (base >= 106) return base * 1.5
-    if (base >= 60) return base * 2
-    if (base < 20) return base * 5.5
-    return base <= 50 ? base * 3.2 : base * 2.5
+    if (!priceBRL || isNaN(priceBRL)) {
+      return 0;
+    }
+    const base = Number.parseFloat(priceBRL);
+
+    let result;
+    if (base >= 106) {
+      result = (base * 1.5) + 18;
+    } else if (base >= 60) {
+      result = (base * 1.6) + 18;
+    } else if (base < 6) {
+      result = (base * 4.3) + 18;
+    } else if (base < 16) {
+      result = (base * 3.17) + 18;
+    } else if (base < 20) {
+      result = (base * 4) + 18;
+    } else if (base < 33) {
+      result = (base *2.9) + 18;
+    } else if (base < 41) {
+      result = (base *2.62) + 18;  
+    } else if (base <= 50) {
+      result = (base * 3.2) + 18;
+    } else {
+      // 50 < base < 60
+      result = (base * 2.2) + 18;
+    }
+
+    // تقريب لرقمين عشريّين:
+    return Math.round(result * 100) / 100;
   }
+  
 
   function convertToUSD(brlAmount) {
     if (!brlAmount || isNaN(brlAmount)) return ""
