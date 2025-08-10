@@ -1288,7 +1288,7 @@ const products = [
   - إن كان شعرك شديد الجفاف، زيدي تكرار الاستخدام ضمن أسبوعك، مع الالتزام بزمن الـ 3 دقائق فقط لتجنّب الثِّقل.`,
     image: "images/154871.png",
     name_pt: "Cronocapilar Hidrata (Máscara Concentrada) 250ml",
-    price: null,
+    price: 29.84,
     availability: "متوفر"
   }
 ];
