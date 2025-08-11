@@ -201,6 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
             ${product.description ? `<h4>الوصف:</h4><p>${product.description}</p>` : ""}
             ${product.usage ? `<h4>طريقة الاستخدام:</h4><p>${product.usage}</p>` : ""}
             ${product.explanation ? `<h4>الشرح:</h4><p>${product.explanation}</p>` : ""}
+            ${product.recommended_for ? `<h4>لمن يُنصح به؟:</h4><p>${product.recommended_for}</p>` : ""}
           </div>
         </div>
       </div>
