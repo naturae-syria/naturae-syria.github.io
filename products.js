@@ -1364,7 +1364,7 @@ const products = [
   image: "images/173581.png",
   name_pt: "Creme para Pentear Cachos Tododia Amora e Óleo de Coco – 280 ml",
   price: 24.64,
-  availability: "متوفر"
+  availability: "متوفر قريبا"
 },
 {
   name: "ناتورا تودوديا – شامبو تجعيد الشعر وتحديده بالتوت الأسود وزيت جوز الهند – 300 مل",
@@ -1391,7 +1391,7 @@ const products = [
   image: "images/173588.png",
   name_pt: "Shampoo Cachos e Crespos Tododia Amora e Óleo de Coco – 300 ml",
   price: 22.04,
-  availability: "متوفر"
+  availability: "متوفر قريبا"
 },
 {
   name: "ناتورا لومينا – شامبو منشط مضاد لتساقط الشعر وتنشيط النمو – 300 مل",
@@ -1415,6 +1415,33 @@ const products = [
   image: "images/147421.png",
   name_pt: "Shampoo Estimulante Antiqueda e Crescimento – Lumina – 300 ml",
   price: 34.39,
-  availability: "متوفر"
+  availability: "متوفر قريبا"
+},
+{
+  name: "ناتورا Faces – جل جليتر كريستال – 80 جم",
+  brand: "Natura",
+  line: "FACES",
+  category: "تجميل ومكياج",
+  description: "جلّ لامع متعدد الاستخدامات يمنحكِ إشراقة فورية مع <b>بريق قابل للبناء على الطبقات</b>، يعمل على الوجه والعينين والجسم، بتركيبة تُمتص بسرعة وتحمل طابعًا منعشًا لا يلتصق.",
+  usage: `طريقة الاستخدام:
+1. طبّقيه على الوجه أو الجسد أو الجفون بأطراف الأصابع أو فرشاة.
+2. أضيفي طبقات إضافية حسب الرغبة لتعزيز البريق.
+3. يزول بسهولة بالماء والصابون أو مزيل مكياج لطيف.
+
+<b>فوائد المنتج:</b>
+- <b>بريق قابل للبناء</b> حسب الرغبة.
+- تركيبته توفر <b>ترطيبًا منعشًا وسريعة الامتصاص</b>.
+- <b>جل خفيف</b> غير لامس وغير لزج بعد الجفاف.
+- <b>خالي من البلاستيك</b> في الجليتر.
+- <b>منتج نباتي (vegan)</b>.
+- <b>مختبر جلدياً (dermatologically tested)</b>.
+- مناسب لمن هم فوق سن 18 عامًا.`,
+  explanation: `هذا المنتج آمن للاستخدام على أماكن متعددة من الجسم ولا يسبب التصاق أو تلف للملابس، مما يجعله خيارًا عمليًا لك لتعديل وإضفاء لمعة بسهولة خلال النهار أو للمناسبات الخاصة.`,
+  image: "images/157257.png",
+  name_pt: "Gel Glitter Faces Cristal 80 g",
+  price: 32.24,
+  availability: "متوفر قريبا"
 }
+
+
 ];
