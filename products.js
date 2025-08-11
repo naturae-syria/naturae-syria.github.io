@@ -1618,6 +1618,4 @@ const products = [
     price: 11.15,
     availability: "متوفر قريبا"
   }
-
-
 ];
