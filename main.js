@@ -202,6 +202,11 @@ document.addEventListener("DOMContentLoaded", () => {
             ${product.usage ? `<h4>طريقة الاستخدام:</h4><p>${product.usage}</p>` : ""}
             ${product.explanation ? `<h4>الشرح:</h4><p>${product.explanation}</p>` : ""}
             ${product.recommended_for ? `<h4>لمن يُنصح به؟:</h4><p>${product.recommended_for}</p>` : ""}
+            ${product.age_group ? `<h4>العمر المناسب:</h4><p>${product.age_group}</p>` : ""}
+            ${product.home_or_professional ? `<h4>معلومات اضافية:</h4><p>${product.home_or_professional}</p>` : ""}
+            ${product.proteins_vitamins ? `<h4>ميزات المنتج:</h4><p>${product.proteins_vitamins}</p>` : ""}
+            ${product.warnings ? `<h4>معلومات إضافية:</h4><p>${product.warnings}</p>` : ""}
+
           </div>
         </div>
       </div>
