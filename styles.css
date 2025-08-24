@@ -244,7 +244,7 @@ body, h1, h2, h3, h4, h5, h6, input, select, button, p, a, span, div {
 /* ===== إصلاح الهيدر على الشاشات الصغيرة ومنع التراكب ===== */
 @media (max-width: 640px){
   .header-content{
-    flex-direction: column;   /* خليه صفوف: سطر للوغو+العنوان وتحتو التبويبات */
+    flex-direction: column;   /* سطر للوغو+العنوان وتحتو التبويبات */
     align-items: stretch;
     gap: 8px;
   }
@@ -253,29 +253,42 @@ body, h1, h2, h3, h4, h5, h6, input, select, button, p, a, span, div {
     width: 100%;
     justify-content: flex-start;
     align-items: center;
-    flex-wrap: nowrap;        /* مهم: ما يلف */
-    gap: 8px;                 /* مسافة صغيرة بين اللوغو والعنوان */
+    flex-wrap: nowrap;        /* لا يلف */
+    gap: 8px;
     margin-bottom: 10px;
     position: relative;
     z-index: 1;
   }
 
+  /* إطار اللوغو */
   .logo-icon{
-    margin-left: 0;
-    flex: 0 0 auto;           /* اللوغو ثابت الحجم */
+    width: 48px;              /* قياس واضح للموبايل */
+    height: 48px;
+    margin-left: 6px;
+    overflow: hidden;
+    flex: 0 0 auto;
   }
 
+  /* كسر قاعدة 100px المعرّفة داخل <style> في HTML */
+  .logo-icon img.logo{
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+
+  /* العنوان يبقى بجانب اللوغو مع ellipsis */
   .logo h1{
-    white-space: nowrap;      /* لا تلف سطر جديد */
-    font-size: 1.2rem;        /* أصغر شوي ليسع */
-    max-width: calc(100% - 3rem - 8px); /* 3rem عرض اللوغو + 8px gap */
-    overflow: hidden;         
-    text-overflow: ellipsis;  /* لو طول كتير يحط … */
+    white-space: nowrap;
+    font-size: 1.2rem;
+    min-width: 0;                             /* مهم داخل flex */
+    max-width: calc(100% - 48px - 8px);       /* طرح عرض اللوغو + gap */
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin: 0;
   }
 
   .tabs{
-    order: 2;                 /* التبويبات تحت */
+    order: 2;
     width: 100%;
     margin-top: 0;
     position: relative;
@@ -285,7 +298,7 @@ body, h1, h2, h3, h4, h5, h6, input, select, button, p, a, span, div {
   .tab-btn{ flex: 1; }
 }
 
-/* لو شاشات أصغر كتير */
+/* شاشات أصغر جداً */
 @media (max-width: 360px){
   .logo h1{ font-size: 1.1rem; }
 }
