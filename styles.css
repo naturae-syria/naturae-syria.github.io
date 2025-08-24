@@ -262,10 +262,10 @@ body, h1, h2, h3, h4, h5, h6, input, select, button, p, a, span, div {
 
   /* إطار اللوغو */
   .logo-icon{
-    width: 48px;              /* قياس واضح للموبايل */
-    height: 48px;
+    width: 60px;              /* قياس واضح للموبايل */
+    height: auto;
     margin-left: 6px;
-    overflow: hidden;
+    overflow: visible;
     flex: 0 0 auto;
   }
 
