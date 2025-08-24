@@ -3317,6 +3317,6 @@ const products = [
     "image": "images/183284.png",
     "name_pt": "Luvas De Silicone Óleo De Coco Creme Protetor Para As Mãos",
     "price": 11.15,
-    "availability": "متوفر قريبا"
+    "availability": "متوفر"
 }
 ];
