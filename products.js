@@ -3061,7 +3061,7 @@ const products = [
     "home_or_professional": "معد للاستخدام <b>المنزلي اليومي</b>، ويمكن إدراجه في روتين الصالونات للعناية المتكاملة بالشعر.",
     "proteins_vitamins": "- <b>زيت اللوز الحلو</b>: يغذي الألياف الشعرية ويعزز اللمعان.\n- <b>تقنية Prebiótica</b>: تدعم صحة فروة الرأس وتوازن الشعر الطبيعي.",
     "warnings": "للاستخدام الخارجي فقط. تجنّب ملامسة <b>العينين</b>. في حال التلامس، يغسل بالماء فورًا. يُحفظ بعيدًا عن متناول الأطفال.",
-    "image": "images/154869.png",
+    "image": "images/154870.png",
     "name_pt": "Condicionador Nutritivo Tododia Pêssego e Amêndoa 280ml",
     "price": 22.04,
     "availability": "متوفر"
